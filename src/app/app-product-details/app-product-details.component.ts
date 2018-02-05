@@ -1,48 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import {Product} from '../models/product';
+
+import { LocalStorageServie } from '../services/storage.service';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-app-product-details',
   templateUrl: './app-product-details.component.html',
   styleUrls: ['./app-product-details.component.css',
-  '../../assets/css/ecommerce/style.css',
-  // '../../assets/css/ecommerce/animate.css',
-  // '../../assets/css/ecommerce/blog.css',
-  //'../../assets/css/ecommerce/bootstrap.min.css',
-  // '../../assets/css/ecommerce/flexslider.css',
-  // '../../assets/css/ecommerce/jquery-ui.css',
-  // '../../assets/css/ecommerce/quick_view_popup.css',
-  // '../../assets/css/ecommerce/animate.css',
-  // '../../assets/css/ecommerce/simple-line-icons.css',
+  '../../assets/css/ecommerce/style.css'
 ]
 })
 export class AppProductDetailsComponent implements OnInit {
 
-  results: Product[];
-  value: String;
+  constructor( private route: ActivatedRoute,
+                private data: LocalStorageServie) { }
 
-  constructor(private http: HttpClient,
-    private route: ActivatedRoute) { }
+  value: number;
+  products: Product[];
+  product: Product;
 
   ngOnInit() {
-
-    // get URL parameters
     this.route.params.subscribe(params => {
-      console.log(params,"paramssssssssss");
-      this.value = params.productid; // --> Name must match wanted parameter
+      console.log(params, 'paramssssssssss');
+      this.value = + params.product_id; // --> Name must match wanted parameter
       console.log(this.value, 'valueeeeeeeeeeee');
+      this.products = this.data.productStorage;
+      console.log('on product detail page', this.products);
+      this.products.forEach(product => {
+        console.log('single product', product);
+        if (product.prod_id === this.value) {
+          // this.product = product;
+          this.product = product;
+        }
+      });
     });
-
-    // Make the HTTP request:
-    this.http.get('http://localhost:3000/productdetail?productid=' + this.value).subscribe(data => {
-      // Read the result field from the JSON response.
-      this.results = data['results'];
-      console.log(this.results[0],"results");
-      console.log(this.results[0].prod_desc);
-    });
-
   }
 
 }

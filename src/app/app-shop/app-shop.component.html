@@ -567,25 +567,17 @@
             <ul class="products-grid">
               <div class="container">
                 <div class="row">
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-                <div class="product-item">
+              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 " *ngFor = "let product of catProduct">
+                <div class="product-item" >
                   <div class="item-inner">
                     <div class="product-thumbnail">
-                      <div class="icon-sale-label sale-left">Sale</div>
-                      <div class="icon-new-label new-right">New</div>
                       <div class="pr-img-area">
                         <a title="Ipsums Dolors Untra" href="single_product.html">
                           <figure>
                             <img class="first-img" src="../../assets/img/ecommerce/honey.jpg" alt="">
-                            <img class="hover-img" src="../../assets/img/ecommerce/honey.jpg" alt="">
                           </figure>
                         </a>
-                        <button type="button" class="add-to-cart-mt">
-                          <i class="fa fa-shopping-cart"></i>
-                          <span> Add to Cart</span>
-                        </button>
                       </div>
-                     
                       <div class="pr-info-area">
                         <div class="pr-button">
                           <div class="mt-button add_to_wishlist">
@@ -599,7 +591,7 @@
                             </a>
                           </div>
                           <div class="mt-button quick-view">
-                            <a href="quick_view.html">
+                            <a [routerLink] = "['/product/productdetails', product.prod_id]">
                               <i class="fa fa-search"></i>
                             </a>
                           </div>
@@ -609,7 +601,7 @@
                     <div class="item-info">
                       <div class="info-inner">
                         <div class="item-title">
-                          <a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a>
+                          <a title="Ipsums Dolors Untra" href="single_product.html">{{product.prod_name}}</a>
                         </div>
                         <div class="item-content">
                           <div class="rating">
@@ -626,21 +618,26 @@
                               </span>
                             </div>
                           </div>
+                          <button type="button" (click)= "addProductToCart(product, 1)">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span> Add to Cart</span>
+                          </button>
                         </div>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
                       <div class="pr-img-area">
                         <a title="Ipsums Dolors Untra" href="single_product.html">
                           <figure>
-                            <img class="first-img" src="../../assets/img/ecommerce/honey.jpg" alt="">
-                            <img class="hover-img" src="../../assets/img/ecommerce/honey.jpg" alt="">
+                            <img class="first-img" src="images/products/img01.jpg" alt="">
+                            <img class="hover-img" src="images/products/img01.jpg" alt="">
                           </figure>
                         </a>
                         <button type="button" class="add-to-cart-mt">
@@ -959,11 +956,11 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- .a2 -->
 
               <!-- b2 -->
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -992,7 +989,7 @@
                             </a>
                           </div>
                           <div class="mt-button quick-view">
-                            <a href="quick_view.html">
+                            <a routerLink = "/product/productdetails">
                               <i class="fa fa-search"></i>
                             </a>
                           </div>
@@ -1024,11 +1021,11 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- .b2 -->
 
               <!-- c2 -->
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -1089,8 +1086,8 @@
                     </div>
                   </div>
                 </div>
-              </li>
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              </li> -->
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -1120,7 +1117,7 @@
                             </a>
                           </div>
                           <div class="mt-button quick-view">
-                            <a href="quick_view.html">
+                            <a routerLink = "/product/productdetails">
                               <i class="fa fa-search"></i>
                             </a>
                           </div>
@@ -1152,11 +1149,11 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- .a1 -->
 
               <!-- b1 -->
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -1218,11 +1215,11 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- .b1 -->
 
               <!-- c1 -->
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              <!-- <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -1743,30 +1740,32 @@
                     </div>
                   </div>
                 </div>
-              </li> </div></div>
-            </ul>
+              </li>  -->
+            </div>
           </div>
-          <div class="pagination-area ">
-            <ul>
-              <li>
-                <a class="active" href="#">1</a>
-              </li>
-              <li>
-                <a href="#">2</a>
-              </li>
-              <li>
-                <a href="#">3</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        </ul>
       </div>
-      
+      <div class="pagination-area ">
+        <ul>
+          <li>
+            <a class="active" href="#">1</a>
+          </li>
+          <li>
+            <a href="#">2</a>
+          </li>
+          <li>
+            <a href="#">3</a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+      
+</div>
+</div>
 </div>

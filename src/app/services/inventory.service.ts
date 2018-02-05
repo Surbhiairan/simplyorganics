@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable()
 export class InventoryService {
 
-  private measuresUrl = 'http://localhost:3000/inventorylist';  // URL to web api
+  private measuresUrl = 'http://localhost:3002/api/inventorylist';  // URL to web api
 
   constructor(
     private http: HttpClient, private messageService: MessageService) { }
@@ -30,14 +30,14 @@ export class InventoryService {
 
   /** POST: add a new inventory to the server */
   addInventory (inventory: Inventory): Observable<Inventory> {
-    return this.http.post<Inventory>('http://localhost:3000/inventoryadd', inventory, httpOptions).pipe(
+    return this.http.post<Inventory>('http://localhost:3002/api/inventoryadd', inventory, httpOptions).pipe(
       tap((hero: Inventory) => this.log(`added hero`)),
       catchError(this.handleError<Inventory>('addHero'))
     );
   }
   /** PUT: update the inventory on the server */
   updateInventory (inventory: Inventory): Observable<any> {
-    return this.http.post('http://localhost:3000/inventoryedit', inventory, httpOptions).pipe(
+    return this.http.post('http://localhost:3002/api/inventoryedit', inventory, httpOptions).pipe(
       tap(_ => this.log(`updated hero`)),
       catchError(this.handleError<any>('updateHero'))
     );

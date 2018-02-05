@@ -18,7 +18,7 @@ export class CategoryService {
 
   /** GET Category from the server */
   getCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:3000/catlist')
+    return this.http.get<Category[]>('http://localhost:3002/api/catlist')
       .pipe(
       tap(measures => this.log(`fetched Category`)),
       catchError(this.handleError('getCategory', []))

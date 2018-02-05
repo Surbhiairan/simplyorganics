@@ -39,14 +39,20 @@ import { StoreViewComponent } from './store-view/store-view.component';
 import { StoreEditComponent } from './store-edit/store-edit.component';
 import { StoreColumnComponent} from './store-view/store.column.component';
 import { StoreDatatableComponent} from './store-view/store.datatable.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
-import {MeasureService} from './measure.service';
-import {MessageService} from './message.service';
-import {CurrencyService} from './currency.service';
-import {InventoryService} from './services/inventory.service';
+
+import { MeasureService } from './measure.service';
+import { MessageService } from './message.service';
+import { CurrencyService } from './currency.service';
+import { InventoryService } from './services/inventory.service';
 import { ProductService } from './services/product.service';
 import { StoreService } from './services/store.service';
 import { CategoryService } from './services/category.service';
+import { CachcingServiceBase } from './services/caching.service';
+import { DeliveryOptionsDataService } from './services/delivery-options.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { LocalStorageServie, StorageService } from './services/storage.service';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 
@@ -64,9 +70,9 @@ import { AppServiceSectionComponent } from './app-service-section/app-service-se
 import { AppLatestNewsComponent } from './app-latest-news/app-latest-news.component';
 import { AppProductDetailsComponent } from './app-product-details/app-product-details.component';
 import { AppShopComponent } from './app-shop/app-shop.component';
-//import the ng2-file-upload directive so we can add it to our declarations.
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ViewCartDetailComponent } from './view-cart-detail/view-cart-detail.component';
 import { FileSelectDirective } from 'ng2-file-upload';
-import { AppProductComponent } from './app-shop/app-product/app-product.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import {UserService} from './services/user.service';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -138,10 +144,13 @@ export function getAuthHttp(http: Http) {
     AppProductDetailsComponent,
     AppShopComponent,
     FileSelectDirective,
-    AppProductComponent,
     CustomerDashboardComponent,
     CustomerProfileComponent,
     CustomerOrdersComponent,
+    AppLayoutComponent,
+    ShoppingCartComponent,
+    ViewCartDetailComponent,
+
 
   ],
   imports: [
@@ -166,6 +175,7 @@ export function getAuthHttp(http: Http) {
       useFactory: getAuthHttp,
       deps: [Http]
     },
+    { provide: StorageService, useClass: LocalStorageServie },
     {provide: BrowserXhr, useClass:CustExtBrowserXhr},
     MeasureService,
     MessageService,
@@ -173,7 +183,10 @@ export function getAuthHttp(http: Http) {
     InventoryService,
     StoreService,
     ProductService,
-    CategoryService
+    CategoryService,
+    ShoppingCartService,
+    DeliveryOptionsDataService,
+    LocalStorageServie,
   ],
   bootstrap: [AppComponent]
 })
