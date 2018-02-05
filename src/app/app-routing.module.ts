@@ -76,6 +76,8 @@ import { AnonymousGuard } from './guards/anonymous.guard';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/customer-orders.component';
 import { CustomerProfileComponent } from './customer-dashboard/customer-profile/customer-profile.component';
+import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
+import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
 
 const appRoutes: Routes = [
   {
@@ -145,9 +147,9 @@ const appRoutes: Routes = [
     { path: 'profile', component: ProfileComponent},
   ]
 },
-{ path: 'salesperson', component: FullLayout,
+{ path: 'salesperson', component: SalespersonDashboardComponent, 
 children: [
-  { path: '', component: AdminHomeComponent },
+  { path: 'profile', component: SalespersonProfileComponent },
   { path: 'dashboard', component: AdminDashboardComponent},
   { path: 'customerlist', component: CustomerListComponent},
   { path: 'customeredit', component: CustomerEditComponent},
