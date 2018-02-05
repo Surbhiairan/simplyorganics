@@ -1,0 +1,19 @@
+.brand {
+	font-size: 44px;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+.brand a {
+	color: #fff;
+}
+.content {
+	max-width: 450px;
+	margin:0 auto;
+}
+.lock-header {
+	padding: 15px;
+    background-color: #ebedee;
+    text-align: center;
+    font-size: 22px;
+}

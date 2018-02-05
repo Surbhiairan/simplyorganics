@@ -1,0 +1,22 @@
+<div class="page-heading">
+  <h1 class="page-title"> Stores list</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Stores list</li>
+  </ol>
+</div>
+<store-datatable [dataset]=results>
+  <store-column [value]="'store_id'" [header]="'Id'"></store-column>
+  <store-column [value]="'name'" [header]="'Name'"></store-column>
+  <store-column [value]="'description'" [header]="'Description'"></store-column>
+  <store-column [value]="'address'" [header]="'Address'"></store-column>
+  <store-column [value]="'pincode'" [header]="'Pin Code'"></store-column>
+  <store-column [value]="'city'" [header]="'City'"></store-column>
+  <store-column [value]="'state'" [header]="'State'"></store-column>
+  <store-column [value]="'country'" [header]="'Country'"></store-column>
+  <store-column [value]="'contact'" [header]="'Contact'"></store-column>
+  <store-column [value]="'date'" [header]="'Date'"></store-column>
+
+</store-datatable>

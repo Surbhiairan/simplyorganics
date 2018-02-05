@@ -1,0 +1,79 @@
+<div class="theme-config-toggle" (click)='this.UIService.toggleConfigBox($event)' ><i class="ti-settings theme-config-show"></i><i class="ti-close theme-config-close"></i></div>
+<div class="theme-config-box">
+  <div class="text-center font-18 m-b-20">SETTINGS</div>
+  <div class="font-strong">LAYOUT OPTIONS</div>
+  <div class="check-list m-b-20 m-t-10">
+    <label class="ui-checkbox ui-checkbox-gray">
+      <input id="_fixedNavbar" type="checkbox" (change)='this.UIService.fixedNavbar($event)' checked><span class="input-span"></span>Fixed navbar
+    </label>
+    <label class="ui-checkbox ui-checkbox-gray">
+      <input class="js-sidebar-toggler" type="checkbox" (change)='this.UIService.toggleSidebar()'><span class="input-span"></span>Collapse sidebar
+    </label>
+    <label class="ui-checkbox ui-checkbox-gray">
+      <input id="_drawerSidebar" type="checkbox" (change)='this.UIService.drawerSidebar($event)'><span class="input-span"></span>Drawer sidebar
+    </label>
+  </div>
+  <div class="font-strong">LAYOUT STYLE</div>
+  <div class="m-t-10">
+    <label class="ui-radio ui-radio-gray m-r-10">
+      <input type="radio" name="layout-style" value="" checked="" (change)='this.UIService.layoutStyle($event)'><span class="input-span"></span>Fluid
+    </label>
+    <label class="ui-radio ui-radio-gray">
+      <input type="radio" name="layout-style" value="1" (change)='this.UIService.layoutStyle($event)'><span class="input-span"></span>Boxed
+    </label>
+  </div>
+  <div class="m-t-20 m-b-10 font-strong">SIDEBAR STYLE</div>
+  <div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Default">
+      <label>
+        <input type="radio" name="setting-theme" value="default" checked="" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-ebony"></div>
+      </label>
+    </div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Light">
+      <label>
+        <input type="radio" name="setting-theme" value="light-sidebar" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-silver"></div>
+      </label>
+    </div>
+  </div>
+  <div class="m-t-10 m-b-10 font-strong">THEME COLORS</div>
+  <div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Dark-blue">
+      <label>
+        <input type="radio" name="setting-theme" value="dark-blue" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-ebony"></div>
+        <div class="color-small bg-ebony-700"></div>
+      </label>
+    </div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Green">
+      <label>
+        <input type="radio" name="setting-theme" value="green" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-green"></div>
+        <div class="color-small bg-silver"></div>
+      </label>
+    </div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Blue">
+      <label>
+        <input type="radio" name="setting-theme" value="blue" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-blue"></div>
+        <div class="color-small bg-silver"></div>
+      </label>
+    </div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Purple">
+      <label>
+        <input type="radio" name="setting-theme" value="purple" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-purple"></div>
+        <div class="color-small bg-silver"></div>
+      </label>
+    </div>
+    <div class="color-skin-box" data-toggle="tooltip" data-original-title="Light">
+      <label>
+        <input type="radio" name="setting-theme" value="light" (change)='this.UIService.changeTheme($event)'><span class="color-check-icon"><i class="fa fa-check"></i></span>
+        <div class="color bg-silver"></div>
+        <div class="color-small bg-silver-700"></div>
+      </label>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+    
+    <!-- START HEADER-->
+    <header class="header clf" admin-header></header>
+    <!-- END HEADER-->
+    
+    <!-- START SIDEBAR-->
+    <nav class="page-sidebar" id="sidebar" app-sidebar></nav>
+    <!-- END SIDEBAR-->
+
+    <div class="wrapper content-wrapper">
+    	<!-- START PAGE CONTENT-->
+        <router-outlet></router-outlet>
+    	<!-- END PAGE CONTENT-->
+      <footer class="page-footer" admin-footer></footer>
+    </div>
+
+</div>
+
+<!-- START SEARCH PANEL-->
+<form class="search-top-bar" action="search.html">
+  <input class="search-input" type="text" placeholder="Search...">
+  <button class="reset input-search-icon"><i class="fa fa-search"></i></button>
+  <button class="reset input-search-close" type="button" (click)='this.UIService.closeSearch()'><i class="ti-close"></i></button>
+</form>
+<!-- END SEARCH PANEL-->
+
+<!-- BEGIN THEME CONFIG PANEL-->
+<div class="theme-config" app-theme-config></div>
+<!-- END THEME CONFIG PANEL-->
+
+<!-- Session-timeout modal-->
+<div class="modal fade" id="session-dialog" session-modal></div>
+<!-- End Session-timeout modal-->
+
+
+<div class="sidenav-backdrop backdrop" (click)='this.UIService.hideBackdrop()'></div>
+
+<div class="to-top" (click)='this.UIService.toTop()'><i class="fa fa-angle-double-up"></i></div>

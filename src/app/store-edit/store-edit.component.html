@@ -1,0 +1,110 @@
+<div class="page-heading">
+  <h1 class="page-title">Add Store</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Add Store</li>
+  </ol>
+</div>
+<div class="page-content fade-in-up">
+<div class="ibox">
+  <div class="ibox-body">
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+      <ul class="nav nav-tabs tabs-line" style="margin-bottom:30px;">
+        <li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">General</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Images</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Discount</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-1">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="First Name" type="text" formControlName="name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="description">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="address">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="city">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">State</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="state">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Country</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="country">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Pincode</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="pincode">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="contact">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-10">
+              <input class="form-control" placeholder="Last Name" type="text" formControlName="date">
+            </div>
+          </div>
+        </div>
+      </div>
+        <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>    
+</div>            
+
+      <!-- We'll add our form controls here -->
+      <!-- <div>
+          <label> Product Title</label>
+          <input type="text" formControlName="title">
+          <small [hidden]="myForm.controls.title.valid || (myForm.controls.title.pristine && !submitted)">
+              Title is required (minimum 5 characters).
+          </small>
+      </div>
+      <div>
+          <label> Product Price</label>
+          <input type="text" formControlName="price">
+      </div>
+      <button type="submit">Submit</button> -->
+  
+<!-- <section class="sample-app-content">
+  <h1>Model-based Form Example:</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+          <label>First Name:</label>
+          <input type="text" formControlName="firstName">
+      </p>
+      <p>
+          <label>Password:</label>
+          <input type="password" formControlName="password">
+      </p>
+      <p>
+          <button type="submit" [disabled]="!form.valid">Submit</button>
+      </p>
+  </form>
+</section> -->

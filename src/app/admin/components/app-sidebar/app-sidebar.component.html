@@ -1,0 +1,98 @@
+<div id="sidebar-collapse">
+  <ul class="side-menu">
+      
+     <!--  Dashboard -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/admin/dashboard"><i class="sidebar-item-icon ti-home"></i><span class="nav-label">Dashboard</span></a></li>
+      
+      <!--  Customers -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Customers</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/customerlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View List</a>
+            </li>
+            <li><a routerLink="/admin/customeredit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Add Customer</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+     
+       <!--  Salespeople -->
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Salespeople</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/salespersonlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View</a>
+            </li>
+            <li><a routerLink="/admin/salespersonedit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> Add Salesperson</a>
+            </li>
+           
+          </ul>
+        </div>
+      </li>
+
+       <!--  Products -->
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Products</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/productlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View List</a>
+            </li>
+            <li><a routerLink="/admin/productedit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Edit Products</a>
+            </li>
+            
+          </ul>
+        </div>
+      </li>
+
+       <!--  Locations -->
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Locations</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/chartjs" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View Locations</a>
+            </li>
+            <li><a routerLink="/admin/charts-morris" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Add Location</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+     
+      <!--  Orders -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Orders</span></a>
+       
+      </li>
+
+      <!--  Inventory -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/inventory"></a><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Inventory</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/inventorylist" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View Inventory</a>
+            </li>
+            <li><a routerLink="/admin/inventoryedit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Add Inventory</a>
+            </li>
+            <li>
+              <a routerLink="/admin/inventory" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Move Inventory</a>
+            </li>
+            
+          </ul>
+        </div>
+      </li>
+     
+       <!--  Store -->
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/inventory"></a><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Store</span></a>
+        <div class="nav-2-level">
+          <ul>
+            <li><a routerLink="/admin/storeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View Inventory</a>
+            </li>
+            <li><a routerLink="/admin/storeedit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Edit Inventory</a>
+            </li>
+            
+          </ul>
+        </div>
+      </li>
+
+      <!--  Adminstrators -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i><span class="nav-label">Administrators</span></a>
+        
+      </li>
+
+  </ul>
+</div>
+

@@ -1,0 +1,123 @@
+<div class="page-heading">
+  <h1 class="page-title">Inventory Details</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Inventory Details</li>
+  </ol>
+</div>
+<div class="page-content fade-in-up">
+  <div class="ibox">
+    <div class="ibox-body"> 
+      <form class="form-horizontal"
+            action="javascript:;" 
+            [formGroup]="inventoryDetailForm" 
+            novalidate
+            (ngSubmit)="update(inventoryDetailForm.value, inventoryDetailForm.valid)">
+        <div class="form-group">
+          <div class="form-group">
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Product Name</label>
+              <div class="col-sm-10">
+                <input class="form-control" 
+                      type="text" 
+                      id="ProductNameInput" 
+                      placeholder="Product Name" 
+                      formControlName="f_name">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Last Name</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="l_name">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="email">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Contact</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="contact">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Address</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="address">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Landmark</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="landmark">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Pincode</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="pincode">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">City</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="city_name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">State</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="state_name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Country</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="country_name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Date Added</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="dateAdded">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Added By</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="customerNameInput" placeholder="customer Name" formControlName="addedBy">
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- <div class="form-group">
+          <label class="fontstyle3">E-mail</label>
+          <input *ngFor="let result of results" type="text" required class="form-control" [(ngModel)]="result.email" disabled>
+       </div>
+ 
+       <div class="form-group">
+          <label class="fontstyle3">Role</label>
+          <input *ngFor="let result of results" type="text" required class="form-control" [(ngModel)]="result.role" disabled>
+       </div>    
+       <br>     -->
+          <button type="submit" id="request-btn">Update</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

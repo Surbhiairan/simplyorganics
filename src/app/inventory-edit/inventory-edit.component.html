@@ -1,0 +1,57 @@
+<div class="page-heading">
+  <h1 class="page-title">Add Inventory</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Add Inventory</li>
+  </ol>
+</div>
+<div class="page-content fade-in-up">
+  <div class="ibox">
+    <div class="ibox-body">
+      <form [formGroup]="inventoryForm" novalidate (ngSubmit)="save(inventoryForm.value, inventoryForm.valid)">
+        <ul class="nav nav-tabs tabs-line" style="margin-bottom:30px;">
+          <li class="nav-item">
+            <a class="nav-link active" href="#tab-1" data-toggle="tab">General</a>
+          </li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Images</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Discount</a></li> -->
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="tab-1">
+            <div class="form-group row">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Name</label>
+                <div class="col-sm-10">
+                  <select class="form-control" formControlName="prod_id">
+                    <option *ngFor="let product of products" [value]="product.prod_id">
+                      {{product.prod_name}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Quantity</label>
+                <div class="col-sm-10">
+                  <input class="form-control" placeholder="Product Quantity" type="text" formControlName="product_quantity">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Store</label>
+              <div class="col-sm-10">
+                <select class="form-control" formControlName="store_id">
+                  <option *ngFor="let store of stores" [value]="store.store_id">
+                    {{store.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

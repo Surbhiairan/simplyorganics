@@ -1,0 +1,15 @@
+<div class="page-heading">
+  <h1 class="page-title">E-commerce Products list</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active"> Inventory list</li>
+  </ol>
+</div>
+<inventory-datatable [dataset]=results>
+  <inventory-column [value]="'inv_id'" [header]="'Id'"></inventory-column>
+  <inventory-column [value]="'prod_name'" [header]="'Product name'"></inventory-column>
+  <inventory-column [value]="'prod_quant'" [header]="'Quantity'"></inventory-column>
+  <inventory-column [value]="'name'" [header]="'Store Name'"></inventory-column>
+</inventory-datatable>

@@ -1,0 +1,142 @@
+<div class="page-heading">
+    <h1 class="page-title">Product Details</h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Product Details</li>
+    </ol>
+  </div>
+  <div class="page-content fade-in-up">
+    <div class="ibox">
+      <div class="ibox-body">
+        <form class="form-horizontal" action="javascript:;" [formGroup]="myForm" novalidate (ngSubmit)="update(myForm.value, myForm.valid)">
+  <div class="form-group">    
+    
+       <div class="form-group">
+          <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Id</label>  
+          <div class="col-sm-10">
+            <input  class="form-control" type="text"  
+                 id="customerNameInput"  
+                 placeholder="customer Name"  
+                 formControlName="prod_id">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_name">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Description</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_desc">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Measure</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_measure">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Category</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_cat">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Total Quantity</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_quant_total">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Dollar Price</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_price_dollar">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Rupee Price</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_price_rupee">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Dirham Price</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_price_dirham">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Store Quantity</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_in_store">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Warehouse Quantity</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_in_warehouse">
+                </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Van Quantity</label>  
+              <div class="col-sm-10">
+                <input  class="form-control" type="text"  
+                     id="customerNameInput"  
+                     placeholder="customer Name"  
+                     formControlName="prod_in_van">
+                </div>
+          </div>
+       </div>
+       
+ 
+       <!-- <div class="form-group">
+          <label class="fontstyle3">E-mail</label>
+          <input *ngFor="let result of results" type="text" required class="form-control" [(ngModel)]="result.email" disabled>
+       </div>
+ 
+       <div class="form-group">
+          <label class="fontstyle3">Role</label>
+          <input *ngFor="let result of results" type="text" required class="form-control" [(ngModel)]="result.role" disabled>
+       </div>    
+       <br>     -->
+       <button type="submit" id="request-btn">Update</button>   
+    
+  </div>
+</form>
+</div>
+</div>
+</div>

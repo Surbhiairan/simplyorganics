@@ -1,0 +1,21 @@
+<div class="page-heading">
+  <h1 class="page-title">E-commerce Products list</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">E-commerce Products list</li>
+  </ol>
+</div>
+<product-datatable [dataset]=results>
+  <product-column [value]="'prod_id'" [header]="'Id'"></product-column>
+  <product-column [value]="'prod_name'" [header]="'Name'"></product-column>
+  <product-column [value]="'quant'" [header]="'Quantity'"></product-column>
+  <product-column [value]="'p_cat'" [header]="'Category'"></product-column>
+  <product-column [value]="'prod_measure'" [header]="'Measure'"></product-column>
+  <product-column [value]="'price_rupee'" [header]="'Rupees'"></product-column>
+  <product-column [value]="'price_dirham'" [header]="'Dirham'"></product-column>
+  <product-column [value]="'price_dollar'" [header]="'Dollar'"></product-column>
+  <product-column [value]="'warehouse'" [header]="'Warehouse'"></product-column>
+  <product-column [value]="'van'" [header]="'Van'"></product-column>
+  <product-column [value]="'store'" [header]="'Store'"></product-column>
+
+</product-datatable>

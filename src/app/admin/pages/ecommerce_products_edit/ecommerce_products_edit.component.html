@@ -1,0 +1,244 @@
+<div class="page-heading">
+  <h1 class="page-title">E-commerce Products edit</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">E-commerce Products edit</li>
+  </ol>
+</div>
+<div class="page-content fade-in-up">
+  <div class="ibox">
+    <div class="ibox-body">
+      <form class="form-horizontal" action="javascript:;">
+        <ul class="nav nav-tabs tabs-line" style="margin-bottom:30px;">
+          <li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">General</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Images</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Discount</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="tab-1">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name:</label>
+              <div class="col-sm-10">
+                <input class="form-control" placeholder="Product name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Price:</label>
+              <div class="col-sm-10">
+                <div class="input-group">
+                  <div class="input-group-addon bg-white">$</div>
+                  <input class="form-control" placeholder="0">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Description:</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Quantity:</label>
+              <div class="col-sm-10">
+                <input class="form-control" placeholder="0">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Available Date:</label>
+              <div class="col-sm-10">
+                <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                  <input class="form-control" value="04/10/2025">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Status:</label>
+              <div class="col-sm-10">
+                <select class="form-control">
+                  <option>Published</option>
+                  <option>Not Published</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane table-responsive" id="tab-2">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Size</th>
+                  <th>Base image</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="./assets/img/blog/storm.jpg" width="100px"/>
+                  </td>
+                  <td>12.53 KB</td>
+                  <td>
+                    <label class="ui-radio ui-radio-gray check-single">
+                      <input type="radio" name="primary"><span class="input-span"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="./assets/img/blog/horse.jpg" width="100px"/>
+                  </td>
+                  <td>11.58 KB</td>
+                  <td>
+                    <label class="ui-radio ui-radio-gray check-single">
+                      <input type="radio" name="primary"><span class="input-span"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="./assets/img/blog/macarons.jpg" width="100px"/>
+                  </td>
+                  <td>5.63 KB</td>
+                  <td>
+                    <label class="ui-radio ui-radio-gray check-single">
+                      <input type="radio" name="primary"><span class="input-span"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="tab-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Quantity</th>
+                  <th>Discount %</th>
+                  <th>Date start</th>
+                  <th>Date end</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="0">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="%10">
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="0">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="%10">
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="0">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="%10">
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="0">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="%10">
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="0">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="%10">
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group date"><span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                      <input class="form-control" value="04/10/2025">
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-default btn-sm border-0"><i class="fa fa-trash font-14"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-info" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

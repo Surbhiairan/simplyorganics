@@ -1,0 +1,15 @@
+.products-board .card {
+	margin-bottom: 25px;
+}
+.product-name {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: inherit;
+}
+.product-name:hover {color: #2CC4CB}
+.product-price {
+	font-size: 20px;
+	font-weight: 500;
+	color: #F39C12
+}
