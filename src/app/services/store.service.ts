@@ -10,7 +10,7 @@ import { Store } from '../models/store';
 @Injectable()
 export class StoreService {
 
-  private measuresUrl = 'http://localhost:3000/storeview';  // URL to web api
+  private measuresUrl = 'http://localhost:3002/api/storeview';  // URL to web api
 
   constructor(
     private http: HttpClient, private messageService: MessageService) { }

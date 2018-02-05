@@ -44,6 +44,12 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent} from './login/login.component';
 
+import { AppShopComponent } from './app-shop/app-shop.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { AppProductDetailsComponent } from './app-product-details/app-product-details.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ViewCartDetailComponent } from './view-cart-detail/view-cart-detail.component';
+
 import {CustomerDetailComponent} from './customer-detail/customer-detail.component';
 import {CustomerListComponent} from './customer-list/customer-list.component';
 
@@ -64,7 +70,6 @@ import { SalespersonDetailComponent } from './salesperson-detail/salesperson-det
 
 import {StoreEditComponent} from './store-edit/store-edit.component';
 import {StoreViewComponent} from './store-view/store-view.component';
-import {AppProductDetailsComponent} from './app-product-details/app-product-details.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AnonymousGuard } from './guards/anonymous.guard';
@@ -75,8 +80,18 @@ import { SalespersonDashboardComponent } from './salesperson-dashboard/salespers
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  {
+    path: '', component: AppLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'shop', component: AppShopComponent },
+      { path: 'shop/category/:cat_id', component: AppShopComponent },
+      { path: 'product/productdetails/:product_id', component: AppProductDetailsComponent },
+      { path: 'viewcart', component: ViewCartDetailComponent }
+    ]
+  },
+    { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'welcome', component: LoginComponent, canActivate: [AnonymousGuard]},
   // {
