@@ -7,11 +7,11 @@ import { RequestOptions } from '@angular/http';
 import { Customer} from '../../models/customer';
 
 @Component({
-  selector: 'app-customer-profile',
-  templateUrl: './customer-profile.component.html',
-  styleUrls: ['./customer-profile.component.css']
+  selector: 'app-salesperson-profile',
+  templateUrl: './salesperson-profile.component.html',
+  styleUrls: ['./salesperson-profile.component.css']
 })
-export class CustomerProfileComponent implements OnInit {
+export class SalespersonProfileComponent implements OnInit {
   @Input() results: Customer;
   
   public submitted: boolean; // keep track on whether form is submitted

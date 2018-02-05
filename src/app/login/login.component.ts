@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthenticationService} from '../authentication.service';
 import { User } from '../models/user';
+import { Customer } from '../models/customer';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     private http: HttpClient, private formBuilder: FormBuilder,
     private _service:AuthenticationService) { }
 
-  results: object[];
+  results: Customer;
   form: FormGroup;
 
   //for localstorage login---------------------------------------------------------------
@@ -39,9 +40,16 @@ export class LoginComponent implements OnInit {
         console.log(JSON.parse(res._body).login);
         this.results = JSON.parse(res._body).login;
         //user = JSON.parse(res._body);
+
         localStorage.setItem('currentUser',JSON.stringify(this.results));
+
       }
+      if(this.results.role === 'admin')
+      this.router.navigate(['/admin/profile']);
+      if(this.results.role === 'customer')
       this.router.navigate(['/customer/profile']);
+      if(this.results.role === 'salesperson')
+      this.router.navigate(['/salesperson/profile']);
     })
 
 

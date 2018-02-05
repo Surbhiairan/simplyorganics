@@ -76,6 +76,8 @@ import { BrowserXhr } from '@angular/http';
 import { AuthenticationService } from './authentication.service';
 import { CustomerProfileComponent } from './customer-dashboard/customer-profile/customer-profile.component';
 import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/customer-orders.component';
+import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
+import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
 
 export function getAuthHttp(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -142,6 +144,8 @@ export function getAuthHttp(http: Http) {
     CustomerDashboardComponent,
     CustomerProfileComponent,
     CustomerOrdersComponent,
+    SalespersonDashboardComponent,
+    SalespersonProfileComponent,
 
   ],
   imports: [

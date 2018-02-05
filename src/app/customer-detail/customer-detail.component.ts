@@ -68,16 +68,16 @@ export class CustomerDetailComponent implements OnInit {
       // Read the result field from the JSON response.
       this.results = data['results'];
       console.log(data['results'].f_name);
-      console.log(this.results[0].state_name);
+      console.log(this.results[0].state);
       this.myForm.patchValue({user_id: this.results[0].user_id});
       this.myForm.patchValue({f_name: this.results[0].f_name});
       this.myForm.patchValue({l_name: this.results[0].l_name});
       this.myForm.patchValue({contact: this.results[0].contact});
       this.myForm.patchValue({address: this.results[0].address});
       this.myForm.patchValue({landmark: this.results[0].landmark});
-      this.myForm.patchValue({city_name: this.results[0].city_name});
-      this.myForm.patchValue({state_name: this.results[0].state_name});
-      this.myForm.patchValue({country_name: this.results[0].country_name});
+      this.myForm.patchValue({city_name: this.results[0].city});
+      this.myForm.patchValue({state_name: this.results[0].state});
+      this.myForm.patchValue({country_name: this.results[0].country});
       this.myForm.patchValue({pincode: this.results[0].pincode});
       this.myForm.patchValue({email: this.results[0].email});
       this.myForm.patchValue({dateAdded: this.results[0].dateAdded});
