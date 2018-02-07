@@ -78,22 +78,26 @@ import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/cu
 import { CustomerProfileComponent } from './customer-dashboard/customer-profile/customer-profile.component';
 import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
+import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
+import { SignupComponent } from './signup/signup.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: AppLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      //{ path: 'home', component: HomeComponent },
       { path: 'shop', component: AppShopComponent },
       { path: 'shop/category/:cat_id', component: AppShopComponent },
       { path: 'product/productdetails/:product_id', component: AppProductDetailsComponent },
       { path: 'viewcart', component: ViewCartDetailComponent }
     ]
   },
-    { path: 'about', component: AboutComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'welcome', component: LoginComponent, canActivate: [AnonymousGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [AnonymousGuard]},
+  { path: 'signup', component: SignupComponent},
+  
   // {
   //   path: 'dashboard',
   //   component: CustomerDashboardComponent,
@@ -150,6 +154,7 @@ const appRoutes: Routes = [
 { path: 'salesperson', component: SalespersonDashboardComponent, 
 children: [
   { path: 'profile', component: SalespersonProfileComponent },
+  { path: 'customer', component: SalespersonCustomersComponent },
   { path: 'dashboard', component: AdminDashboardComponent},
   { path: 'customerlist', component: CustomerListComponent},
   { path: 'customeredit', component: CustomerEditComponent},

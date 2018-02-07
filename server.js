@@ -211,7 +211,7 @@ app.get('/api/auth/facebook', passport.authenticate('facebook',{scope:'email'}))
 
 
 app.get('/api/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect : 'http://localhost:8085/welcome', failureRedirect: '/api' }),
+  passport.authenticate('facebook', { successRedirect : 'http://localhost:8085/login', failureRedirect: '/api' }),
   function(req, res) {
     res.redirect('/api');
   });
@@ -264,7 +264,7 @@ app.get('/api/productslist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT Product.*, Category.*, Currency.*, Quantity.*, Measure.* FROM Product JOIN Category ON Product.cat_id = Category.cat_id JOIN Currency ON Product.curr_id = Currency.cur_id JOIN Quantity ON Product.quant_id = Quantity.quant_id JOIN Measure ON Product.measure_id = Measure.m_id', function (error, results, fields) {
+	connection.query('SELECT product.*, category.*, currency.*, quantity.*, measure.* FROM product JOIN category ON product.cat_id = category.cat_id JOIN currency ON product.curr_id = currency.cur_id JOIN quantity ON product.quant_id = quantity.quant_id JOIN measure ON product.measure_id = measure.m_id', function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"results": results}));
 	});
@@ -353,11 +353,32 @@ app.get("/api/customerdetail",(req, res) => {
 	});
 });
 
+
+//---------------SALESPERSON---------------------------------------------------------------------
+app.get("/api/salespersoncustomer", (req,res) => {
+
+	console.log(req,"req");
+	console.log(req.query,"request");
+	console.log(req.query.id,"salesperson id");
+	var sid = req.query.id;
+	//select salesperson.*, users.* from salesperson join users on salesperson.cust_added_id=users.user_id where salesperson.s_id = ?,[sid]
+	connection.query('select salesperson.*, users.* from salesperson join users on salesperson.cust_added_id=users.user_id where salesperson.s_id = ?',[sid], function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({"data": results}));
+	});
+
+});
+
+
+
+
+
+//---------------PERSON--------------------------------------------------------------------------
 app.post("/api/productedit", (req, res) => {
 	console.log(req.body.title,"title");
 	console.log(req.body.price);
 	const product = { p_title: 'dal', p_price: 123 };
-	var query = connection.query('INSERT INTO Product SET ?',{description:req.body.title},
+	var query = connection.query('INSERT INTO product SET ?',{description:req.body.title},
 	//var query = connection.query("INSERT INTO tbl_product (p_title,p_price) VALUES ('daal',123)",
 	function(err, result) {
         console.log("result",result, "err", err);
@@ -374,7 +395,7 @@ app.get("/api/productdetail",(req, res) => {
 	//console.log("req", req)
 	console.log(req.query.productid);
 	var p_id = req.query.productid;
-	connection.query('SELECT * FROM Product where prod_id= ?', [p_id], function (error, results, fields) {
+	connection.query('SELECT * FROM product where prod_id= ?', [p_id], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		res.send(JSON.stringify({"results": results}));
@@ -426,7 +447,7 @@ app.get('/api/catlist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT * FROM Category', function (error, results, fields) {
+	connection.query('SELECT * FROM category', function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"results": results}));
 	});
@@ -535,7 +556,7 @@ app.get('/api/quantlist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT * FROM Quantity', function (error, results, fields) {
+	connection.query('SELECT * FROM quantity', function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"results": results}));
 	});
@@ -546,7 +567,7 @@ app.get('/api/currlist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT * FROM Currency', function (error, results, fields) {
+	connection.query('SELECT * FROM currency', function (error, results, fields) {
 		if (error) throw error;
 		var currencies=results[0];
 		res.send(results);
@@ -612,7 +633,7 @@ upload(req, res, function(err) {
 	//run query to insert data into database
 	var path = res.req.file.path;
 	const product = { p_title: 'dal', p_price: 123 };
-	var query = connection.query('INSERT INTO Product SET ?',{imagepath: res.req.file.path},
+	var query = connection.query('INSERT INTO product SET ?',{imagepath: res.req.file.path},
 	//var query = connection.query("INSERT INTO tbl_product (p_title,p_price) VALUES ('daal',123)",
 	function(err, result) {
         console.log("result",result, "err", err);
@@ -666,9 +687,57 @@ function(req, res, next) {
 		console.log("successful login", user);	
 	  }
 	})(req, res, next);
-}
-	  
+});
+
+app.post('/api/signup', 
+function(req, res, next) {
+	console.log('request----------------',req.body);
+	console.log('request----------------',req.body.username);
+
+	passport.authenticate('local-signup', function(err, user, info) {
+		//console.log('request----------------',req);
+		console.log("errrrrrorrrrrrrrrrr",err);
+		console.log("yayyyyyyyyyy",user);
+		console.log("infoooooooooo",info);
+		
+		if (err) { return next(err); }
+	  if (!user) {
+		res.status(401);
+		res.json({"reason": "Invalid credentials"});
+	  } else {
+		  res.status(200);
+		  res.json({"signup": user})
+		console.log("successful signup", user);	
+	  }
+	})(req, res, next);
+});
+
+
+
+app.get('/api/auth/facebook', passport.authenticate('facebook',{scope:['public_profile', 'email']}));
+
+
+app.get('/api/auth/facebook/callback',
+  passport.authenticate('facebook', function(err, user, info) {
+	//console.log('request----------------',req);
+	console.log("errrrrrorrrrrrrrrrr",err);
+	console.log("yayyyyyyyyyy",user);
+	console.log("infoooooooooo",info);
+	
+	if (err) { return next(err); }
+  if (!user) {
+	res.status(401);
+	res.json({"reason": "Invalid credentials"});
+  } else {
+	  res.status(200);
+	  res.json({"login": user})
+	console.log("successful login", user);	
+  }
+})
 );
+
+
+
 
 app.listen(port, () => {
     console.log("Server listening on port " + port);

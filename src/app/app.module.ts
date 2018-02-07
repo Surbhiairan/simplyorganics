@@ -4,7 +4,7 @@ import { Router, Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -53,6 +53,8 @@ import { CachcingServiceBase } from './services/caching.service';
 import { DeliveryOptionsDataService } from './services/delivery-options.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { LocalStorageServie, StorageService } from './services/storage.service';
+import { AlertService } from './services/alert.service';
+import { AuthenticationService } from './authentication.service';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 
@@ -79,21 +81,25 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http } from '@angular/http';
 import {CustExtBrowserXhr} from '../../config/cust-ext-browser-xhr';
 import { BrowserXhr } from '@angular/http';
-import { AuthenticationService } from './authentication.service';
 import { CustomerProfileComponent } from './customer-dashboard/customer-profile/customer-profile.component';
 import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/customer-orders.component';
 import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
+import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
+import { SignupComponent } from './signup/signup.component';
 
-export function getAuthHttp(http: Http) {
-  return new AuthHttp(new AuthConfig({
-    headerName: 'x-auth-token',
-    noTokenScheme: true,
-    noJwtError: true,
-    globalHeaders: [{'Accept': 'application/json'}],
-    tokenGetter: (() => localStorage.getItem('id_token')),
-  }), http);
-}
+import { AuthGuard } from './guards/auth.guard';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+
+// export function getAuthHttp(http: Http) {
+//   return new AuthHttp(new AuthConfig({
+//     headerName: 'x-auth-token',
+//     noTokenScheme: true,
+//     noJwtError: true,
+//     globalHeaders: [{'Accept': 'application/json'}],
+//     tokenGetter: (() => localStorage.getItem('id_token')),
+//   }), http);
+// }
 
 @NgModule({
   declarations: [
@@ -154,6 +160,8 @@ export function getAuthHttp(http: Http) {
     ViewCartDetailComponent,
     SalespersonDashboardComponent,
     SalespersonProfileComponent,
+    SalespersonCustomersComponent,
+    SignupComponent,
 
 
   ],
@@ -172,12 +180,12 @@ export function getAuthHttp(http: Http) {
     ReactiveFormsModule
   ],
   providers: [
-    UserService,
+    AuthGuard,
     AuthenticationService,
     {
-      provide: AuthHttp,
-      useFactory: getAuthHttp,
-      deps: [Http]
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
     },
     { provide: StorageService, useClass: LocalStorageServie },
     {provide: BrowserXhr, useClass:CustExtBrowserXhr},
@@ -191,6 +199,7 @@ export function getAuthHttp(http: Http) {
     ShoppingCartService,
     DeliveryOptionsDataService,
     LocalStorageServie,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

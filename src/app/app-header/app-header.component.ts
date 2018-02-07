@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Customer} from '../models/customer';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class AppHeaderComponent implements OnInit {
 
+  result: Customer;
   constructor() { }
 
+  
   ngOnInit() {
+    this.result =  JSON.parse(localStorage.getItem('currentUser'));
+    
   }
 
 }

@@ -1,0 +1,33 @@
+<!-- <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="signup(form.value, form.valid)" #loginForm="ngForm">
+  <input formControlName="username" required placeholder="Username">
+  <input formControlName="password" required type="password" placeholder="Password">
+  
+  <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
+</form> -->
+
+<div class="content">
+  <div class="brand"><a class="link" routerLink="/index"></a></div>
+  <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="signup(form.value, form.valid)" #loginForm="ngForm">
+    <div class="login-header d-flex justify-content-between"><a routerLink="/login">Log In</a><a class="active">Sign Up</a></div>
+    <h3 class="login-title">Sign Up</h3>
+    
+    <div class="form-group">
+      <input formControlName="username" class="form-control" type="email" name="email" placeholder="Email" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <input formControlName="password" class="form-control" id="password" type="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-group text-left">
+      <label class="ui-checkbox ui-checkbox-info">
+        <input type="checkbox" name="agree"><span class="input-span"></span>I agree the terms and policy
+      </label>
+    </div>
+    <div class="form-group">
+      
+      <button class="btn btn-success btn-block" type="submit">Sign up</button>
+    </div>
+    <div class="social-auth-hr"><span>Or Sign up with</span></div>
+    <div class="text-center social-auth"><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-linkedin"></i></a><a class="btn btn-default btn-circle btn-sm" href="javascript:;"><i class="fa fa-vk"></i></a></div>
+  </form>
+  <div class="font-13 text-center m-t-10 m-b-10">. Save your time. Choose the best © 2017</div>
+</div>

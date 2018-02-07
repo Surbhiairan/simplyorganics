@@ -36,9 +36,9 @@ export class AuthenticationService {
     private http: AuthHttp){}
     
 
-  logout() {
-    localStorage.removeItem('user');
-    this._router.navigate(['/login']);
+    logout() {
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
   }
 
 
@@ -48,6 +48,16 @@ export class AuthenticationService {
     headers.append('Content-Type', 'application/json');
 
     return this.http.post('http://localhost:3002/api/login', body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
+                    .map((res: Response) => res)
+                    .catch(this.handleError);
+  }
+
+  signup(user) {
+    let body = JSON.stringify(user);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post('http://localhost:3002/api/signup', body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }

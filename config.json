@@ -1,7 +1,7 @@
 {
       "driver": "mysql",
       "user": "root",
-      "database": "simplyorganics_new",
-      "password": "",
+      "database": "SO",
+      "password": "Anjal!22",
       "dialect": "mysql"
 }
