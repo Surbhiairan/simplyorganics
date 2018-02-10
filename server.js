@@ -543,7 +543,7 @@ app.get('/api/measlist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT * FROM Measure', function (error, results, fields) {
+	connection.query('SELECT * FROM measure', function (error, results, fields) {
 		if (error) throw error;
 		var measures=results[0];
 		res.send(results);

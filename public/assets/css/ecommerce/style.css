@@ -340,7 +340,7 @@ input:focus {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #fff;
-	font-family: "Roboto", sans-serif;
+	font-family: "Poppins";
 }
 #newsletter-form .content-subscribe {
 	overflow: hidden
@@ -683,7 +683,7 @@ input:focus {
 	margin-left: 8px
 }
 .headerlinkmenu div.links div a:hover {
-	color: #4caf50;
+	color: #fff;
 	text-decoration: none
 }
 /*4.4 Top Search */
@@ -3373,6 +3373,7 @@ nav {
 	background: #f7f7f7;
 	border-bottom: 1px solid #e8e6e2;
 	border-top: 1px solid #e8e6e2;
+	background-color: darkorange;
 }
 nav a {
 	color: #39342e

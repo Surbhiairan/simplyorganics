@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class MeasureService {
 
-  private measuresUrl = 'http://localhost:3000/measlist';  // URL to web api
+  private measuresUrl = 'http://localhost:3002/api/measlist';  // URL to web api
 
   constructor(
     private http: HttpClient,private messageService: MessageService) { }

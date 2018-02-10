@@ -71,12 +71,12 @@ export class LoginComponent implements OnInit {
       if(res && res.login.token){
         console.log(res,"ressssssssssssssssssssssss");
         //this.results = data['login successful'];
-        console.log('resultsssss', res._body);
+        //console.log('resultsssss', res._body);
 
-        console.log('resultsssss',JSON.parse(res._body));
-        console.log(JSON.parse(res._body).login);
+        // console.log('resultsssss',JSON.parse(res._body));
+        // console.log(JSON.parse(res._body).login);
 
-        this.results = JSON.parse(res._body).login;
+        this.results = res.login;
         // user = JSON.parse(res._body);
         localStorage.setItem('currentUser',JSON.stringify(this.results));
         if(this.results.role === 'admin')
