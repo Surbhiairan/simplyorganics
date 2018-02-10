@@ -53,6 +53,9 @@ import { CachcingServiceBase } from './services/caching.service';
 import { DeliveryOptionsDataService } from './services/delivery-options.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { LocalStorageServie, StorageService } from './services/storage.service';
+import { CityService} from './services/city.service';
+import { CountryService } from './services/country.service';
+import { StateService } from './services/state.service';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 
@@ -84,6 +87,10 @@ import { CustomerProfileComponent } from './customer-dashboard/customer-profile/
 import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/customer-orders.component';
 import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DeliveryAddressComponent } from './checkout/delivery-address/delivery-address.component';
+import { OrderReviewComponent } from './checkout/order-review/order-review.component';
+import { PaymentComponent } from './checkout/payment/payment.component';
 
 export function getAuthHttp(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -154,6 +161,10 @@ export function getAuthHttp(http: Http) {
     ViewCartDetailComponent,
     SalespersonDashboardComponent,
     SalespersonProfileComponent,
+    CheckoutComponent,
+    DeliveryAddressComponent,
+    OrderReviewComponent,
+    PaymentComponent,
 
 
   ],
@@ -180,7 +191,7 @@ export function getAuthHttp(http: Http) {
       deps: [Http]
     },
     { provide: StorageService, useClass: LocalStorageServie },
-    {provide: BrowserXhr, useClass:CustExtBrowserXhr},
+    {provide: BrowserXhr, useClass: CustExtBrowserXhr},
     MeasureService,
     MessageService,
     CurrencyService,
@@ -191,6 +202,9 @@ export function getAuthHttp(http: Http) {
     ShoppingCartService,
     DeliveryOptionsDataService,
     LocalStorageServie,
+    StateService,
+    CityService,
+    CountryService
   ],
   bootstrap: [AppComponent]
 })

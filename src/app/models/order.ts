@@ -1,0 +1,33 @@
+export class Order {
+    user_id: number;
+    o_amount: number;
+    total_tax: number;
+    igst_tax: number;
+    sgst_tax: number;
+    cgst_tax: number;
+    ship_charge: number;
+    bname: string;
+    blname: string;
+    baddress: string;
+    blandmark: string;
+    bcity: number;
+    bstate: number;
+    bcountry: number;
+    bpincode: number;
+    bphone: number;
+    sname: string;
+    slname: string;
+    saddress: string;
+    slandmark: string;
+    scity: number;
+    sstate: number;
+    scountry: number;
+    spincode: number;
+    sphone: number;
+    payment_method: string;
+    o_date: string;
+    o_del_date: string;
+    o_ship_date: string;
+    o_status: string;
+    salesperson: string;
+}

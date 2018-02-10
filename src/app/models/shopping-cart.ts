@@ -3,7 +3,7 @@ import { CartItem } from './cart-item';
 export class ShoppingCart {
     public items: CartItem[] = new Array<CartItem>();
     public deliveryOptionId: Number;
-    public grossTotal: Number = 0;
+    public grossTotal: number;
     public deliveryTotal: Number = 0;
     public itemsTotal = 0;
 

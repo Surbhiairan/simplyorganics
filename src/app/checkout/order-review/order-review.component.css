@@ -1,0 +1,46 @@
+body
+{
+  background-color: #fcfcfc;
+}
+.abc
+{
+    display: block;
+}
+.wrapper
+{
+  text-align: center;
+  padding: 15px;  
+}
+.left-div
+{
+  display: inline-block;
+  max-width: 300px;
+  text-align: left;
+  padding: 30px;
+  background-color: #ddd;
+  border-radius: 3px;
+  margin: 15px;
+  vertical-align: top;
+}
+.right-div
+{
+  display: inline-block;
+  max-width: 150px;
+  text-align: left;
+  padding: 30px;
+  background-color: #ddd;
+  border-radius: 3px;
+  margin: 15px;
+}
+.left-text, .right-text
+{
+  font: 16px 'Courier New', monospace;
+	color: #000;
+}
+@media screen and (max-width: 600px) 
+{
+  .left-div, .right-div
+    {
+       max-width: 100%;
+    }
+}

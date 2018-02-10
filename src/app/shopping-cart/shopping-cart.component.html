@@ -36,11 +36,12 @@
         </div>
         <div class="actions">
           <button type="button"
+                  class="btn btn-danger"
                   [disabled]="itemCount === 0 ? true : null"
                   (click)="emptyCart()">
             <span>Empty Cart</span>
           </button>
-          <button class="view-cart" type="button" (click)="viewCart(cartItems)">
+          <button class="btn btn-success" type="button" (click)="viewCart(cartItems)">
             <i class="fa fa-shopping-cart"></i>
             <span>View Cart</span>
           </button>

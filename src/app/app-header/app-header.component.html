@@ -32,10 +32,14 @@
               </div>
               <div class="login">
                   <a routerLink="/welcome" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                    
-                
                   <i class="fa fa-unlock-alt"></i>
                   <span class="hidden-xs">Log In</span>
+                </a>
+              </div>
+              <div class="login">
+                <a role= "button" (click)="logout()">
+                  <i class="fa fa-unlock-alt"></i>
+                  <span class="hidden-xs">Log out</span>
                 </a>
               </div>
             </div>

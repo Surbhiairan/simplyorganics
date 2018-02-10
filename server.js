@@ -554,22 +554,15 @@ app.get('/api/currlist', function(req, res, next) {
 });
 
 app.get('/api/citylist', function(req, res, next) {
-	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
-	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
-	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
-
-	connection.query('SELECT * FROM Cities', function (error, results, fields) {
+	connection.query('SELECT * FROM Cities where state_id = ?', [req.query.state_id], function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"results": results}));
 	});
 });
 
 app.get('/api/statelist', function(req, res, next) {
-	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
-	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
-	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
-
-	connection.query('SELECT * FROM States', function (error, results, fields) {
+	console.log(req.query)
+	connection.query('SELECT * FROM States where country_id = ?', [req.query.country_id], function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"results": results}));
 	});
