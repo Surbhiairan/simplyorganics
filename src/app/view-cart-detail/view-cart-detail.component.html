@@ -41,10 +41,24 @@
         <td class="text-center"><strong>Total {{(obCart | async).grossTotal}}</strong></td>
       </tr>
       <tr>
-        <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td>
+          <button type="button" class="btn btn-warning" (click)="backToShop()">
+            <i class="fa fa-angle-left"></i>
+            Continue Shopping
+          </button> 
+        </td>
         <td colspan="2" class="hidden-xs"></td>
-        <td class="hidden-xs text-center"><strong>Total {{(obCart | async).grossTotal}}</strong></td>
-        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+        <td class="hidden-xs text-center">
+          <strong>
+            Total {{(obCart | async).grossTotal}}
+          </strong>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="checkout()">
+            Checkout 
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </td>
       </tr>
     </tfoot>
   </table>

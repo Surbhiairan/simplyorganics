@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="left-div left-text">
+    <h3>
+      Order Detail
+    </h3>
+  </div>
+  <div class="left-div left-text">
+    <h3>
+      Shipping Detail
+    </h3>
+    <label class="abc">{{deliveryDetail.f_name}} {{deliveryDetail.l_name}}</label>
+    <label class="abc">{{deliveryDetail.address}}</label>
+    <label class="abc">{{deliveryDetail.landmark}}</label>
+    <label class="abc">{{deliveryDetail.city.city_name}} {{deliveryDetail.state.state_name}} {{deliveryDetail.pincode}}</label>
+    <label class="abc">{{deliveryDetail.country.country_name}}</label>
+    <label class="abc"> Phone: {{deliveryDetail.contact}}</label>
+  </div>
+  <div class="right-div right-text" *ngFor = "let item of cart">
+    <h3>
+      Order Detail
+    </h3>
+    <label>{{item.product.prod_name}}</label>
+    <label>{{item.product.prod_name}}</label>
+    <label>{{item.product.prod_name}}</label>
+  </div>
+</div>
+<button type="submit" class="btn btn-success" (click)= "next()"></button>

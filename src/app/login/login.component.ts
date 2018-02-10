@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {AuthenticationService} from '../authentication.service';
+import { AuthenticationService } from '../authentication.service';
 import { User } from '../models/user';
 import { Customer } from '../models/customer';
 import { AlertService } from '../services/alert.service';
@@ -52,11 +52,18 @@ export class LoginComponent implements OnInit {
    
   }
 
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])]
+    });
+  }
+
   login(model: User) {
 
-    console.log("loginnnnnnnnnnn-----------------------------");
-    console.log(model,"model-------------------------");
-  
+    /* console.log('loginnnnnnnnnnn-----------------------------');
+    console.log(model, 'model-------------------------'); */
+
     this._service.login(model).subscribe(res => {
       if(res && res.token){
         console.log(res,"ressssssssssssssssssssssss");
@@ -64,9 +71,9 @@ export class LoginComponent implements OnInit {
         console.log('resultsssss', res._body);
         console.log('resultsssss',JSON.parse(res._body));
         console.log(JSON.parse(res._body).login);
-        this.results = JSON.parse(res._body).login;
-        //user = JSON.parse(res._body);
 
+        this.results = JSON.parse(res._body).login;
+        // user = JSON.parse(res._body);
         localStorage.setItem('currentUser',JSON.stringify(this.results));
         if(this.results.role === 'admin')
         this.router.navigate(['/admin/profile']);
@@ -143,7 +150,6 @@ export class LoginComponent implements OnInit {
       console.log(this.results);
     });
   }
- 
 
 ngOnDestroy() { 
     $('body').removeClass('bg-silver');

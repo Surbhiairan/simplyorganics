@@ -33,12 +33,13 @@ export class AuthenticationService {
     private route: ActivatedRoute,
     //private http: HttpClient,
     private messageService: MessageService,
-    private http: AuthHttp){}
+    private http: AuthHttp) {}
     
 
-    logout() {
-      // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
+  logout() {
+    localStorage.removeItem('currentUser');
+    console.log('successfully logged out');
+    //this._router.navigate(['/login']);
   }
 
 

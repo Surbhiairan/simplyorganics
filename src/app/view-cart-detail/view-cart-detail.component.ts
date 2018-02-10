@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router} from '@angular/router';
 
 import { ShoppingCart } from '../models/shopping-cart';
 import { StorageService, LocalStorageServie } from '../services/storage.service';
@@ -23,7 +24,8 @@ export class ViewCartDetailComponent implements OnInit {
 
    constructor(private storageService: StorageService,
               private data: LocalStorageServie,
-              private shoppingCartService: ShoppingCartService
+              private shoppingCartService: ShoppingCartService,
+              private router: Router
             ) {}
 
   ngOnInit() {
@@ -38,6 +40,14 @@ export class ViewCartDetailComponent implements OnInit {
     console.log('value of count', this.value);
     this.shoppingCartService.addItem(product, this.value);
 
+  }
+
+  backToShop() {
+    this.router.navigate(['home']);
+  }
+
+  checkout() {
+    this.router.navigate(['checkout']);
   }
 
 }

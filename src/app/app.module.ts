@@ -53,6 +53,9 @@ import { CachcingServiceBase } from './services/caching.service';
 import { DeliveryOptionsDataService } from './services/delivery-options.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { LocalStorageServie, StorageService } from './services/storage.service';
+import { CityService} from './services/city.service';
+import { CountryService } from './services/country.service';
+import { StateService } from './services/state.service';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './authentication.service';
 
@@ -85,6 +88,10 @@ import { CustomerProfileComponent } from './customer-dashboard/customer-profile/
 import { CustomerOrdersComponent } from './customer-dashboard/customer-orders/customer-orders.component';
 import { SalespersonDashboardComponent } from './salesperson-dashboard/salesperson-dashboard.component';
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DeliveryAddressComponent } from './checkout/delivery-address/delivery-address.component';
+import { OrderReviewComponent } from './checkout/order-review/order-review.component';
+import { PaymentComponent } from './checkout/payment/payment.component';
 import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -160,6 +167,10 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     ViewCartDetailComponent,
     SalespersonDashboardComponent,
     SalespersonProfileComponent,
+    CheckoutComponent,
+    DeliveryAddressComponent,
+    OrderReviewComponent,
+    PaymentComponent,
     SalespersonCustomersComponent,
     SignupComponent,
 
@@ -188,7 +199,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
       multi: true
     },
     { provide: StorageService, useClass: LocalStorageServie },
-    {provide: BrowserXhr, useClass:CustExtBrowserXhr},
+    {provide: BrowserXhr, useClass: CustExtBrowserXhr},
     MeasureService,
     MessageService,
     CurrencyService,
@@ -199,6 +210,9 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     ShoppingCartService,
     DeliveryOptionsDataService,
     LocalStorageServie,
+    StateService,
+    CityService,
+    CountryService
     AlertService
   ],
   bootstrap: [AppComponent]

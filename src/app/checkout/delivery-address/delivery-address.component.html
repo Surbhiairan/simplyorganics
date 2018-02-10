@@ -1,0 +1,71 @@
+<div class="tab-pane fade show active" id="tab-1">
+  <form [formGroup]="deliveryForm" novalidate (ngSubmit)="save(deliveryForm.value, deliveryForm.valid)">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">First name</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="First name" type="text" formControlName="f_name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Last name</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="Last name" type="text" formControlName="l_name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Contact</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="Contact" type="text" formControlName="contact">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="Address" type="text" formControlName="address">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Landmark</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="Landmark" type="text" formControlName="landmark">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-4">
+        <select class="form-control" formControlName="country" (ngModelChange)="onCountryChange($event)">
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{country.country_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">State</label>
+      <div class="col-sm-4">
+        <select class="form-control" formControlName="state" (ngModelChange)="onStateChange($event)">
+          <option *ngFor="let state of states" [ngValue]="state">
+            {{state.state_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">City</label>
+      <div class="col-sm-4">
+        <select class="form-control" formControlName="city">
+          <option *ngFor="let city of cities" [ngValue]="city">
+            {{city.city_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Pincode</label>
+      <div class="col-sm-4">
+        <input class="form-control" placeholder="pincode" type="text" formControlName="pincode">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Deliver to this address</button>
+  </form>
+</div>
