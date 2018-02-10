@@ -53,6 +53,16 @@ export class AuthenticationService {
                     .catch(this.handleError);
   }
 
+  signup(user) {
+    let body = JSON.stringify(user);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post('http://localhost:3002/api/signup', body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
+                    .map((res: Response) => res)
+                    .catch(this.handleError);
+  }
+
   // login(user) {
   //   console.log(user,"in auth service-----------------------------------------")
   //   const authenticatedUser = users.find(u => u.email === user.username);

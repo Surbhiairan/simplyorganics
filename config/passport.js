@@ -2,16 +2,16 @@
 				
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
-
+var FacebookStrategy = require('passport-facebook').Strategy;
 var mysql = require('mysql');
-
+var config = require('./config');
 var connection = mysql.createConnection({
 				  host     : 'localhost',
 				  user     : 'root',
-				  password : ''
+				  password : 'Anjal!22'
 				});
 
-connection.query('USE simplyorganics_new');	
+connection.query('USE SO');	
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -44,16 +44,17 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
+        usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) {
+    function(req, username, password, done) {
 
 		// find a user whose email is the same as the forms email
 		// we are checking to see if the user trying to login already exists
-        connection.query("select * from localusers where email = '"+email+"'",function(err,rows){
-			console.log(rows);
+       // connection.query("select * from localusers where email = '"+username+"'",function(err,rows){
+       connection.query("select * from users where email = '"+username+"'",function(err,rows){     
+       console.log(rows,"rowssssssss");
 			console.log("above row object");
 			if (err)
                 return done(err);
@@ -65,14 +66,15 @@ module.exports = function(passport) {
                 // create the user
                 var newUserMysql = new Object();
 				
-				newUserMysql.email    = email;
+				newUserMysql.username    = username;
                 newUserMysql.password = password; // use the generateHash function in our user model
                 
-                console.log(newUserMysql.email, newUserMysql.password);
-				var insertQuery = "INSERT INTO localusers ( email, pass ) values ('" + email +"','"+ password +"')";
-					console.log(insertQuery);
+                console.log(newUserMysql.username, newUserMysql.password);
+				//var insertQuery = "INSERT INTO localusers ( email, pass ) values ('" + username +"','"+ password +"')";
+                var insertQuery = "INSERT INTO users ( email, pass ) values ('" + username +"','"+ password +"')";    
+                console.log(insertQuery);
 				connection.query(insertQuery,function(err,rows){
-                    console.log("rowssssssss",rows);
+                    console.log("rowssssssss in else",rows);
 				newUserMysql.id = rows.insertId;
 				console.log('newUserMysql.id',newUserMysql.id);
 				return done(null, newUserMysql);
@@ -124,5 +126,41 @@ module.exports = function(passport) {
 
 
     }));
+
+    // Use the FacebookStrategy within Passport.
+
+    passport.use(new FacebookStrategy({
+        clientID: config.facebook_api_key,
+        clientSecret:config.facebook_api_secret ,
+        callbackURL: config.callback_url
+      },
+      function(accessToken, refreshToken, profile, done) {
+        console.log(profile,'profile')
+        process.nextTick(function () {
+          //Check whether the User exists or not using profile.id
+          if(config.use_database==='true')
+          {
+            console.log(profile.id,'profileeeeeeeeeee');
+          connection.query("SELECT * from fbusers where fb_id="+profile.id,function(err,rows,fields){
+              console.log("rowssssssss", rows);
+            if(err) throw err;
+            if(rows.length===0)
+              {
+                console.log(profile.id,profile.username,profile.emails[0].value,'profile.id, profile.username');
+                console.log("There is no such user, adding now");
+                connection.query("INSERT into fbusers(fb_id,fb_name) VALUES('"+profile.id+"','"+profile.username+"')");
+              }
+              else
+                {
+                  console.log("User already exists in database");
+                }
+              });
+          }
+          return done(null, profile);
+        });
+      }
+    ));
+
+
 
 };

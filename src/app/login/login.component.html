@@ -27,111 +27,30 @@
 <!-- views/login.ejs -->
 <!-- for local login passport -->
 
-<!-- <!doctype html>
-<html>
-<head>
-	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<!-- <style>
-		body 		{ padding-top:80px; }
-	</style>
-</head>
-<body>  -->
+<div class="content">
+    <div class="brand"><a class="link" routerLink="/index"></a></div>
 
-  <!-- facebook auth -->
-  
-  <!-- <div class="navbar navbar-default navbar-fixed-top">
-  </div>
-  
-  <div class="page-header"></div>
-  
-  <div class="container">
-  
-    <div class="row">
-      <div class="col-lg-8 col-md-7 col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading text-center">Sign in with our Awesome Application</div>
-          <div class="panel-body" align="center">
-            <a class="btn btn-social btn-facebook" (click)="fbLogin()">
-              <span class="fa fa-facebook"></span> Facebook
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="login(form.value, form.valid)" #loginForm="ngForm">
-    <input formControlName="username" required placeholder="Username">
-    <input formControlName="password" required type="password" placeholder="Password">
-    <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
-  </form>
-
-
-
-  </body>
-  </html> -->
-
-  <div class="content">
-    <div class="brand">
-      <a class="link" routerLink="/index"></a>
-    </div>
-    <form *ngIf="!submitted" 
-          [formGroup]="form" 
-          (ngSubmit)="login(form.value, form.valid)" 
-          #loginForm="ngForm">
-      <div class="login-header d-flex justify-content-between">
-        <a class="active">Log In</a>
-        <a routerLink="/register_dark">Sign Up</a>
-      </div>
+    <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="login(form.value, form.valid)" #loginForm="ngForm">
+      <div class="login-header d-flex justify-content-between"><a class="active">Log In</a><a routerLink="/signup">Sign Up</a></div>
       <h3 class="login-title">Log in</h3>
       <div class="form-group">
-        <input class="form-control" 
-                type="email" 
-                name="email" 
-                autocomplete="off" 
-                formControlName="username" 
-                required 
-                placeholder="Username"
-        >
+        <input formControlName="username" class="form-control" type="email" name="email" placeholder="Email" autocomplete="off">
       </div>
       <div class="form-group">
-        <input class="form-control" 
-              formControlName="password" 
-              required 
-              type="password" 
-              placeholder="Password">
+        <input formControlName="password" class="form-control" type="password" name="password" placeholder="Password">
       </div>
       <div class="form-group d-flex justify-content-between">
         <label class="ui-checkbox ui-checkbox-info">
-          <input type="checkbox">
-          <span class="input-span"></span>Remember me
-        </label>
-        <a class="forgot" routerLink="/forgot_password">Forgot password?</a>
+          <input type="checkbox"><span class="input-span"></span>Remember me
+        </label><a class="forgot" routerLink="/forgot_password">Forgot password?</a>
       </div>
       <div class="form-group">
-        <button class="btn btn-success btn-block" type="submit" [disabled]="!loginForm.form.valid">Log in</button>
+        <button class="btn btn-success btn-block" type="submit">Log in</button>
       </div>
-      <div class="social-auth-hr">
-        <span>Or login with</span>
-      </div>
-      <div class="text-center social-auth">
-        <a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;">
-          <i class="fa fa-google-plus"></i>
-        </a>
-        <a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;">
-          <i class="fa fa-linkedin"></i>
-        </a>
-        <a class="btn btn-default btn-circle btn-sm" href="javascript:;">
-          <i class="fa fa-vk"></i>
-        </a>
-      </div>
+      <div class="social-auth-hr"><span>Or login with</span></div>
+      <div class="text-center social-auth"><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-circle btn-sm m-r-5" href="javascript:;"><i class="fa fa-linkedin"></i></a><a class="btn btn-default btn-circle btn-sm" href="javascript:;"><i class="fa fa-vk"></i></a></div>
     </form>
+    
     <div class="font-13 text-center m-t-10 m-b-10">. Save your time. Choose the best © 2017</div>
   </div>
+  

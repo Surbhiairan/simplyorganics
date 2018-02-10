@@ -16,13 +16,13 @@ export class CustomerDashboardComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.userService.getCurrentUser().then(profile => this.currentUser = profile)
-        .catch(() => this.currentUser = {});
+    // this.userService.getCurrentUser().then(profile => this.currentUser = profile)
+    //     .catch(() => this.currentUser = {});
   }
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/login']);
   }
 
 }

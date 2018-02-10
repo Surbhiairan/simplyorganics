@@ -31,9 +31,10 @@
                 </a>
               </div>
               <div class="login">
-                  <a routerLink="/welcome" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/login" routerLinkActive="active" 
+                  [routerLinkActiveOptions]="{exact:true}">
                   <i class="fa fa-unlock-alt"></i>
-                  <span class="hidden-xs">Log In</span>
+                  <span class="hidden-xs">{{result.email}}</span>
                 </a>
               </div>
               <div class="login">
@@ -45,7 +46,7 @@
             </div>
             <div class="language-currency-wrapper">
               <div class="inner-cl">
-                <div class="block block-language form-language">
+                <!-- <div class="block block-language form-language">
                   <div class="lg-cur">
                     <span>
                       <img src="assets/img/ecommerce/images/flag-default.jpg" alt="French">
@@ -91,7 +92,7 @@
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> -->
                 <div class="block block-currency">
                   <div class="item-cur">
                     <span>USD </span>

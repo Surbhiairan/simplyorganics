@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AuthenticationService} from '../authentication.service';
+import {Customer} from '../models/customer';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,12 @@ import {AuthenticationService} from '../authentication.service';
 export class AppHeaderComponent implements OnInit {
 
   constructor( private auth: AuthenticationService) { }
+  result: Customer;
 
+  
   ngOnInit() {
+    this.result =  JSON.parse(localStorage.getItem('currentUser'));
+    
   }
   logout() {
     this.auth.logout();
