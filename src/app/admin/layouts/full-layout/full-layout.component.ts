@@ -32,13 +32,14 @@ export class FullLayout implements AfterViewInit {
   logout() {
       this._service.logout();
   }
+  
     ngAfterViewInit() {
         this.UIService.activate();
         this.router.events.subscribe(event => {
           if(event instanceof NavigationStart) {
             this.UIService.activate();
           }
-        });
+    });
     }
 
 }

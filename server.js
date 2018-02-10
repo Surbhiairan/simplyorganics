@@ -543,7 +543,7 @@ app.get('/api/measlist', function(req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
-	connection.query('SELECT * FROM Measure', function (error, results, fields) {
+	connection.query('SELECT * FROM measure', function (error, results, fields) {
 		if (error) throw error;
 		var measures=results[0];
 		res.send(results);
@@ -661,9 +661,7 @@ app.use(passport.session());
 // process the login form
 app.post('/api/login', 
 function(req, res, next) {
-	console.log('request----------------',req.body);
-	console.log('request----------------',req.body.username);
-
+	
 	passport.authenticate('local-login', function(err, user, info) {
 		//console.log('request----------------',req);
 		console.log("errrrrrorrrrrrrrrrr",err);
@@ -676,6 +674,7 @@ function(req, res, next) {
 		res.json({"reason": "Invalid credentials"});
 	  } else {
 		  res.status(200);
+		  user.token = 'jwt-token';
 		  res.json({"login": user})
 		console.log("successful login", user);	
 	  }

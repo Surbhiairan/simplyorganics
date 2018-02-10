@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AuthenticationService} from '../authentication.service';
 import {Customer} from '../models/customer';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +13,31 @@ import {Customer} from '../models/customer';
 })
 export class AppHeaderComponent implements OnInit {
 
-  constructor( private auth: AuthenticationService) { }
+  constructor( private auth: AuthenticationService, private _router: Router) { }
   result: Customer;
 
-  
+  isLoggedIn: boolean = false;
+  // when you login successful, the isLoggedIn set to true
+  profileRoute : string;
+
+
   ngOnInit() {
     this.result =  JSON.parse(localStorage.getItem('currentUser'));
-    
+    if(this.result){
+      this.isLoggedIn =true;
+
+      if(this.result.role==='admin')
+      this.profileRoute = '/admin/profile';
+      if(this.result.role==='customer')
+      this.profileRoute = '/customer/profile';
+      if(this.result.role==='salesperson')
+      this.profileRoute = '/salesperson/profile';
   }
+  }
+
   logout() {
-    this.auth.logout();
-  }
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this._router.navigate(['/']);
+}
 }

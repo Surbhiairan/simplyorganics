@@ -89,12 +89,16 @@ const appRoutes: Routes = [
   {
     path: '', component: AppLayoutComponent,
     children: [
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: '', component: HomeComponent },
       //{ path: 'home', component: HomeComponent },
       { path: 'shop', component: AppShopComponent },
       { path: 'shop/category/:cat_id', component: AppShopComponent },
       { path: 'product/productdetails/:product_id', component: AppProductDetailsComponent },
       { path: 'viewcart', component: ViewCartDetailComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'login', component: LoginComponent},
+      { path: 'signup', component: SignupComponent},
       {
         path: 'checkout', component: CheckoutComponent,
         children: [
@@ -105,17 +109,17 @@ const appRoutes: Routes = [
     }
     ]
   },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent, canActivate: [AnonymousGuard]},
-  { path: 'signup', component: SignupComponent},
+  // { path: 'about', component: AboutComponent },
+  // { path: 'contact', component: ContactComponent },
+  // { path: 'login', component: LoginComponent},
+  // { path: 'signup', component: SignupComponent},
   
   // {
   //   path: 'dashboard',
   //   component: CustomerDashboardComponent,
   //   canActivate: [AuthGuard]
   // },
-  { path: 'customer', component: CustomerDashboardComponent, 
+  { path: 'customer', component: CustomerDashboardComponent, canActivate: [AuthGuard], 
   children: [
    // { path: '', component: CustomerDashboardComponent },
    { path: 'profile', component: CustomerProfileComponent},
@@ -162,7 +166,7 @@ const appRoutes: Routes = [
     { path: 'profile', component: ProfileComponent},
   ]
 },
-{ path: 'salesperson', component: SalespersonDashboardComponent, 
+{ path: 'salesperson', component: SalespersonDashboardComponent, canActivate: [AuthGuard],
 children: [
   { path: 'profile', component: SalespersonProfileComponent },
   { path: 'customer', component: SalespersonCustomersComponent },
@@ -209,7 +213,7 @@ children: [
 ]
 },
   { path: 'productdetails', component: AppProductDetailsComponent },
-  { path: 'admin', component: FullLayout, 
+  { path: 'admin', component: FullLayout, canActivate: [AuthGuard],
     children: [
       { path: '', component: AdminHomeComponent },
       { path: 'dashboard', component: AdminDashboardComponent},

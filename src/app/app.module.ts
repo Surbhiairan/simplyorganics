@@ -79,8 +79,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ViewCartDetailComponent } from './view-cart-detail/view-cart-detail.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
-import {UserService} from './services/user.service';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+//import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http } from '@angular/http';
 import {CustExtBrowserXhr} from '../../config/cust-ext-browser-xhr';
 import { BrowserXhr } from '@angular/http';
@@ -212,7 +212,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     LocalStorageServie,
     StateService,
     CityService,
-    CountryService
+    CountryService,
     AlertService
   ],
   bootstrap: [AppComponent]

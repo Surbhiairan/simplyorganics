@@ -10,8 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { User} from './models/user'
 import { Http, Response, Headers, RequestOptions, RequestOptionsArgs } from '@angular/http';
-import { AuthHttp } from 'angular2-jwt';
-
+import 'rxjs/add/operator/map'; 
 
 // export class User {
 //   constructor(
@@ -33,22 +32,22 @@ export class AuthenticationService {
     private route: ActivatedRoute,
     //private http: HttpClient,
     private messageService: MessageService,
-    private http: AuthHttp) {}
+    private http: HttpClient){}
     
 
   logout() {
-    localStorage.removeItem('currentUser');
-    console.log('successfully logged out');
-    //this._router.navigate(['/login']);
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+
   }
 
-
-  login(user) {
+  login (user) {
     let body = JSON.stringify(user);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-
-    return this.http.post('http://localhost:3002/api/login', body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
+    console.log("in auth login");
+    console.log("bodyyyyyyyyyyyy", body);
+    return this.http.post('http://localhost:3002/api/login', body, httpOptions)
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
@@ -58,7 +57,7 @@ export class AuthenticationService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post('http://localhost:3002/api/signup', body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
+    return this.http.post('http://localhost:3002/api/signup', body, httpOptions)
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }

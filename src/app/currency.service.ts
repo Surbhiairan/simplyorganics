@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class CurrencyService {
 
-  private currenciesUrl = 'http://localhost:3000/currlist';  // URL to web api
+  private currenciesUrl = 'http://localhost:3002/api/currlist';  // URL to web api
 
   constructor(
     private http: HttpClient,private messageService: MessageService) { }
