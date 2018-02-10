@@ -500,8 +500,8 @@ input:focus {
 }
 /*4.2 header top */
 .header-top {
-	background: #242424;
-	border-bottom: 1px solid #000;
+	background: #549327;
+	/* border-bottom: 1px solid #000; */
 	line-height: 32px;
 	width: 100%;
 	color: #ccc;

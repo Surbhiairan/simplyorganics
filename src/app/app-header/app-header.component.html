@@ -13,10 +13,13 @@
           <div class="headerlinkmenu col-lg-8 col-md-7 col-sm-8 col-xs-12">
             <div class="links">
               <div class="myaccount">
-                <a title="My Account" href="account_page.html">
+                
+              <a *ngIf="isLoggedIn" [routerLink]="profileRoute">My Account</a>
+              
+                <!-- <a title="My Account" href="account_page.html">
                   <i class="fa fa-user"></i>
                   <span class="hidden-xs">My Account</span>
-                </a>
+                </a> -->
               </div>
               <div class="wishlist">
                 <a title="My Wishlist" href="wishlist.html">
@@ -30,7 +33,9 @@
                   <span class="hidden-xs">Blog</span>
                 </a>
               </div>
-              <div class="login">
+              <a *ngIf="!isLoggedIn" [routerLink]="['/login']">Login</a>
+              <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
+              <!-- <div class="login">
                   <a routerLink="/login" routerLinkActive="active" 
                   [routerLinkActiveOptions]="{exact:true}">
                     
@@ -38,7 +43,16 @@
                   <i class="fa fa-unlock-alt"></i>
                   <span class="hidden-xs">{{result.email}}</span>
                 </a>
-              </div>
+              </div> -->
+              <!-- <div class="logout">
+                  <a routerLink="/login" routerLinkActive="active" 
+                  [routerLinkActiveOptions]="{exact:true}">
+                    
+                
+                  <i class="fa fa-unlock-alt"></i>
+                  <span class="hidden-xs">Logout</span>
+                </a>
+              </div> -->
             </div>
             <div class="language-currency-wrapper">
               <div class="inner-cl">
@@ -91,7 +105,7 @@
                 </div> -->
                 <div class="block block-currency">
                   <div class="item-cur">
-                    <span>USD </span>
+                    <span>Re </span>
                     <i class="fa fa-angle-down"></i>
                   </div>
                   <ul>
@@ -101,7 +115,7 @@
                     </li>
                     <li>
                       <a href="#">
-                        <span class="cur_icon">¥</span> JPY</a>
+                        <span class="cur_icon">¥</span> AED</a>
                     </li>
                     <li>
                       <a class="selected" href="#">
@@ -123,7 +137,7 @@
           <!-- Header Logo -->
           <div class="logo">
             <a title="e-commerce" href="index.html">
-              <img alt="e-commerce" src="assets/img/ecommerce/images/logo.png">
+              <img alt="e-commerce" src="assets/img/ecommerce/logoSO.png">
             </a>
           </div>
           <!-- End Header Logo -->

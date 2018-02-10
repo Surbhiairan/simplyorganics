@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,7 +18,7 @@ declare var $:any;
 
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router,
+  constructor( private router: Router,
     private http: HttpClient, private formBuilder: FormBuilder,
     private _service:AuthenticationService,
     private alertService: AlertService) { }

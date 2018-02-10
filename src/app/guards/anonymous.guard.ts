@@ -5,25 +5,25 @@ import {
     RouterStateSnapshot,
     Route
 }                           from '@angular/router';
-import { UserService } from '../services/user.service';
+//import { UserService } from '../services/user.service';
 
 @Injectable()
-export class AnonymousGuard implements CanActivate {
+export class AnonymousGuard  {
 
-    constructor(private userService: UserService, private router: Router) {}
+    // constructor(private userService: UserService, private router: Router) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.checkLogin();
-    }
+    // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    //     return this.checkLogin();
+    // }
 
-    checkLogin(): Promise<boolean> {
-        return new Promise((resolve, reject) => {
-            this.userService.isLoggedIn().then(() => {
-                this.router.navigate(['/dashboard']);
-                reject(false);
-            }).catch(() => {
-                resolve(true);
-            });
-        });
-    }
+    // checkLogin(): Promise<boolean> {
+    //     return new Promise((resolve, reject) => {
+    //         this.userService.isLoggedIn().then(() => {
+    //             this.router.navigate(['/dashboard']);
+    //             reject(false);
+    //         }).catch(() => {
+    //             resolve(true);
+    //         });
+    //     });
+    // }
 }

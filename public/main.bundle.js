@@ -39,7 +39,7 @@ var CustExtBrowserXhr = (function (_super) {
         return (xhr);
     };
     return CustExtBrowserXhr;
-}(__WEBPACK_IMPORTED_MODULE_1__angular_http__["BrowserXhr"]));
+}(__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* BrowserXhr */]));
 CustExtBrowserXhr = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
     /**
@@ -311,7 +311,7 @@ AppFooter = __decorate([
 /***/ "../../../../../src/app/admin/components/app-header/app-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"page-brand\"><a class=\"link\" routerLink=\"\"><span class=\"brand\">Admin<span class=\"brand-tip\"></span></span><span class=\"brand-mini\">AC</span></a></div>\n<!-- START TOP-LEFT TOOLBAR-->\n<ul class=\"nav pull-left navbar-toolbar\">\n  <li><a class=\"nav-link sidebar-toggler js-sidebar-toggler\" (click)='this.UIService.toggleSidebar()'><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></a></li>\n  <li><a class=\"nav-link search-toggler js-search-toggler\" (click)='this.UIService.toggleSearch()'><i class=\"fa fa-search\"></i><span>Search here...</span></a></li>\n</ul>\n<!-- END TOP-LEFT TOOLBAR-->\n<!-- START TOP-RIGHT TOOLBAR-->\n<ul class=\"nav pull-right navbar-toolbar\">\n  <li class=\"timeout-toggler\"><a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#session-dialog\"><i class=\"fa fa-android timeout-toggler-icon rel\"><span class=\"notify-signal\"></span></i></a></li>\n  <li class=\"dropdown dropdown-inbox\"><a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-envelope\"></i><span class=\"envelope-badge\">9</span></a>\n    <ul class=\"dropdown-menu dropdown-menu-right dropdown-menu-media\">\n      <li class=\"dropdown-menu-header\">\n        <div><span><strong>9 New</strong> Messages</span><a class=\"pull-right\" href=\"mailbox.html\">view all</a></div>\n      </li>\n      <li class=\"list-group list-group-divider scroller\" data-height=\"240px\" data-color=\"#71808f\">\n        <div><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u1.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Jeanne Gonzalez</div>\n                <div class=\"font-13\">Your proposal interested me.</div><small class=\"text-muted\">Just now</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u2.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Becky Brooks</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">18 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u3.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Frank Cruz</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">18 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u4.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Rose Pearson</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">3 hrs</small>\n              </div>\n            </div></a></div>\n      </li>\n    </ul>\n  </li>\n  <li class=\"dropdown dropdown-notification\"><a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell rel\"><span class=\"notify-signal\"></span></i></a>\n    <ul class=\"dropdown-menu dropdown-menu-right dropdown-menu-media\">\n      <li class=\"dropdown-menu-header\">\n        <div><span><strong>4 New</strong> Notifications</span><a class=\"pull-right\" href=\"javascript:;\">view all</a></div>\n      </li>\n      <li class=\"list-group list-group-divider scroller\" data-height=\"240px\" data-color=\"#71808f\">\n        <div><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-success badge-circle-big\"><i class=\"fa fa-check\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">4 task compiled</div><small class=\"text-muted\">22 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-default badge-circle-big\"><i class=\"fa fa-shopping-basket\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">You have 12 new orders</div><small class=\"text-muted\">40 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-danger badge-circle-big\"><i class=\"fa fa-bolt\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">Server #7 rebooted</div><small class=\"text-muted\">2 hrs</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-success badge-circle-big\"><i class=\"fa fa-user\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">New user registered</div><small class=\"text-muted\">2 hrs</small>\n              </div>\n            </div></a></div>\n      </li>\n    </ul>\n  </li>\n  <li class=\"dropdown dropdown-user\"><a class=\"nav-link dropdown-toggle link\" data-toggle=\"dropdown\"><span>Super User</span><img src=\"http://demo.neontheme.com/assets/images/thumb-1@2x.png\"></a>\n    <ul class=\"dropdown-menu dropdown-menu-right\">\n      <a class=\"dropdown-item\" href=\"profile.html\"><i class=\"ti-user\"></i>Profile</a>\n      <a class=\"dropdown-item\" href=\"profile.html\"><i class=\"ti-settings\"></i>Settings</a>\n      <a class=\"dropdown-item\" href=\"javascript:;\"><i class=\"ti-support\"></i>Support</a>\n      <li class=\"dropdown-divider\"></li>\n      <a class=\"dropdown-item\" href=\"login.html\"><i class=\"ti-power-off\"></i>Logout</a>\n    </ul>\n  </li>\n</ul>\n<!-- END TOP-RIGHT TOOLBAR-->\n"
+module.exports = "\n<div class=\"page-brand\"><a class=\"link\" routerLink=\"\"><span class=\"brand\">Admin<span class=\"brand-tip\"></span></span><span class=\"brand-mini\">AC</span></a></div>\n<!-- START TOP-LEFT TOOLBAR-->\n<ul class=\"nav pull-left navbar-toolbar\">\n  <li><a class=\"nav-link sidebar-toggler js-sidebar-toggler\" (click)='this.UIService.toggleSidebar()'><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></a></li>\n  <li><a class=\"nav-link search-toggler js-search-toggler\" (click)='this.UIService.toggleSearch()'><i class=\"fa fa-search\"></i><span>Search here...</span></a></li>\n</ul>\n<!-- END TOP-LEFT TOOLBAR-->\n<!-- START TOP-RIGHT TOOLBAR-->\n<ul class=\"nav pull-right navbar-toolbar\">\n  <li class=\"timeout-toggler\"><a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#session-dialog\"><i class=\"fa fa-android timeout-toggler-icon rel\"><span class=\"notify-signal\"></span></i></a></li>\n  <li class=\"dropdown dropdown-inbox\"><a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-envelope\"></i><span class=\"envelope-badge\">9</span></a>\n    <ul class=\"dropdown-menu dropdown-menu-right dropdown-menu-media\">\n      <li class=\"dropdown-menu-header\">\n        <div><span><strong>9 New</strong> Messages</span><a class=\"pull-right\" href=\"mailbox.html\">view all</a></div>\n      </li>\n      <li class=\"list-group list-group-divider scroller\" data-height=\"240px\" data-color=\"#71808f\">\n        <div><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u1.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Jeanne Gonzalez</div>\n                <div class=\"font-13\">Your proposal interested me.</div><small class=\"text-muted\">Just now</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u2.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Becky Brooks</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">18 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u3.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Frank Cruz</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">18 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><img class=\"img-circle\" src=\"./assets/img/users/u4.jpg\"/>\n              </div>\n              <div class=\"media-body\">\n                <div class=\"font-strong\">Rose Pearson</div>\n                <div class=\"font-13\">Lorem Ipsum is simply.</div><small class=\"text-muted\">3 hrs</small>\n              </div>\n            </div></a></div>\n      </li>\n    </ul>\n  </li>\n  <li class=\"dropdown dropdown-notification\"><a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell rel\"><span class=\"notify-signal\"></span></i></a>\n    <ul class=\"dropdown-menu dropdown-menu-right dropdown-menu-media\">\n      <li class=\"dropdown-menu-header\">\n        <div><span><strong>4 New</strong> Notifications</span><a class=\"pull-right\" href=\"javascript:;\">view all</a></div>\n      </li>\n      <li class=\"list-group list-group-divider scroller\" data-height=\"240px\" data-color=\"#71808f\">\n        <div><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-success badge-circle-big\"><i class=\"fa fa-check\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">4 task compiled</div><small class=\"text-muted\">22 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-default badge-circle-big\"><i class=\"fa fa-shopping-basket\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">You have 12 new orders</div><small class=\"text-muted\">40 mins</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-danger badge-circle-big\"><i class=\"fa fa-bolt\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">Server #7 rebooted</div><small class=\"text-muted\">2 hrs</small>\n              </div>\n            </div></a><a class=\"list-group-item\">\n            <div class=\"media\">\n              <div class=\"media-img\"><span class=\"badge badge-success badge-circle-big\"><i class=\"fa fa-user\"></i></span></div>\n              <div class=\"media-body\">\n                <div class=\"font-13\">New user registered</div><small class=\"text-muted\">2 hrs</small>\n              </div>\n            </div></a></div>\n      </li>\n    </ul>\n  </li>\n  <li class=\"dropdown dropdown-user\"><a class=\"nav-link dropdown-toggle link\" data-toggle=\"dropdown\"><span>Super User</span><img src=\"http://demo.neontheme.com/assets/images/thumb-1@2x.png\"></a>\n    <ul class=\"dropdown-menu dropdown-menu-right\">\n      <a class=\"dropdown-item\" href=\"profile.html\"><i class=\"ti-user\"></i>Profile</a>\n      <a class=\"dropdown-item\" href=\"profile.html\"><i class=\"ti-settings\"></i>Settings</a>\n      <a class=\"dropdown-item\" href=\"javascript:;\"><i class=\"ti-support\"></i>Support</a>\n      <li class=\"dropdown-divider\"></li>\n      <a class=\"dropdown-item\" (click)=\"logout()\" ><i class=\"ti-power-off\"></i>Logout</a>\n    </ul>\n  </li>\n</ul>\n<!-- END TOP-RIGHT TOOLBAR-->\n"
 
 /***/ }),
 
@@ -322,6 +322,7 @@ module.exports = "\n<div class=\"page-brand\"><a class=\"link\" routerLink=\"\">
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppHeader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_ui_service__ = __webpack_require__("../../../../../src/app/admin/services/ui.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -333,10 +334,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppHeader = (function () {
-    function AppHeader(UIService) {
+    function AppHeader(UIService, _router) {
         this.UIService = UIService;
+        this._router = _router;
     }
+    AppHeader.prototype.logout = function () {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+        this._router.navigate(['/']);
+    };
     return AppHeader;
 }());
 AppHeader = __decorate([
@@ -345,10 +353,10 @@ AppHeader = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/components/app-header/app-header.component.html"),
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_ui_service__["a" /* UIService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_ui_service__["a" /* UIService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_ui_service__["a" /* UIService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_ui_service__["a" /* UIService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_ui_service__["a" /* UIService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */]) === "function" && _b || Object])
 ], AppHeader);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=app-header.component.js.map
 
 /***/ }),
@@ -2574,7 +2582,7 @@ var UIService = (function () {
 }());
 UIService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], UIService);
 
 var _a;
@@ -2665,7 +2673,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-header/app-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <div class=\"header-container\">\n    <div class=\"header-top\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-lg-4 col-sm-4 col-md-5 hidden-xs\">\n            <!-- Default Welcome Message -->\n            <div class=\"welcome-msg \">Welcome to Organic! </div>\n            <span class=\"phone hidden-sm\">Call Us: +123.456.789</span>\n          </div>\n\n          <!-- top links -->\n          <div class=\"headerlinkmenu col-lg-8 col-md-7 col-sm-8 col-xs-12\">\n            <div class=\"links\">\n              <div class=\"myaccount\">\n                <a title=\"My Account\" href=\"account_page.html\">\n                  <i class=\"fa fa-user\"></i>\n                  <span class=\"hidden-xs\">My Account</span>\n                </a>\n              </div>\n              <div class=\"wishlist\">\n                <a title=\"My Wishlist\" href=\"wishlist.html\">\n                  <i class=\"fa fa-heart\"></i>\n                  <span class=\"hidden-xs\">Wishlist</span>\n                </a>\n              </div>\n              <div class=\"blog\">\n                <a title=\"Blog\" href=\"blog.html\">\n                  <i class=\"fa fa-rss\"></i>\n                  <span class=\"hidden-xs\">Blog</span>\n                </a>\n              </div>\n              <div class=\"login\">\n                  <a routerLink=\"/login\" routerLinkActive=\"active\" \n                  [routerLinkActiveOptions]=\"{exact:true}\">\n                    \n                \n                  <i class=\"fa fa-unlock-alt\"></i>\n                  <span class=\"hidden-xs\">{{result.email}}</span>\n                </a>\n              </div>\n            </div>\n            <div class=\"language-currency-wrapper\">\n              <div class=\"inner-cl\">\n                <!-- <div class=\"block block-language form-language\">\n                  <div class=\"lg-cur\">\n                    <span>\n                      <img src=\"assets/img/ecommerce/images/flag-default.jpg\" alt=\"French\">\n                      <span class=\"lg-fr\">French</span>\n                      <i class=\"fa fa-angle-down\"></i>\n                    </span>\n                  </div>\n                  <ul>\n                    <li>\n                      <a class=\"selected\" href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-english.jpg\" alt=\"flag\">\n                        <span>English</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-default.jpg\" alt=\"flag\">\n                        <span>French</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-german.jpg\" alt=\"flag\">\n                        <span>German</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-brazil.jpg\" alt=\"flag\">\n                        <span>Brazil</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-chile.jpg\" alt=\"flag\">\n                        <span>Chile</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-spain.jpg\" alt=\"flag\">\n                        <span>Spain</span>\n                      </a>\n                    </li>\n                  </ul>\n                </div> -->\n                <div class=\"block block-currency\">\n                  <div class=\"item-cur\">\n                    <span>USD </span>\n                    <i class=\"fa fa-angle-down\"></i>\n                  </div>\n                  <ul>\n                    <li>\n                      <a href=\"#\">\n                        <span class=\"cur_icon\">€</span> EUR</a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <span class=\"cur_icon\">¥</span> JPY</a>\n                    </li>\n                    <li>\n                      <a class=\"selected\" href=\"#\">\n                        <span class=\"cur_icon\">$</span> USD</a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n\n              <!-- End Default Welcome Message -->\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-sm-3 col-md-3 col-xs-12\">\n          <!-- Header Logo -->\n          <div class=\"logo\">\n            <a title=\"e-commerce\" href=\"index.html\">\n              <img alt=\"e-commerce\" src=\"assets/img/ecommerce/images/logo.png\">\n            </a>\n          </div>\n          <!-- End Header Logo -->\n        </div>\n        <div class=\"col-xs-9 col-sm-6 col-md-7\">\n          <!-- Search -->\n\n          <div class=\"top-search\">\n            <div id=\"search\">\n              <form>\n                <div class=\"input-group\">\n                  <select class=\"cate-dropdown hidden-xs\" name=\"category_id\">\n                    <option>All Categories</option>\n                    <option>women</option>\n                    <option>&nbsp;&nbsp;&nbsp;Accessories </option>\n                    <option>&nbsp;&nbsp;&nbsp;Dresses</option>\n                    <option>&nbsp;&nbsp;&nbsp;Top</option>\n                    <option>&nbsp;&nbsp;&nbsp;Handbags </option>\n                    <option>&nbsp;&nbsp;&nbsp;Shoes </option>\n                    <option>&nbsp;&nbsp;&nbsp;Clothing </option>\n                    <option>Men</option>\n                    <option>Electronics</option>\n                    <option>&nbsp;&nbsp;&nbsp;Mobiles </option>\n                    <option>&nbsp;&nbsp;&nbsp;Music &amp; Audio </option>\n                  </select>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n                  <button class=\"btn-search\" type=\"button\">\n                    <i class=\"fa fa-search\"></i>\n                  </button>\n                </div>\n              </form>\n            </div>\n          </div>\n\n          <!-- End Search -->\n        </div>\n        <!-- top cart -->\n\n        <div class=\"col-lg-2 col-xs-3 top-cart\">\n          <app-shopping-cart></app-shopping-cart>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</header>"
+module.exports = "<header>\n  <div class=\"header-container\">\n    <div class=\"header-top\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-lg-4 col-sm-4 col-md-5 hidden-xs\">\n            <!-- Default Welcome Message -->\n            <div class=\"welcome-msg \">Welcome to Organic! </div>\n            <span class=\"phone hidden-sm\">Call Us: +123.456.789</span>\n          </div>\n\n          <!-- top links -->\n          <div class=\"headerlinkmenu col-lg-8 col-md-7 col-sm-8 col-xs-12\">\n            <div class=\"links\">\n              <div class=\"myaccount\">\n                \n              <a *ngIf=\"isLoggedIn\" [routerLink]=\"profileRoute\">My Account</a>\n              \n                <!-- <a title=\"My Account\" href=\"account_page.html\">\n                  <i class=\"fa fa-user\"></i>\n                  <span class=\"hidden-xs\">My Account</span>\n                </a> -->\n              </div>\n              <div class=\"wishlist\">\n                <a title=\"My Wishlist\" href=\"wishlist.html\">\n                  <i class=\"fa fa-heart\"></i>\n                  <span class=\"hidden-xs\">Wishlist</span>\n                </a>\n              </div>\n              <div class=\"blog\">\n                <a title=\"Blog\" href=\"blog.html\">\n                  <i class=\"fa fa-rss\"></i>\n                  <span class=\"hidden-xs\">Blog</span>\n                </a>\n              </div>\n              <a *ngIf=\"!isLoggedIn\" [routerLink]=\"['/login']\">Login</a>\n              <a *ngIf=\"isLoggedIn\" (click)=\"logout()\">Logout</a>\n              <!-- <div class=\"login\">\n                  <a routerLink=\"/login\" routerLinkActive=\"active\" \n                  [routerLinkActiveOptions]=\"{exact:true}\">\n                    \n                \n                  <i class=\"fa fa-unlock-alt\"></i>\n                  <span class=\"hidden-xs\">{{result.email}}</span>\n                </a>\n              </div> -->\n              <!-- <div class=\"logout\">\n                  <a routerLink=\"/login\" routerLinkActive=\"active\" \n                  [routerLinkActiveOptions]=\"{exact:true}\">\n                    \n                \n                  <i class=\"fa fa-unlock-alt\"></i>\n                  <span class=\"hidden-xs\">Logout</span>\n                </a>\n              </div> -->\n            </div>\n            <div class=\"language-currency-wrapper\">\n              <div class=\"inner-cl\">\n                <!-- <div class=\"block block-language form-language\">\n                  <div class=\"lg-cur\">\n                    <span>\n                      <img src=\"assets/img/ecommerce/images/flag-default.jpg\" alt=\"French\">\n                      <span class=\"lg-fr\">French</span>\n                      <i class=\"fa fa-angle-down\"></i>\n                    </span>\n                  </div>\n                  <ul>\n                    <li>\n                      <a class=\"selected\" href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-english.jpg\" alt=\"flag\">\n                        <span>English</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-default.jpg\" alt=\"flag\">\n                        <span>French</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-german.jpg\" alt=\"flag\">\n                        <span>German</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-brazil.jpg\" alt=\"flag\">\n                        <span>Brazil</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-chile.jpg\" alt=\"flag\">\n                        <span>Chile</span>\n                      </a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <img src=\"assets/img/ecommerce/images/flag-spain.jpg\" alt=\"flag\">\n                        <span>Spain</span>\n                      </a>\n                    </li>\n                  </ul>\n                </div> -->\n                <div class=\"block block-currency\">\n                  <div class=\"item-cur\">\n                    <span>USD </span>\n                    <i class=\"fa fa-angle-down\"></i>\n                  </div>\n                  <ul>\n                    <li>\n                      <a href=\"#\">\n                        <span class=\"cur_icon\">€</span> EUR</a>\n                    </li>\n                    <li>\n                      <a href=\"#\">\n                        <span class=\"cur_icon\">¥</span> JPY</a>\n                    </li>\n                    <li>\n                      <a class=\"selected\" href=\"#\">\n                        <span class=\"cur_icon\">$</span> USD</a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n\n              <!-- End Default Welcome Message -->\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-sm-3 col-md-3 col-xs-12\">\n          <!-- Header Logo -->\n          <div class=\"logo\">\n            <a title=\"e-commerce\" href=\"index.html\">\n              <img alt=\"e-commerce\" src=\"assets/img/ecommerce/images/logo.png\">\n            </a>\n          </div>\n          <!-- End Header Logo -->\n        </div>\n        <div class=\"col-xs-9 col-sm-6 col-md-7\">\n          <!-- Search -->\n\n          <div class=\"top-search\">\n            <div id=\"search\">\n              <form>\n                <div class=\"input-group\">\n                  <select class=\"cate-dropdown hidden-xs\" name=\"category_id\">\n                    <option>All Categories</option>\n                    <option>women</option>\n                    <option>&nbsp;&nbsp;&nbsp;Accessories </option>\n                    <option>&nbsp;&nbsp;&nbsp;Dresses</option>\n                    <option>&nbsp;&nbsp;&nbsp;Top</option>\n                    <option>&nbsp;&nbsp;&nbsp;Handbags </option>\n                    <option>&nbsp;&nbsp;&nbsp;Shoes </option>\n                    <option>&nbsp;&nbsp;&nbsp;Clothing </option>\n                    <option>Men</option>\n                    <option>Electronics</option>\n                    <option>&nbsp;&nbsp;&nbsp;Mobiles </option>\n                    <option>&nbsp;&nbsp;&nbsp;Music &amp; Audio </option>\n                  </select>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n                  <button class=\"btn-search\" type=\"button\">\n                    <i class=\"fa fa-search\"></i>\n                  </button>\n                </div>\n              </form>\n            </div>\n          </div>\n\n          <!-- End Search -->\n        </div>\n        <!-- top cart -->\n\n        <div class=\"col-lg-2 col-xs-3 top-cart\">\n          <app-shopping-cart></app-shopping-cart>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</header>"
 
 /***/ }),
 
@@ -2675,6 +2683,7 @@ module.exports = "<header>\n  <div class=\"header-container\">\n    <div class=\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppHeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2685,11 +2694,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AppHeaderComponent = (function () {
-    function AppHeaderComponent() {
+    function AppHeaderComponent(_router) {
+        this._router = _router;
+        this.isLoggedIn = false;
     }
     AppHeaderComponent.prototype.ngOnInit = function () {
         this.result = JSON.parse(localStorage.getItem('currentUser'));
+        if (this.result) {
+            this.isLoggedIn = true;
+            if (this.result.role === 'admin')
+                this.profileRoute = '/admin/profile';
+            if (this.result.role === 'customer')
+                this.profileRoute = '/customer/profile';
+            if (this.result.role === 'salesperson')
+                this.profileRoute = '/salesperson/profile';
+        }
+    };
+    AppHeaderComponent.prototype.logout = function () {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+        this._router.navigate(['/']);
     };
     return AppHeaderComponent;
 }());
@@ -2700,9 +2726,10 @@ AppHeaderComponent = __decorate([
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
         styles: [__webpack_require__("../../../../../src/app/app-header/app-header.component.css"), __webpack_require__("../../../../../src/assets/css/ecommerce/style.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object])
 ], AppHeaderComponent);
 
+var _a;
 //# sourceMappingURL=app-header.component.js.map
 
 /***/ }),
@@ -2728,7 +2755,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-home-slider/app-home-slider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div id=\"demo\" class=\"carousel slide\" data-ride=\"carousel\">\n\n  <!-- Indicators -->\n  <ul class=\"carousel-indicators\">\n    <li data-target=\"#demo\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#demo\" data-slide-to=\"1\"></li>\n    <li data-target=\"#demo\" data-slide-to=\"2\"></li>\n  </ul>\n\n  <!-- The slideshow -->\n  <div class=\"carousel-inner\">\n    <div class=\"carousel-item active\">\n      <img src=\"../../assets/img/ecommerce/honey.jpg\" alt=\"Los Angeles\">\n    </div>\n    <div class=\"carousel-item\">\n      <img src=\"../../assets/img/ecommerce/ghani.jpg\" alt=\"Chicago\">\n    </div>\n    <div class=\"carousel-item\">\n      <img src=\"../../assets/img/ecommerce/pulses.jpg\" alt=\"New York\">\n    </div>\n\n  <!-- Left and right controls -->\n  <a class=\"carousel-control-prev\" href=\"#demo\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\"></span>\n  </a>\n  <a class=\"carousel-control-next\" href=\"#demo\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\"></span>\n  </a>\n\n</div>\n\n"
+module.exports = "\n<div id=\"demo\" class=\"carousel slide\" data-ride=\"carousel\">\n\n  <!-- Indicators -->\n  <ul class=\"carousel-indicators\">\n    <li data-target=\"#demo\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#demo\" data-slide-to=\"1\"></li>\n    <li data-target=\"#demo\" data-slide-to=\"2\"></li>\n  </ul>\n\n  <!-- The slideshow -->\n  <div class=\"carousel-inner\">\n    <div class=\"carousel-item active\">\n      <img src=\"../../assets/img/ecommerce/banner1.jpg\" alt=\"Los Angeles\">\n    </div>\n    <div class=\"carousel-item\">\n      <img src=\"../../assets/img/ecommerce/banner2.jpg\" alt=\"Chicago\">\n    </div>\n    <div class=\"carousel-item\">\n      <img src=\"../../assets/img/ecommerce/banner3.jpg\" alt=\"New York\">\n    </div>\n\n  <!-- Left and right controls -->\n  <a class=\"carousel-control-prev\" href=\"#demo\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\"></span>\n  </a>\n  <a class=\"carousel-control-next\" href=\"#demo\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\"></span>\n  </a>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -3202,7 +3229,7 @@ var appRoutes = [
     {
         path: '', component: __WEBPACK_IMPORTED_MODULE_42__app_layout_app_layout_component__["a" /* AppLayoutComponent */],
         children: [
-            { path: '', component: __WEBPACK_IMPORTED_MODULE_37__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_60__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: '', component: __WEBPACK_IMPORTED_MODULE_37__home_home_component__["a" /* HomeComponent */] },
             //{ path: 'home', component: HomeComponent },
             { path: 'shop', component: __WEBPACK_IMPORTED_MODULE_41__app_shop_app_shop_component__["a" /* AppShopComponent */] },
             { path: 'shop/category/:cat_id', component: __WEBPACK_IMPORTED_MODULE_41__app_shop_app_shop_component__["a" /* AppShopComponent */] },
@@ -3212,14 +3239,14 @@ var appRoutes = [
     },
     { path: 'about', component: __WEBPACK_IMPORTED_MODULE_38__about_about_component__["a" /* AboutComponent */] },
     { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_39__contact_contact_component__["a" /* ContactComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_40__login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_61__guards_anonymous_guard__["a" /* AnonymousGuard */]] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_40__login_login_component__["a" /* LoginComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_68__signup_signup_component__["a" /* SignupComponent */] },
     // {
     //   path: 'dashboard',
     //   component: CustomerDashboardComponent,
     //   canActivate: [AuthGuard]
     // },
-    { path: 'customer', component: __WEBPACK_IMPORTED_MODULE_62__customer_dashboard_customer_dashboard_component__["a" /* CustomerDashboardComponent */],
+    { path: 'customer', component: __WEBPACK_IMPORTED_MODULE_62__customer_dashboard_customer_dashboard_component__["a" /* CustomerDashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_60__guards_auth_guard__["a" /* AuthGuard */]],
         children: [
             // { path: '', component: CustomerDashboardComponent },
             { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_64__customer_dashboard_customer_profile_customer_profile_component__["a" /* CustomerProfileComponent */] },
@@ -3266,7 +3293,7 @@ var appRoutes = [
             { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_26__admin_pages_profile_profile_component__["a" /* ProfileComponent */] },
         ]
     },
-    { path: 'salesperson', component: __WEBPACK_IMPORTED_MODULE_65__salesperson_dashboard_salesperson_dashboard_component__["a" /* SalespersonDashboardComponent */],
+    { path: 'salesperson', component: __WEBPACK_IMPORTED_MODULE_65__salesperson_dashboard_salesperson_dashboard_component__["a" /* SalespersonDashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_60__guards_auth_guard__["a" /* AuthGuard */]],
         children: [
             { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_66__salesperson_dashboard_salesperson_profile_salesperson_profile_component__["a" /* SalespersonProfileComponent */] },
             { path: 'customer', component: __WEBPACK_IMPORTED_MODULE_67__salesperson_dashboard_salesperson_customers_salesperson_customers_component__["a" /* SalespersonCustomersComponent */] },
@@ -3313,7 +3340,7 @@ var appRoutes = [
         ]
     },
     { path: 'productdetails', component: __WEBPACK_IMPORTED_MODULE_43__app_product_details_app_product_details_component__["a" /* AppProductDetailsComponent */] },
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__admin_layouts__["a" /* FullLayout */],
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__admin_layouts__["a" /* FullLayout */], canActivate: [__WEBPACK_IMPORTED_MODULE_60__guards_auth_guard__["a" /* AuthGuard */]],
         children: [
             { path: '', component: __WEBPACK_IMPORTED_MODULE_3__admin_pages_adminhome_adminhome_component__["a" /* AdminHomeComponent */] },
             { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_50__admin_dashboard_admin_dashboard_component__["a" /* AdminDashboardComponent */] },
@@ -3941,7 +3968,7 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* HttpModule */],
             // appRoutes,
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["g" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormsModule */],
@@ -3961,7 +3988,7 @@ AppModule = __decorate([
                 multi: true
             },
             { provide: __WEBPACK_IMPORTED_MODULE_44__services_storage_service__["b" /* StorageService */], useClass: __WEBPACK_IMPORTED_MODULE_44__services_storage_service__["a" /* LocalStorageServie */] },
-            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_http__["BrowserXhr"], useClass: __WEBPACK_IMPORTED_MODULE_65__config_cust_ext_browser_xhr__["a" /* CustExtBrowserXhr */] },
+            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* BrowserXhr */], useClass: __WEBPACK_IMPORTED_MODULE_65__config_cust_ext_browser_xhr__["a" /* CustExtBrowserXhr */] },
             __WEBPACK_IMPORTED_MODULE_35__measure_service__["a" /* MeasureService */],
             __WEBPACK_IMPORTED_MODULE_36__message_service__["a" /* MessageService */],
             __WEBPACK_IMPORTED_MODULE_37__currency_service__["a" /* CurrencyService */],
@@ -3993,8 +4020,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4035,17 +4061,19 @@ var AuthenticationService = (function () {
     };
     AuthenticationService.prototype.login = function (user) {
         var body = JSON.stringify(user);
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["Headers"]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3002/api/login', body, { headers: headers, withCredentials: true })
+        console.log("in auth login");
+        console.log("bodyyyyyyyyyyyy", body);
+        return this.http.post('http://localhost:3002/api/login', body, httpOptions)
             .map(function (res) { return res; })
             .catch(this.handleError);
     };
     AuthenticationService.prototype.signup = function (user) {
         var body = JSON.stringify(user);
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["Headers"]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3002/api/signup', body, { headers: headers, withCredentials: true })
+        return this.http.post('http://localhost:3002/api/signup', body, httpOptions)
             .map(function (res) { return res; })
             .catch(this.handleError);
     };
@@ -4090,13 +4118,13 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.handleError = function (error) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
-        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(error || "Server Error");
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error || "Server Error");
     };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__message_service__["a" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__message_service__["a" /* MessageService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_angular2_jwt__["AuthHttp"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_angular2_jwt__["AuthHttp"]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__message_service__["a" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__message_service__["a" /* MessageService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]) === "function" && _d || Object])
 ], AuthenticationService);
 
 var _a, _b, _c, _d;
@@ -4203,7 +4231,7 @@ var CurrencyService = (function () {
     CurrencyService.prototype.getCurrencies = function () {
         var _this = this;
         return this.http.get(this.currenciesUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched currencies"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getCurrencies', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched currencies"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getCurrencies', [])));
     };
     CurrencyService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -4269,8 +4297,7 @@ module.exports = "<div id=\"page\"> \n    <app-header></app-header>\n    <app-na
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerDashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4282,20 +4309,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var CustomerDashboardComponent = (function () {
-    function CustomerDashboardComponent(userService, router) {
-        this.userService = userService;
+    function CustomerDashboardComponent(router) {
         this.router = router;
         this.currentUser = {};
     }
     CustomerDashboardComponent.prototype.ngOnInit = function () {
         // this.userService.getCurrentUser().then(profile => this.currentUser = profile)
         //     .catch(() => this.currentUser = {});
-    };
-    CustomerDashboardComponent.prototype.logout = function () {
-        this.userService.logout();
-        this.router.navigate(['/login']);
     };
     return CustomerDashboardComponent;
 }());
@@ -4305,10 +4326,10 @@ CustomerDashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/customer-dashboard/customer-dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/customer-dashboard/customer-dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object])
 ], CustomerDashboardComponent);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=customer-dashboard.component.js.map
 
 /***/ }),
@@ -4887,47 +4908,23 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnonymousGuard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-
-
+//import { UserService } from '../services/user.service';
 var AnonymousGuard = (function () {
-    function AnonymousGuard(userService, router) {
-        this.userService = userService;
-        this.router = router;
+    function AnonymousGuard() {
     }
-    AnonymousGuard.prototype.canActivate = function (route, state) {
-        return this.checkLogin();
-    };
-    AnonymousGuard.prototype.checkLogin = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.userService.isLoggedIn().then(function () {
-                _this.router.navigate(['/dashboard']);
-                reject(false);
-            }).catch(function () {
-                resolve(true);
-            });
-        });
-    };
     return AnonymousGuard;
 }());
 AnonymousGuard = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _b || Object])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
 ], AnonymousGuard);
 
-var _a, _b;
 //# sourceMappingURL=anonymous.guard.js.map
 
 /***/ }),
@@ -4961,7 +4958,7 @@ var AuthGuard = (function () {
             return true;
         }
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['/'], { queryParams: { returnUrl: state.url } });
         return false;
     };
     return AuthGuard;
@@ -5577,6 +5574,8 @@ module.exports = "<!-- <div class=\"content\">\n    <div class=\"brand\"><a clas
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_user__ = __webpack_require__("../../../../../src/app/models/user.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5586,6 +5585,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -5623,21 +5624,28 @@ var LoginComponent = (function () {
         console.log("loginnnnnnnnnnn-----------------------------");
         console.log(model, "model-------------------------");
         this._service.login(model).subscribe(function (res) {
-            if (res && res.token) {
+            console.log("in login component------------res", res.login);
+            console.log("res.login.tokennnnnnnnnnnnnnnnnnnnnnnnnn", res.login.token);
+            if (res && res.login.token) {
                 console.log(res, "ressssssssssssssssssssssss");
                 //this.results = data['login successful'];
                 console.log('resultsssss', res._body);
-                console.log('resultsssss', JSON.parse(res._body));
-                console.log(JSON.parse(res._body).login);
-                _this.results = JSON.parse(res._body).login;
+                // console.log('resultsssss',JSON.parse(res._body));
+                // console.log(JSON.parse(res._body).login);
+                //this.results = JSON.parse(res._body).login;
                 //user = JSON.parse(res._body);
+                console.log('resultsssss22222222', res.login);
+                //console.log('resultsssss2222222222',JSON.parse(res.login));
+                //console.log(JSON.parse(res.login));
+                //this.results = JSON.parse(res.login);
+                _this.results = res.login;
                 localStorage.setItem('currentUser', JSON.stringify(_this.results));
                 if (_this.results.role === 'admin')
-                    _this.router.navigate(['/admin/profile']);
+                    _this.router.navigate(['/admin']);
                 if (_this.results.role === 'customer')
-                    _this.router.navigate(['/customer/profile']);
+                    _this.router.navigate(['/customer']);
                 if (_this.results.role === 'salesperson')
-                    _this.router.navigate(['/salesperson/profile']);
+                    _this.router.navigate(['/salesperson']);
             }
         }, function (error) {
             _this.alertService.error(error);
@@ -5764,7 +5772,7 @@ var MeasureService = (function () {
     MeasureService.prototype.getMeasures = function () {
         var _this = this;
         return this.http.get(this.measuresUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched measures"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getMeasures', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched measures"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getMeasures', [])));
     };
     MeasureService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -7113,7 +7121,7 @@ var AlertService = (function () {
     function AlertService(router) {
         var _this = this;
         this.router = router;
-        this.subject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["b" /* Subject */]();
+        this.subject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
         this.keepAfterNavigationChange = false;
         // clear alert message on route change
         router.events.subscribe(function (event) {
@@ -7218,7 +7226,7 @@ var CategoryService = (function () {
     CategoryService.prototype.getCategory = function () {
         var _this = this;
         return this.http.get('http://localhost:3002/api/catlist')
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched Category"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getCategory', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched Category"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getCategory', [])));
     };
     CategoryService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -7304,7 +7312,7 @@ var DeliveryOptionsDataService = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_4__caching_service__["a" /* CachcingServiceBase */]));
 DeliveryOptionsDataService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], DeliveryOptionsDataService);
 
 var _a;
@@ -7349,17 +7357,17 @@ var InventoryService = (function () {
     InventoryService.prototype.getInventory = function () {
         var _this = this;
         return this.http.get(this.measuresUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched Inventory"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getInventory', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched Inventory"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getInventory', [])));
     };
     /** POST: add a new inventory to the server */
     InventoryService.prototype.addInventory = function (inventory) {
         var _this = this;
-        return this.http.post('http://localhost:3002/api/inventoryadd', inventory, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (hero) { return _this.log("added hero"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('addHero')));
+        return this.http.post('http://localhost:3002/api/inventoryadd', inventory, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (hero) { return _this.log("added hero"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('addHero')));
     };
     /** PUT: update the inventory on the server */
     InventoryService.prototype.updateInventory = function (inventory) {
         var _this = this;
-        return this.http.post('http://localhost:3002/api/inventoryedit', inventory, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (_) { return _this.log("updated hero"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('updateHero')));
+        return this.http.post('http://localhost:3002/api/inventoryedit', inventory, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (_) { return _this.log("updated hero"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('updateHero')));
     };
     InventoryService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -7426,7 +7434,7 @@ var ProductService = (function () {
     ProductService.prototype.getProduct = function () {
         var _this = this;
         return this.http.get(this.measuresUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched products"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getProduct', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched products"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getProduct', [])));
     };
     ProductService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -7493,7 +7501,7 @@ var ShoppingCartService = (function () {
         this.http = http;
         this.subscribers = new Array();
         this.storage = this.storageService.get();
-        this.subscriptionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"](function (observer) {
+        this.subscriptionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */](function (observer) {
             _this.subscribers.push(observer);
             observer.next(_this.retrieve());
             return function () {
@@ -7664,7 +7672,7 @@ var StoreService = (function () {
     StoreService.prototype.getStore = function () {
         var _this = this;
         return this.http.get(this.measuresUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["tap"])(function (measures) { return _this.log("fetched Store"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError('getStore', [])));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["b" /* tap */])(function (measures) { return _this.log("fetched Store"); }), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError('getStore', [])));
     };
     StoreService.prototype.handleError = function (operation, result) {
         var _this = this;
@@ -7691,108 +7699,6 @@ StoreService = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=store.service.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/services/user.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/toPromise.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/throw.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var UserService = (function () {
-    function UserService(http) {
-        this.http = http;
-        // FB.init({
-        //   appId      : '531833047215910',
-        //   status     : false, // the SDK will attempt to get info about the current user immediately after init
-        //   cookie     : false,  // enable cookies to allow the server to access
-        //   // the session
-        //   xfbml      : false,  // With xfbml set to true, the SDK will parse your page's DOM to find and initialize any social plugins that have been added using XFBML
-        //   version    : 'v2.8' // use graph api version 2.5
-        // });
-    }
-    UserService.prototype.login = function (user) {
-        var body = JSON.stringify(user);
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3002/api/api/login', body, { headers: headers, withCredentials: true })
-            .map(function (res) { return res; })
-            .catch(this.handleError);
-    };
-    // fbLogin() {
-    //   return new Promise((resolve, reject) => {
-    //     FB.login(result => {
-    //       if (result.authResponse) {
-    //         return this.http.post(`http://localhost:3002/api/api/v1/auth/facebook`, {access_token: result.authResponse.accessToken})
-    //             .toPromise()
-    //             .then(response => {
-    //               var token = response.headers.get('x-auth-token');
-    //               if (token) {
-    //                 localStorage.setItem('id_token', token);
-    //               }
-    //               resolve(response.json());
-    //             })
-    //             .catch(() => reject());
-    //       } else {
-    //         reject();
-    //       }
-    //     }, {scope: 'public_profile,email'})
-    //   });
-    // }
-    UserService.prototype.logout = function () {
-        localStorage.removeItem('id_token');
-    };
-    UserService.prototype.isLoggedIn = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.getCurrentUser().then(function (user) { return resolve(true); }).catch(function () { return reject(false); });
-        });
-    };
-    UserService.prototype.getCurrentUser = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            return _this.http.get("http://localhost:3002/api/api/v1/auth/me").toPromise().then(function (response) {
-                resolve(response.json());
-            }).catch(function () { return reject(); });
-        });
-    };
-    UserService.prototype.handleError = function (error) {
-        // in a real world app, we may send the server to some remote logging infrastructure
-        // instead of just logging it to the console
-        return __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__["a" /* Observable */].throw(error || "Server Error");
-    };
-    return UserService;
-}());
-UserService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__["AuthHttp"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__["AuthHttp"]) === "function" && _a || Object])
-], UserService);
-
-var _a;
-//# sourceMappingURL=user.service.js.map
 
 /***/ }),
 
@@ -7916,13 +7822,12 @@ module.exports = "<!-- <form *ngIf=\"!submitted\" [formGroup]=\"form\" (ngSubmit
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_user__ = __webpack_require__("../../../../../src/app/models/user.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_user__ = __webpack_require__("../../../../../src/app/models/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7939,10 +7844,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var SignupComponent = (function () {
-    function SignupComponent(userService, router, http, formBuilder, _service, alertService) {
-        this.userService = userService;
+    function SignupComponent(router, http, formBuilder, _service, alertService) {
         this.router = router;
         this.http = http;
         this.formBuilder = formBuilder;
@@ -7950,7 +7853,7 @@ var SignupComponent = (function () {
         this.alertService = alertService;
         this.loading = false;
         //for localstorage login---------------------------------------------------------------
-        this.user = __WEBPACK_IMPORTED_MODULE_6__models_user__["a" /* User */];
+        this.user = __WEBPACK_IMPORTED_MODULE_5__models_user__["a" /* User */];
         this.errorMsg = '';
     }
     SignupComponent.prototype.signup = function (model) {
@@ -7990,8 +7893,8 @@ var SignupComponent = (function () {
     SignupComponent.prototype.ngOnInit = function () {
         $('body').addClass('bg-silver');
         this.form = this.formBuilder.group({
-            username: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].minLength(3), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].maxLength(64)])],
-            password: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].minLength(3), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* Validators */].maxLength(32)])]
+            username: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].minLength(3), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].maxLength(64)])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].minLength(3), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* Validators */].maxLength(32)])]
         });
     };
     SignupComponent.prototype.ngOnDestroy = function () {
@@ -8019,10 +7922,10 @@ SignupComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
         styles: [__webpack_require__("../../../../../src/assets/css/pages/auth-dark.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClient */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__authentication_service__["a" /* AuthenticationService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_alert_service__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_alert_service__["a" /* AlertService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__services_alert_service__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_alert_service__["a" /* AlertService */]) === "function" && _e || Object])
 ], SignupComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=signup.component.js.map
 
 /***/ }),

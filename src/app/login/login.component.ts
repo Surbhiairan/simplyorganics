@@ -6,6 +6,8 @@ import {AuthenticationService} from '../authentication.service';
 import { User } from '../models/user';
 import { Customer } from '../models/customer';
 import { AlertService } from '../services/alert.service';
+import 'rxjs/add/operator/map'; 
+import 'rxjs/add/operator/catch';
 
 declare var jQuery:any;
 declare var $:any;
@@ -49,7 +51,6 @@ export class LoginComponent implements OnInit {
          username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
          password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])]
        });
-   
   }
 
   login(model: User) {
@@ -58,22 +59,28 @@ export class LoginComponent implements OnInit {
     console.log(model,"model-------------------------");
   
     this._service.login(model).subscribe(res => {
-      if(res && res.token){
+      console.log("in login component------------res", res.login);
+      console.log("res.login.tokennnnnnnnnnnnnnnnnnnnnnnnnn", res.login.token);
+      if(res && res.login.token){
         console.log(res,"ressssssssssssssssssssssss");
         //this.results = data['login successful'];
         console.log('resultsssss', res._body);
-        console.log('resultsssss',JSON.parse(res._body));
-        console.log(JSON.parse(res._body).login);
-        this.results = JSON.parse(res._body).login;
+        // console.log('resultsssss',JSON.parse(res._body));
+        // console.log(JSON.parse(res._body).login);
+        //this.results = JSON.parse(res._body).login;
         //user = JSON.parse(res._body);
-
+        console.log('resultsssss22222222', res.login);
+        //console.log('resultsssss2222222222',JSON.parse(res.login));
+        //console.log(JSON.parse(res.login));
+        //this.results = JSON.parse(res.login);
+        this.results = res.login;
         localStorage.setItem('currentUser',JSON.stringify(this.results));
         if(this.results.role === 'admin')
-        this.router.navigate(['/admin/profile']);
+        this.router.navigate(['/admin']);
         if(this.results.role === 'customer')
-        this.router.navigate(['/customer/profile']);
+        this.router.navigate(['/customer']);
         if(this.results.role === 'salesperson')
-        this.router.navigate(['/salesperson/profile']);
+        this.router.navigate(['/salesperson']);
       }
       
     },

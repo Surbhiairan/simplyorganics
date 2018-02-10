@@ -30,7 +30,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-		connection.query("select * from localusers where id = "+id,function(err,rows){	
+		connection.query("select * from users where id = "+id,function(err,rows){	
 			done(err, rows[0]);
 		});
     });
