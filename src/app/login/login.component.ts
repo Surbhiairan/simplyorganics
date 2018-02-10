@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {AuthenticationService} from '../authentication.service';
+import { AuthenticationService } from '../authentication.service';
 import { User } from '../models/user';
 import { Customer } from '../models/customer';
 import { AlertService } from '../services/alert.service';
@@ -53,11 +53,18 @@ export class LoginComponent implements OnInit {
        });
   }
 
+  // ngOnInit() {
+  //   this.form = this.formBuilder.group({
+  //     username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
+  //     password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])]
+  //   });
+  // }
+
   login(model: User) {
 
-    console.log("loginnnnnnnnnnn-----------------------------");
-    console.log(model,"model-------------------------");
-  
+    /* console.log('loginnnnnnnnnnn-----------------------------');
+    console.log(model, 'model-------------------------'); */
+
     this._service.login(model).subscribe(res => {
       console.log("in login component------------res", res.login);
       console.log("res.login.tokennnnnnnnnnnnnnnnnnnnnnnnnn", res.login.token);
@@ -65,15 +72,12 @@ export class LoginComponent implements OnInit {
         console.log(res,"ressssssssssssssssssssssss");
         //this.results = data['login successful'];
         console.log('resultsssss', res._body);
-        // console.log('resultsssss',JSON.parse(res._body));
-        // console.log(JSON.parse(res._body).login);
-        //this.results = JSON.parse(res._body).login;
-        //user = JSON.parse(res._body);
-        console.log('resultsssss22222222', res.login);
-        //console.log('resultsssss2222222222',JSON.parse(res.login));
-        //console.log(JSON.parse(res.login));
-        //this.results = JSON.parse(res.login);
-        this.results = res.login;
+
+        console.log('resultsssss',JSON.parse(res._body));
+        console.log(JSON.parse(res._body).login);
+
+        this.results = JSON.parse(res._body).login;
+        // user = JSON.parse(res._body);
         localStorage.setItem('currentUser',JSON.stringify(this.results));
         if(this.results.role === 'admin')
         this.router.navigate(['/admin']);
@@ -150,7 +154,6 @@ export class LoginComponent implements OnInit {
       console.log(this.results);
     });
   }
- 
 
 ngOnDestroy() { 
     $('body').removeClass('bg-silver');

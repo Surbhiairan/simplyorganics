@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from "./admin/admin.component";
-import { FullLayout, SimpleLayout} from './admin/layouts'
-import { AdminHomeComponent } from "./admin/pages/adminhome/adminhome.component";
+import { AdminComponent } from './admin/admin.component';
+import { FullLayout, SimpleLayout} from './admin/layouts';
+import { AdminHomeComponent } from './admin/pages/adminhome/adminhome.component';
 import { Dashboard2Component } from './admin/pages/dashboard_2/dashboard_2.component';
 import { Dashboard3Component } from './admin/pages/dashboard_3/dashboard_3.component';
 import { Dashboard4Component } from './admin/pages/dashboard_4/dashboard_4.component';
@@ -49,6 +49,10 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AppProductDetailsComponent } from './app-product-details/app-product-details.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ViewCartDetailComponent } from './view-cart-detail/view-cart-detail.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DeliveryAddressComponent } from './checkout/delivery-address/delivery-address.component';
+import { OrderReviewComponent } from './checkout/order-review/order-review.component';
+import { PaymentComponent } from './checkout/payment/payment.component';
 
 import {CustomerDetailComponent} from './customer-detail/customer-detail.component';
 import {CustomerListComponent} from './customer-list/customer-list.component';
@@ -95,6 +99,14 @@ const appRoutes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'login', component: LoginComponent},
       { path: 'signup', component: SignupComponent},
+      {
+        path: 'checkout', component: CheckoutComponent,
+        children: [
+          { path: 'delivery', component: DeliveryAddressComponent},
+          { path: 'order_review', component: OrderReviewComponent},
+          { path: 'payment', component: PaymentComponent}
+        ]
+    }
     ]
   },
   // { path: 'about', component: AboutComponent },
@@ -112,7 +124,6 @@ const appRoutes: Routes = [
    // { path: '', component: CustomerDashboardComponent },
    { path: 'profile', component: CustomerProfileComponent},
    { path: 'orders', component: CustomerOrdersComponent},
-   
     { path: 'dashboard', component: AdminDashboardComponent},
     { path: 'customerlist', component: CustomerListComponent},
     { path: 'customeredit', component: CustomerEditComponent},

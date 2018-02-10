@@ -38,10 +38,10 @@ export class AuthenticationService {
   logout() {
       // remove user from local storage to log user out
       localStorage.removeItem('currentUser');
+
   }
 
-
-  login(user) {
+  login (user) {
     let body = JSON.stringify(user);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

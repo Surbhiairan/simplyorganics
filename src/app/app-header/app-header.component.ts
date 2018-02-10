@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {AuthenticationService} from '../authentication.service';
 import {Customer} from '../models/customer';
 import {Router} from '@angular/router';
 
@@ -12,12 +13,13 @@ import {Router} from '@angular/router';
 })
 export class AppHeaderComponent implements OnInit {
 
+  constructor( private auth: AuthenticationService, private _router: Router) { }
   result: Customer;
-  constructor(private _router: Router) { }
 
   isLoggedIn: boolean = false;
   // when you login successful, the isLoggedIn set to true
   profileRoute : string;
+
 
   ngOnInit() {
     this.result =  JSON.parse(localStorage.getItem('currentUser'));
@@ -37,5 +39,5 @@ export class AppHeaderComponent implements OnInit {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this._router.navigate(['/']);
-  }
+}
 }
