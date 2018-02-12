@@ -17,6 +17,7 @@ export class AppShopComponent implements OnInit {
 
   public products: Product[];
   public catProduct: Product[] = [];
+  public sameProduct: Product[] = [];
 
   constructor(
     private http: HttpClient,
@@ -37,6 +38,7 @@ export class AppShopComponent implements OnInit {
   }
   getProduct( value, catProduct): void {
     let i = 0;
+    let j;
     this.productService.getProduct()
       .subscribe(products => {
         this.products = products['results'],
@@ -51,6 +53,12 @@ export class AppShopComponent implements OnInit {
           this.data.productStorage = catProduct;
           console.log('on shop page----', catProduct);
         });
+        for (j = 0; j <= catProduct.length; j++) {
+          if (this.products[j].prod_name === this.products[j + 1].prod_name) {
+            this.sameProduct[j] = this.products[j];
+            console.log('sameProducts---------0', this.sameProduct);
+          }
+        }
       },
       err => {
         console.log(err);

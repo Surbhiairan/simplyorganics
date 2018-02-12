@@ -58,6 +58,8 @@ import { CountryService } from './services/country.service';
 import { StateService } from './services/state.service';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './authentication.service';
+import { OrderService } from './services/order.service';
+import { PaymentService } from './services/paymentMethod.service';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 
@@ -80,7 +82,7 @@ import { ViewCartDetailComponent } from './view-cart-detail/view-cart-detail.com
 import { FileSelectDirective } from 'ng2-file-upload';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
-//import { AuthHttp, AuthConfig } from 'angular2-jwt';
+// import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http } from '@angular/http';
 import {CustExtBrowserXhr} from '../../config/cust-ext-browser-xhr';
 import { BrowserXhr } from '@angular/http';
@@ -213,7 +215,9 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     StateService,
     CityService,
     CountryService,
-    AlertService
+    AlertService,
+    OrderService,
+    PaymentService
   ],
   bootstrap: [AppComponent]
 })

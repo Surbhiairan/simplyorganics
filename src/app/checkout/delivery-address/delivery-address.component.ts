@@ -8,9 +8,12 @@ import { Country } from '../../models/country';
 import { CountryService } from '../../services/country.service';
 import { CityService } from '../../services/city.service';
 import { StateService } from '../../services/state.service';
+import { PaymentService } from '../../services/paymentMethod.service';
 import { City } from '../../models/city';
 import { State } from '../../models/state';
 import { Order } from '../../models/order';
+import { PaymentMethod } from '../../models/payment-method';
+
 @Component({
   selector: 'app-delivery-address',
   templateUrl: './delivery-address.component.html',
@@ -24,6 +27,7 @@ export class DeliveryAddressComponent implements OnInit {
   public countries: Country[];
   public states: State[];
   public cities: City[];
+  public payment: PaymentMethod;
 
   constructor(
     private _fb: FormBuilder,
@@ -31,6 +35,7 @@ export class DeliveryAddressComponent implements OnInit {
     private countryService: CountryService,
     private cityService: CityService,
     private stateService: StateService,
+    private paymentMethod: PaymentService,
     private router: Router
   ) { }
 
@@ -39,23 +44,32 @@ export class DeliveryAddressComponent implements OnInit {
     this.results = JSON.parse(localStorage.getItem('currentUser'));
     if (this.results) {
       this.getCountries();
+      this.getPayment();
       console.log('then only proceed');
       this.deliveryForm = this._fb.group({
-        f_name: '',
-        l_name: '',
+        sname: '',
+        slname: '',
         contact: '',
         address: '',
         landmark: '',
         country: [this.countries],
         state: [this.states],
         city: [],
-        pincode: ''
+        pincode: '',
+        paymethod: [this.payment]
 
       });
 
     } else {
       console.log('Please log in');
     }
+  }
+
+  getPayment() {
+    this.paymentMethod.getPayment().subscribe(data => {
+      this.payment = data['results'];
+      console.log('payment----------', this.payment);
+    });
   }
 
   getCountries() {
@@ -112,7 +126,7 @@ export class DeliveryAddressComponent implements OnInit {
   save(model: Order, isValid: boolean) {
     console.log('model---------', model);
     sessionStorage.setItem('delivery_detail', JSON.stringify(model));
-    this.router.navigate(['checkout/order_review']);
+    this.router.navigate(['checkout/payment']);
 
   }
 

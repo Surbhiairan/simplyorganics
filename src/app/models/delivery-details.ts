@@ -17,4 +17,5 @@ export class DeliveryDetails {
         country_id: number;
     };
     pincode: number;
+    paymethod: number;
 }

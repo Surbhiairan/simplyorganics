@@ -604,19 +604,19 @@
                           <a title="Ipsums Dolors Untra" href="single_product.html">{{product.prod_name}}</a>
                         </div>
                         <div class="item-content">
-                          <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                          </div>
                           <div class="item-price">
                             <div class="price-box">
                               <span class="regular-price">
-                                <span class="price">$125.00</span>
+                                <span class="price">{{product.price}}</span>
                               </span>
                             </div>
+                          </div>
+                          <div>
+                            <select class="form-control">
+                              <option >
+                                {{product.quantity}}
+                              </option>
+                            </select>
                           </div>
                           <button type="button" (click)= "addProductToCart(product, 1)">
                             <i class="fa fa-shopping-cart"></i>
