@@ -567,14 +567,14 @@
             <ul class="products-grid">
               <div class="container">
                 <div class="row">
-              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 " *ngFor = "let product of catProduct">
+              <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 " *ngFor = "let product of jsonObj">
                 <div class="product-item" >
                   <div class="item-inner">
                     <div class="product-thumbnail">
                       <div class="pr-img-area">
                         <a title="Ipsums Dolors Untra" href="single_product.html">
                           <figure>
-                            <img class="first-img" src="../../assets/img/ecommerce/honey.jpg" alt="">
+                            <img class="first-img" [src] = "'../../assets/uploads/'+product.product.imagepath" alt="">
                           </figure>
                         </a>
                       </div>
@@ -601,7 +601,7 @@
                     <div class="item-info">
                       <div class="info-inner">
                         <div class="item-title">
-                          <a title="Ipsums Dolors Untra" href="single_product.html">{{product.prod_name}}</a>
+                          <a title="Ipsums Dolors Untra" href="single_product.html">{{product.product.prod_name}}</a>
                         </div>
                         <div class="item-content">
                           <div class="rating">
@@ -611,10 +611,15 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                           </div>
+                          <select [(ngModel)]="selectedItem">
+                            <option value="select" disabled>--Select--</option>
+                            <option *ngFor="let item of product.prodQuants.results" [selected]="item.prod_id" [ngValue]="item">{{item.quantity}} {{item.m_name}}</option>
+                            
+                          </select>
                           <div class="item-price">
                             <div class="price-box">
                               <span class="regular-price">
-                                <span class="price">$125.00</span>
+                                <span class="price">{{selectedItem | json}}</span>
                               </span>
                             </div>
                           </div>

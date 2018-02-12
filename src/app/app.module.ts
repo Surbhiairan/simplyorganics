@@ -58,7 +58,7 @@ import { CountryService } from './services/country.service';
 import { StateService } from './services/state.service';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './authentication.service';
-
+import { QuantityService } from './services/quantity.service';
 import { AppHeaderComponent } from './app-header/app-header.component';
 
 import { InventoryComponent } from './inventory/inventory.component';
@@ -213,7 +213,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     StateService,
     CityService,
     CountryService,
-    AlertService
+    AlertService,
+    QuantityService
   ],
   bootstrap: [AppComponent]
 })
