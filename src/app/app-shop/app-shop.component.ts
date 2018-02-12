@@ -54,6 +54,7 @@ export class AppShopComponent implements OnInit {
   }
   getProduct( value, catProduct): void {
     let i = 0;
+    let j;
     this.productService.getProduct()
       .subscribe(products => {
         this.products = products['results'],
@@ -70,6 +71,7 @@ export class AppShopComponent implements OnInit {
           this.data.productStorage = catProduct;
           console.log('on shop page----', catProduct);
         });
+
         //show all products with same name in one box
         console.log(catProduct,"catproducttttttttt-----------------------------");
         

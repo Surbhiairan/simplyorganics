@@ -8,8 +8,7 @@ import { StorageService, LocalStorageServie } from '../../services/storage.servi
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Product } from '../../models/product';
 import { DeliveryDetails } from '../../models/delivery-details';
-import { Order } from '../../models/order';
-import { OrderItem } from '../../models/order-item';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-payment',
@@ -24,19 +23,23 @@ export class PaymentComponent implements OnInit {
   public obcartSub: ShoppingCart;
   deliveryDetail: DeliveryDetails;
   public grossTotal: number;
-  public order: Order[] = [];
-  // public order: FormGroup; // our model driven form
-  public orderItem: OrderItem;
+  public completeOrder: any = {};
+  // public order: Order = new Order;
+  results: Object;
+ // public order: FormGroup; // our model driven form
+  // public orderItem: OrderItem[] = new Array<OrderItem>();
 
   constructor(
     private _fb: FormBuilder,
     private storageService: StorageService,
     private data: LocalStorageServie,
     private shoppingCartService: ShoppingCartService,
+    private orderService: OrderService
     // private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
+    let i = 0;
     this.obCart = this.shoppingCartService.get();
     console.log('obCart-----', this.obCart);
     // to extract gross total amount
@@ -50,27 +53,35 @@ export class PaymentComponent implements OnInit {
     this.deliveryDetail = JSON.parse(sessionStorage.getItem('delivery_detail'));
     console.log('delivery details', this.deliveryDetail);
 
-    /* this.order[0].o_amount = this.obcartSub.grossTotal;
-    this.order[0].saddress = this.deliveryDetail.address;
-    this.order[0].scity = this.deliveryDetail.city.city_id;
-    this.order[0].scountry = this.deliveryDetail.country.country_id;
-    this.order[0].sstate = this.deliveryDetail.state.state_id;
-    this.order[0].slandmark = this.deliveryDetail.landmark;
-    this.order[0].spincode = this.deliveryDetail.pincode;
-    this.order[0].sphone = this.deliveryDetail.contact;
-    this.order[0].sname = this.deliveryDetail.sname;
-    this.order[0].slname = this.deliveryDetail.slname;
+    this.results = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('current user-----', this.results);
 
-    localStorage.setItem('order', JSON.stringify(this.order));
+    this.completeOrder.o_amount = this.obcartSub.grossTotal;
+    this.completeOrder.saddress = this.deliveryDetail.address;
+    this.completeOrder.scity = this.deliveryDetail.city.city_id;
+    this.completeOrder.scountry = this.deliveryDetail.country.country_id;
+    this.completeOrder.sstate = this.deliveryDetail.state.state_id;
+    this.completeOrder.slandmark = this.deliveryDetail.landmark;
+    this.completeOrder.spincode = this.deliveryDetail.pincode;
+    this.completeOrder.sphone = this.deliveryDetail.contact;
+    this.completeOrder.sname = this.deliveryDetail.sname;
+    this.completeOrder.slname = this.deliveryDetail.slname;
+    this.completeOrder.paymethod = this.deliveryDetail.paymethod;
+    this.completeOrder.billingDetails = this.results;
+    this.completeOrder.cart = this.cart;
+    console.log('complete order', this.completeOrder);
+    sessionStorage.setItem('Order', JSON.stringify(this.completeOrder));
+    // this.placeOrder(this.completeOrder);
+  }
 
-    this.cart.forEach( item => {
-      this.orderItem.prod_id = item.items[0].productId;
-      this.orderItem.p_quantity = item.items[0].quantity;
-      this.orderItem.subtotal = item.itemsTotal;
-    }); */
-
-    console.log('orderItem-----', this.orderItem);
-
+  // payment method lso need to be included in body. That will come onblur event of select method type.
+  // After that placeorder method will be moved to onblur.
+  placeOrder(body) {
+    this.orderService.placeOrder(body).subscribe( order => {
+      order.push(body);
+      console.log('order placed------------');
+    });
+    
   }
 
 }

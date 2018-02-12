@@ -17,7 +17,7 @@ const CART_KEY = 'cart';
 
 @Injectable()
 export class ShoppingCartService {
-  public products: Product[];
+  public items: Product[];
   private storage: Storage;
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
@@ -42,7 +42,7 @@ export class ShoppingCartService {
   getProduct(cart): void {
     this.productService.getProduct()
       .subscribe(products => {
-        this.products = products['results'],
+        this.items = products['results'],
           console.log('products', products);
         this.calculateCart(cart);
         this.save(cart);
@@ -78,7 +78,7 @@ export class ShoppingCartService {
 
   private calculateCart(cart: ShoppingCart): void {
     cart.itemsTotal = cart.items
-      .map((item) => item.quantity * this.products.find((p) => p.prod_id === item.productId).price)
+      .map((item) => item.quantity * this.items.find((p) => p.prod_id === item.productId).price)
       .reduce((previous, current) => previous + current, 0);
       // cart.deliveryTotal = cart.deliveryOptionId ? this.deliveryOptions.find((x) => x.id === cart.deliveryOptionId).price : 0;
       cart.grossTotal = cart.itemsTotal; //  + cart.deliveryTotal;
