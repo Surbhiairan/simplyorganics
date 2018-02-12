@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from '../message.service';
-import { Product } from '../models/product';
+import { Product , ProdQuant} from '../models/product';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +15,7 @@ const httpOptions = {
 export class ProductService {
 
   private measuresUrl = 'http://localhost:3002/api/productslist';  // URL to web api
+  private prodpricequantityurl = 'http://localhost:3002/api/productquantlist';
 
   constructor(
     private http: HttpClient, private messageService: MessageService) { }
@@ -28,6 +29,15 @@ export class ProductService {
       );
   }
 
+  getProductPriceQuantity(id : number) : Observable<ProdQuant[]> {
+    console.log("inside getProductPriceQuantity===================================");
+    const url = `${this.prodpricequantityurl}/${id}`;
+    return this.http.get<ProdQuant[]>(url)
+    .pipe(
+    tap(measures => this.log(`fetched products`)),
+    catchError(this.handleError('getProduct', []))
+    );
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

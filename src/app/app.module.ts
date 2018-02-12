@@ -60,6 +60,7 @@ import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './authentication.service';
 import { OrderService } from './services/order.service';
 import { PaymentService } from './services/paymentMethod.service';
+import { QuantityService } from './services/quantity.service';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 
@@ -218,6 +219,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     AlertService,
     OrderService,
     PaymentService
+    QuantityService
   ],
   bootstrap: [AppComponent]
 })
