@@ -170,7 +170,7 @@ function ensureAuthenticated(req, res, next) {
 	res.redirect('/login')
 }
 
-app.get('/paytm', function(req, res, next) {
+app.get('/paytm', function (req, res, next) {
 	var payParam = new Object();
 	payParam.MID = "simply47641364287357";
 	payParam.REQUEST_TYPE = "DEFAULT";
@@ -185,7 +185,7 @@ app.get('/paytm', function(req, res, next) {
 	key = "gs9xXsO#ye4gsrYX";
 	paytmchecksum.genchecksum(payParam, key, function (params) {
 		console.log('params----------', params);
-		
+
 	})
 })
 
@@ -507,13 +507,13 @@ app.post('/api/order', (req, res) => {
 			console.log("result", result, "err", err);
 			// console.log("req.body.cart--------", req.body.cart)
 			var insertedId = result.insertId;
-			async.forEachOf(req.body.cart, function(value, i, callback) {
-				console.log('value-------',value);
-				 connection.query(
+			async.forEachOf(req.body.cart, function (value, i, callback) {
+				console.log('value-------', value);
+				connection.query(
 					'INSERT INTO Orderitem SET ?', {
 						oi_id: i,
 						order_id: 1,
-						prod_id:value.productId,
+						prod_id: value.productId,
 						p_quantity: value.quantity,
 						subtotal: value.totalCost
 					},
@@ -521,7 +521,7 @@ app.post('/api/order', (req, res) => {
 						console.log("result", result, "err", err);
 						res.send("Order placed successfully");
 					}
-				) 
+				)
 			})
 		}
 	);
@@ -587,7 +587,7 @@ app.get('/api/countrylist', function (req, res, next) {
 });
 
 //our file upload function.
-app.post('/api/imageupload', function (req, res, next) { 
+app.post('/api/imageupload', function (req, res, next) {
 	console.log("request body", req.body);
 	var upload = multer({
 		storage: storage
@@ -653,8 +653,8 @@ app.post('/api/login',
 				res.json({ "login": user })
 				console.log("successful login", user);
 			}
-		})(req, res, next);
-	});
+	})(req, res, next);
+});
 
 app.post('/api/signup',
 	function (req, res, next) {
@@ -702,9 +702,6 @@ app.get('/api/auth/facebook/callback',
 		}
 	})
 );
-
-
-
 
 app.listen(port, () => {
 	console.log("Server listening on port " + port);
