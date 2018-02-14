@@ -23,9 +23,20 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Product Category</label>
+              <label class="col-sm-2 col-form-label">Description</label>
               <div class="col-sm-10">
-                <input class="form-control" placeholder="Product Category" type="text" formControlName="prod_desc">
+                <input class="form-control" placeholder="Product Desc" type="text" formControlName="prod_desc">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Category</label>
+              <div class="col-sm-10">
+                <select class="form-control" formControlName="prod_category">
+                  <option *ngFor="let category of categories"
+                  [value]="category.cat_id">
+                     {{category.cat_name}}
+                </option>
+                </select>
               </div>
             </div>
             <div class="form-group row">
@@ -43,7 +54,12 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Quantity</label>
               <div class="col-sm-10">
-                <input class="form-control" placeholder="Product Quantity" type="text" formControlName="quant">
+                <select class="form-control" formControlName="prod_quantity">
+                  <option *ngFor="let quantity of quantities"
+                  [value]="quantity.quant_id">
+                     {{quantity.quantity}}
+                </option>
+                </select>
               </div>
             </div>
             </div>

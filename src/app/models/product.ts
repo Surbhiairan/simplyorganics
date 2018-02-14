@@ -9,4 +9,11 @@ export class Product {
     quant_id: number;
     measure_id: number;
     image_url: string;
+};
+export class ProdQuant {
+    prod_id: number;
+    price: number;
+    currency_id: number;
+    quant_id: number;
+    measure_id: number;
 }

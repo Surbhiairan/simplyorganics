@@ -5,12 +5,17 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var async = require('async');
 var paytmchecksum = require('./checksum');
-var passport = require('passport')
-	, util = require('util')
-	, FacebookStrategy = require('passport-facebook').Strategy
-	, session = require('express-session')
-	, cookieParser = require('cookie-parser')
-	, config = require('./configuration/config')
+
+var Busboy = require('busboy');
+var fs = require('fs');
+var inspect = require('util').inspect;
+
+var passport        =     require('passport')
+, util              =     require('util')
+, FacebookStrategy  =     require('passport-facebook').Strategy
+, session           =     require('express-session')
+, cookieParser      =     require('cookie-parser')
+, config            =     require('./configuration/config')
 
 var port = 3002;
 //require multer for the file uploads
@@ -19,8 +24,8 @@ var multer = require('multer');
 var DIR = './uploads/';
 
 var storage = multer.diskStorage({
-	destination: function (req, file, callback) {
-		callback(null, './uploads')
+	destination: function(req, file, callback) {
+		callback(null, 'public/assets/uploads')
 	},
 	filename: function (req, file, callback) {
 		console.log(file)
@@ -344,6 +349,16 @@ app.get("/api/productdetail", (req, res) => {
 	});
 });
 
+app.get("/api/productquantlist/:productid",(req, res) => {
+	//console.log("req", req)
+	console.log(req.params.productid);
+	var p_id = req.params.productid;
+	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where prod_id= ?', [p_id], function (error, results, fields) {
+		if (error) throw error;
+		console.log(results);
+		res.send(JSON.stringify({"results": results}));
+	});
+});
 
 app.get('/api/storeview', function (req, res, next) {
 	connection.query('SELECT * FROM Store', function (error, results, fields) {
@@ -377,6 +392,7 @@ app.post("/api/storeedit", (req, res) => {
 app.get('/api/catlist', function (req, res, next) {
 	connection.query('SELECT * FROM category', function (error, results, fields) {
 		if (error) throw error;
+		var categories=results[0];
 		res.send(JSON.stringify({ "results": results }));
 	});
 });
@@ -536,12 +552,12 @@ app.get('/api/measlist', function (req, res, next) {
 	connection.query('SELECT * FROM measure', function (error, results, fields) {
 		if (error) throw error;
 		var measures = results[0];
-		res.send(results);
-		//res.send(JSON.stringify({"results": results}));
+		//res.send(results);
+		res.send(JSON.stringify({"results": results}));
 	});
 });
 
-app.get('/api/quantlist', function (req, res, next) {
+app.get('/api/quantlist', function(req, res, next) {
 	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
@@ -552,15 +568,16 @@ app.get('/api/quantlist', function (req, res, next) {
 	});
 });
 
-app.get('/api/currlist', function (req, res, next) {
+app.get('/api/currlist', function(req, res, next) {
 	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 
 	connection.query('SELECT * FROM currency', function (error, results, fields) {
 		if (error) throw error;
-		var currencies = results[0];
-		res.send(results);
+
+		var currencies=results[0];
+		res.send(JSON.stringify({"results": results}));
 	});
 });
 
@@ -588,25 +605,72 @@ app.get('/api/countrylist', function (req, res, next) {
 
 //our file upload function.
 app.post('/api/imageupload', function (req, res, next) {
-	console.log("request body", req.body);
-	var upload = multer({
-		storage: storage
-	}).single('photo')
-	upload(req, res, function (err) {
-		console.log("request body inside", req.body);
-		//console.log("response body inside",res);
-		console.log("response file info", res.req.file);
-		//console.log('upload response', res);
-		//res.end('File is uploaded')
-		//run query to insert data into database
-		var path = res.req.file.path;
-		const product = { p_title: 'dal', p_price: 123 };
-		var query = connection.query('INSERT INTO product SET ?', { imagepath: res.req.file.path },
-			//var query = connection.query("INSERT INTO tbl_product (p_title,p_price) VALUES ('daal',123)",
-			function (err, result) {
-				console.log("result", result, "err", err);
-			});
+console.log("request body-------------------------------------------",req);
+var fields = {};
+var fileName = '';
+var busboy = new Busboy({ headers: req.headers });
+busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+  var saveTo = path.join('./src/assets/uploads', filename);
+  fileName = filename;
+  console.log('Uploading: ' + saveTo);
+  file.pipe(fs.createWriteStream(saveTo));
+ 
+});
+busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+	console.log( fieldname + val);
+	fields[fieldname] = val;
+	console.log("fields----------", fields)
+	
+  });
+busboy.on('finish', function() {
+	connection.query('Insert into product  SET ?',
+	{
+	prod_name: fields.prod_name, 
+	prod_desc: fields.prod_desc, 
+	cat_id: fields.prod_category,
+	price: fields.prod_price,
+	quant_id: fields.prod_quantity,
+	curr_id: fields.prod_currency,
+	measure_id: fields.prod_measure, 
+	imagepath: fileName
+},
+	function(err, result) {
+        console.log("result",result, "err", err);
 	});
+	console.log('Upload complete');
+	res.writeHead(200, { 'Connection': 'close' });
+	res.end("That's all folks!");
+});
+  
+
+return req.pipe(busboy);
+
+
+// var upload = multer({
+// 	storage: storage
+// }).single('photo')
+// upload(req, res, function(err) {
+// 	// var path = res.req.file.path;
+	
+// 	console.log("res.req.file@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2",res.req.file);
+// 	console.log(res.req.file.originalname,"res.file.originalname^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^666");
+// 	console.log("res.req.file.path----------------------------------",res.req.file.path);
+// 	console.log("req.body*****************************************************",req.body);
+// 	connection.query('Insert into product  SET ?',
+// 	{
+// 	prod_name: req.body.prod_name, 
+// 	prod_desc: req.body.prod_desc, 
+// 	cat_id: req.body.prod_category,
+// 	price: req.body.prod_price,
+// 	quant_id: req.body.prod_quantity,
+// 	curr_id: req.body.prod_currency,
+// 	measure_id: req.body.prod_measure, 
+// 	imagepath: res.req.file.originalname
+// },
+// 	function(err, result) {
+//         console.log("result",result, "err", err);
+//     });
+// });
 
 });
 
@@ -634,26 +698,51 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 // process the login form
-app.post('/api/login',
-	function (req, res, next) {
 
-		passport.authenticate('local-login', function (err, user, info) {
-			//console.log('request----------------',req);
-			console.log("errrrrrorrrrrrrrrrr", err);
-			console.log("yayyyyyyyyyy", user);
-			console.log("infoooooooooo", info);
-
-			if (err) { return next(err); }
-			if (!user) {
-				res.status(401);
-				res.json({ "reason": "Invalid credentials" });
-			} else {
-				res.status(200);
-				user.token = 'jwt-token';
-				res.json({ "login": user })
-				console.log("successful login", user);
-			}
+app.post('/api/login', 
+function(req, res, next) {
+	
+	passport.authenticate('local-login', function(err, user, info) {
+		//console.log('request----------------',req);
+		console.log("errrrrrorrrrrrrrrrr",err);
+		console.log("yayyyyyyyyyy",user);
+		console.log("infoooooooooo",info);
+		
+		if (err) { return next(err); }
+	  if (!user) {
+		res.status(401);
+		res.json({"reason": "Invalid credentials"});
+	  } else {
+		  res.status(200);
+		  user.token = 'jwt-token';
+		  res.json({"login": user})
+		console.log("successful login", user);	
+	  }
 	})(req, res, next);
+});
+
+app.post('/api/signup', 
+function(req, res, next) {
+	console.log('request----------------',req.body);
+	console.log('request----------------',req.body.username);
+
+	passport.authenticate('local-signup', function(err, user, info) {
+		//console.log('request----------------',req);
+		console.log("errrrrrorrrrrrrrrrr",err);
+		console.log("yayyyyyyyyyy",user);
+		console.log("infoooooooooo",info);
+		
+		if (err) { return next(err); }
+	  if (!user) {
+		res.status(401);
+		res.json({"reason": "Invalid credentials"});
+	  } else {
+		  res.status(200);
+		  res.json({"signup": user})
+		console.log("successful signup", user);	
+	  }
+	})(req, res, next);
+	
 });
 
 app.post('/api/signup',
