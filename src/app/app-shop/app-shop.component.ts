@@ -52,6 +52,7 @@ export class AppShopComponent implements OnInit {
     this.getProduct(this.value, this.catProduct);
 
   }
+
   getProduct( value, catProduct): void {
     let i = 0;
     let j;

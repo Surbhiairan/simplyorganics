@@ -12,7 +12,7 @@ module.exports={
         "use_database"			:			"true",
         "host"					:			"localhost",
         "username"				:			"root",
-        "password"				:			"",
-        "database"				:			"simplyorganics_new"
+        "password"				:			"Anjal!22",
+        "database"				:			"SO"
     }
     

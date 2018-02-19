@@ -3,7 +3,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-var async = require('async');
+var async = require('async');	
 var paytmchecksum = require('./checksum');
 
 var Busboy = require('busboy');
@@ -229,16 +229,6 @@ app.get('/api/salespersonlist', function (req, res, next) {
 	});
 });
 
-app.get('/api/productslist', function (req, res, next) {
-	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
-	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
-	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
-
-	connection.query('SELECT product.*, category.*, currency.*, quantity.*, measure.* FROM product JOIN category ON product.cat_id = category.cat_id JOIN currency ON product.curr_id = currency.cur_id JOIN quantity ON product.quant_id = quantity.quant_id JOIN measure ON product.measure_id = measure.m_id', function (error, results, fields) {
-		if (error) throw error;
-		res.send(JSON.stringify({ "results": results }));
-	});
-});
 
 app.post("/api/customeradd", (req, res) => {
 	console.log(req.body.fname);
@@ -262,7 +252,7 @@ app.post("/api/customerupdate", (req, res) => {
 	// //var data = JSON.parse(req.body);
 	console.log("body------", req.body);
 	console.log(req.body.f_name, 'fnameeeeeeeeeeeeeee');
-	connection.query('SELECT country_id FROM Countries where country_name= ?', [req.body.country_name], function (error, results, fields) {
+	connection.query('SELECT country_id FROM countries where country_name= ?', [req.body.country_name], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		this.country_id = results;
@@ -270,7 +260,7 @@ app.post("/api/customerupdate", (req, res) => {
 		//res.send(JSON.stringify({"results": results}));
 	});
 
-	connection.query('SELECT state_id FROM States where state_name= ?', [req.body.state_name], function (error, results, fields) {
+	connection.query('SELECT state_id FROM states where state_name= ?', [req.body.state_name], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		this.state_id = results;
@@ -278,7 +268,7 @@ app.post("/api/customerupdate", (req, res) => {
 		//res.send(JSON.stringify({"results": results}));
 	});
 
-	connection.query('SELECT city_id FROM Cities where city_name= ?', [req.body.city_name], function (error, results, fields) {
+	connection.query('SELECT city_id FROM cities where city_name= ?', [req.body.city_name], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		this.city_id = results;
@@ -286,7 +276,7 @@ app.post("/api/customerupdate", (req, res) => {
 		//res.send(JSON.stringify({"results": results}));
 	});
 
-	var sql = 'update Users SET f_name=?, l_name=?, addedBy=?,address=?, city=?,contact=?,country=?,dateAdded=?,email=?,landmark=?,pincode=?,state=? where user_id=?';
+	var sql = 'update users SET f_name=?, l_name=?, addedBy=?,address=?, city=?,contact=?,country=?,dateAdded=?,email=?,landmark=?,pincode=?,state=? where user_id=?';
 
 	var query = connection.query(sql, [req.body.f_name, req.body.l_name, req.body.addedBy, req.body.address, this.city_id, req.body.contact, this.country_id, req.body.dateAdded, req.body.email, req.body.landmark, req.body.pincode, this.state_id, req.body.user_id], function (err, result) {
 		console.log("result", result, "err", err);
@@ -297,7 +287,7 @@ app.get("/api/customerdetail", (req, res) => {
 	//console.log("req", req)
 	console.log(req.query.userid);
 	var userid = req.query.userid;
-	connection.query('SELECT users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?', [userid], function (error, results, fields) {
+	connection.query('SELECT users.*, cities.*, states.*, countries.* FROM users JOIN cities ON users.city = cities.city_id JOIN States ON users.state = states.state_id JOIN countries ON users.country = countries.country_id WHERE users.user_id=?', [userid], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		res.send(JSON.stringify({ "results": results }));
@@ -320,7 +310,21 @@ app.get("/api/salespersoncustomer", (req, res) => {
 
 });
 
-//---------------PERSON--------------------------------------------------------------------------
+//---------------PRODUCT--------------------------------------------------------------------------
+app.get('/api/productslist/:currencyId', function (req, res, next) {
+	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
+	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
+	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
+	var c_id = req.params.currencyId;
+	connection.query('SELECT product.*, ProdPriceQuantity.*, currency.*, quantity.*, measure.*, category.* FROM ProdPriceQuantity JOIN product ON ProdPriceQuantity.prod_id = product.prod_id JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN category ON product.cat_id = category.cat_id where ProdPriceQuantity.currency_id = ? GROUP BY product.prod_name',[c_id], function (error, results, fields) {
+		
+	
+	//connection.query('SELECT product.*, category.*, currency.*, quantity.*, measure.* FROM product JOIN category ON product.cat_id = category.cat_id JOIN currency ON product.curr_id = currency.cur_id JOIN quantity ON product.quant_id = quantity.quant_id JOIN measure ON product.measure_id = measure.m_id where product.cur_id = ?',[c_id], function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({ "results": results }));
+	});
+});
+
 app.post("/api/productedit", (req, res) => {
 	console.log(req.body.title, "title");
 	console.log(req.body.price);
@@ -349,11 +353,14 @@ app.get("/api/productdetail", (req, res) => {
 	});
 });
 
-app.get("/api/productquantlist/:productid",(req, res) => {
+app.get("/api/productquantlist/:productid/:currencyId",(req, res) => {
 	//console.log("req", req)
 	console.log(req.params.productid);
+	console.log(req.params.currencyId)
 	var p_id = req.params.productid;
-	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where prod_id= ?', [p_id], function (error, results, fields) {
+	var c_id = req.params.currencyId;
+	
+	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where prod_id= ? && currency_id =?', [p_id, c_id], function (error, results, fields) {
 		if (error) throw error;
 		console.log(results);
 		res.send(JSON.stringify({"results": results}));
@@ -361,7 +368,7 @@ app.get("/api/productquantlist/:productid",(req, res) => {
 });
 
 app.get('/api/storeview', function (req, res, next) {
-	connection.query('SELECT * FROM Store', function (error, results, fields) {
+	connection.query('SELECT * FROM store', function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({ "results": results }));
 	});

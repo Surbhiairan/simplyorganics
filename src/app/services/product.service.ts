@@ -17,12 +17,15 @@ export class ProductService {
   private measuresUrl = 'http://localhost:3002/api/productslist';  // URL to web api
   private prodpricequantityurl = 'http://localhost:3002/api/productquantlist';
 
-  constructor(
+  constructor( 
     private http: HttpClient, private messageService: MessageService) { }
 
   /** GET measures from the server */
   getProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.measuresUrl)
+    var currencyId = localStorage.getItem("currency");
+    console.log("in get product=================", currencyId);
+    const url = `${this.measuresUrl}/${currencyId}`;
+    return this.http.get<Product[]>(url)
       .pipe(
       tap(measures => this.log(`fetched products`)),
       catchError(this.handleError('getProduct', []))
@@ -30,8 +33,9 @@ export class ProductService {
   }
 
   getProductPriceQuantity(id : number) : Observable<ProdQuant[]> {
+    var currencyId = localStorage.getItem("currency");
     console.log("inside getProductPriceQuantity===================================");
-    const url = `${this.prodpricequantityurl}/${id}`;
+    const url = `${this.prodpricequantityurl}/${id}/${currencyId}`;
     return this.http.get<ProdQuant[]>(url)
     .pipe(
     tap(measures => this.log(`fetched products`)),

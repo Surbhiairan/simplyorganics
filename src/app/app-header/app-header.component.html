@@ -59,7 +59,19 @@
               </a>
             </div> -->
           </div>
+         
           <div class="language-currency-wrapper">
+            <label class="col-sm-2 col-form-label">Currency</label>
+            <div class="col-sm-10">
+              <select (change)="onChange($event)" >
+                <option *ngFor="let currency of currencies"
+                [value]="currency.cur_id">
+                   {{currency.cur_name}}
+              </option>
+              </select>
+            </div>
+          </div>
+          <!-- <div class="language-currency-wrapper">
             <div class="inner-cl">
               <div class="block block-currency">
                 <div class="item-cur">
@@ -71,20 +83,11 @@
                     <a href="#">
                       <span class="cur_icon">€</span> EUR</a>
                   </li>
-                  <li>
-                    <a href="#">
-                      <span class="cur_icon">¥</span> AED</a>
-                  </li>
-                  <li>
-                    <a class="selected" href="#">
-                      <span class="cur_icon">$</span> USD</a>
-                  </li>
                 </ul>
               </div>
             </div>
 
-            <!-- End Default Welcome Message -->
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
