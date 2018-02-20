@@ -316,7 +316,7 @@ app.get('/api/productslist/:currencyId', function (req, res, next) {
 	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
 	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
 	var c_id = req.params.currencyId;
-	connection.query('SELECT product.*, ProdPriceQuantity.*, currency.*, quantity.*, measure.*, category.* FROM ProdPriceQuantity JOIN product ON ProdPriceQuantity.prod_id = product.prod_id JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN category ON product.cat_id = category.cat_id where ProdPriceQuantity.currency_id = ? GROUP BY product.prod_name',[c_id], function (error, results, fields) {
+	connection.query('SELECT product.*, ProdPriceQuantity.*, currency.*, quantity.*, measure.*, category.* FROM ProdPriceQuantity JOIN product ON ProdPriceQuantity.prod_id = product.prod_id JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN category ON ProdPriceQuantity.cat_id = category.cat_id where ProdPriceQuantity.currency_id = ? GROUP BY product.prod_name',[c_id], function (error, results, fields) {
 		
 	
 	//connection.query('SELECT product.*, category.*, currency.*, quantity.*, measure.* FROM product JOIN category ON product.cat_id = category.cat_id JOIN currency ON product.curr_id = currency.cur_id JOIN quantity ON product.quant_id = quantity.quant_id JOIN measure ON product.measure_id = measure.m_id where product.cur_id = ?',[c_id], function (error, results, fields) {
@@ -364,6 +364,29 @@ app.get("/api/productquantlist/:productid/:currencyId",(req, res) => {
 		if (error) throw error;
 		console.log(results);
 		res.send(JSON.stringify({"results": results}));
+	});
+});
+
+app.get("/api/ppqlist/:pqpid/:currencyId", (req, res) => {
+	//console.log("req", req)
+	console.log(req.params.pqpid);
+	console.log(req.params.currencyId)
+	var p_id = req.params.pqpid;
+	var c_id = req.params.currencyId;
+
+	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where ppq_id= ? && currency_id =?', [p_id, c_id], function (error, results, fields) {
+		if (error) throw error;
+		console.log(results);
+		res.send(JSON.stringify({ "results": results }));
+	});
+});
+
+app.get("/api/ppqlist", (req, res) => {
+
+	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.*, product.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id JOIN product ON ProdPriceQuantity.prod_id = product.prod_id', function (error, results, fields) {
+		if (error) throw error;
+		console.log(results);
+		res.send(JSON.stringify({ "results": results }));
 	});
 });
 
