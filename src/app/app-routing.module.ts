@@ -84,6 +84,7 @@ import { SalespersonDashboardComponent } from './salesperson-dashboard/salespers
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
 import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
 import { SignupComponent } from './signup/signup.component';
+import { BasketComponent } from './basket/basket.component';
 
 const appRoutes: Routes = [
   {
@@ -95,6 +96,7 @@ const appRoutes: Routes = [
       { path: 'shop/category/:cat_id', component: AppShopComponent },
       { path: 'product/productdetails/:product_id', component: AppProductDetailsComponent },
       { path: 'viewcart', component: ViewCartDetailComponent },
+      { path: 'basket', component: BasketComponent },      
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'login', component: LoginComponent},
