@@ -47,22 +47,22 @@ export class ShoppingCartComponent implements OnInit {
     this.obCart = this.shoppingCartService.get();
     this.cartSubscription = this.obCart.subscribe((cart) => {
       this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
-      this.productsService.getProduct().subscribe((products) => {
+      this.productsService.getPPQList().subscribe((products) => {
         this.products = products['results'];
         this.cartItems = cart.items
           .map((item) => {
-            const product = this.products.find((p) => p.prod_id === item.productId);
+            const product = this.products.find((p) => p.ppq_id === item.productId);
             return {
               ...item,
               product,
-              totalCost: product.price * item.quantity
+              totalCost: product.prod_price * item.quantity
             };
           });
         console.log('items in cart', this.cartItems);
       });
     });
 
-    // console.log('cart', this.obCart);
+     console.log('cart', this.obCart);
     console.log('total items', this.itemCount);
     // console.log('items in cart', this.cartItems);
   }
