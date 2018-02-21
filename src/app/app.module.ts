@@ -218,7 +218,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     CountryService,
     AlertService,
     OrderService,
-    PaymentService
+    PaymentService,
     QuantityService
   ],
   bootstrap: [AppComponent]

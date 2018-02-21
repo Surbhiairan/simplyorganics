@@ -16,22 +16,49 @@ export class ProductService {
 
   private measuresUrl = 'http://localhost:3002/api/productslist';  // URL to web api
   private prodpricequantityurl = 'http://localhost:3002/api/productquantlist';
+  private ppqurl = 'http://localhost:3002/api/ppqlist';
 
   constructor(
     private http: HttpClient, private messageService: MessageService) { }
 
   /** GET measures from the server */
   getProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.measuresUrl)
+    const currencyId = localStorage.getItem('currency');
+    console.log('in get product=================', currencyId);
+    const url = `${this.measuresUrl}/${currencyId}`;
+    return this.http.get<Product[]>(url)
       .pipe(
       tap(measures => this.log(`fetched products`)),
       catchError(this.handleError('getProduct', []))
       );
   }
 
-  getProductPriceQuantity(id : number) : Observable<ProdQuant[]> {
-    console.log("inside getProductPriceQuantity===================================");
-    const url = `${this.prodpricequantityurl}/${id}`;
+  getPPQList(): Observable<Product[]> {
+    const currencyId = localStorage.getItem('currency');
+    console.log('in get product=================', currencyId);
+    // const url = `${this.measuresUrl}/${currencyId}`;
+    return this.http.get<Product[]>(this.ppqurl)
+      .pipe(
+      tap(measures => this.log(`fetched products`)),
+      catchError(this.handleError('getProduct', []))
+      );
+  }
+
+  getPPQ(id: number): Observable<ProdQuant[]> {
+    const currencyId = localStorage.getItem('currency');
+    console.log('inside getProductPriceQuantity===================================');
+    const url = `${this.ppqurl}/${id}/${currencyId}`;
+    return this.http.get<ProdQuant[]>(url)
+      .pipe(
+      tap(measures => this.log(`fetched products`)),
+      catchError(this.handleError('getProduct', []))
+      );
+  }
+
+  getProductPriceQuantity(id: number): Observable<ProdQuant[]> {
+    const currencyId = localStorage.getItem('currency');
+    console.log('inside getProductPriceQuantity===================================');
+    const url = `${this.prodpricequantityurl}/${id}/${currencyId}`;
     return this.http.get<ProdQuant[]>(url)
     .pipe(
     tap(measures => this.log(`fetched products`)),

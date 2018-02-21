@@ -8,10 +8,10 @@ var config = require('./config');
 var connection = mysql.createConnection({
 				  host     : 'localhost',
 				  user     : 'root',
-				  password : ''
+				  password : 'Anjal!22'
 				});
 
-connection.query('USE simplyorganics_new');	
+connection.query('USE SO');	
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
