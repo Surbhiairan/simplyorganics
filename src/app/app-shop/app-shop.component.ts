@@ -30,6 +30,7 @@ export class AppShopComponent implements OnInit {
 
   public products: Product[];
   public catProduct: Product[] = [];
+  public sameProduct: Product[] = []
   //public finalProducts : finalProduct[] = new Array<finalProduct>();
   public prodQuants: ProdQuant[] =[];
   public  jsonObj = [];
@@ -72,8 +73,13 @@ export class AppShopComponent implements OnInit {
           console.log('on shop page----', catProduct);
         });
 
+        for (j = 0; j <= catProduct.length; j++) {
+                 if (this.products[j].prod_name === this.products[j + 1].prod_name) {
+                        this.sameProduct[j] = this.products[j];
+                        console.log('sameProducts---------0', this.sameProduct);
+                     }
         //show all products with same name in one box
-        console.log(catProduct,"catproducttttttttt-----------------------------");
+        /* console.log(catProduct,"catproducttttttttt-----------------------------");
         
         for(let product of catProduct){
           this.productService.getProductPriceQuantity(product.prod_id)
@@ -84,10 +90,10 @@ export class AppShopComponent implements OnInit {
               item["product"]=product;
               item["prodQuants"]=prodQuants;
               this.jsonObj.push(item);
-            });
+            }); */
         }
 
-        console.log("jsonobj=============================================",this.jsonObj);
+        //console.log("jsonobj=============================================",this.jsonObj);
         
         
         // let count = 0;

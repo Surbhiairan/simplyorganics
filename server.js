@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var async = require('async');
 var paytmchecksum = require('./checksum');
+var request = require('request');
 
 var Busboy = require('busboy');
 var fs = require('fs');
@@ -190,6 +191,13 @@ app.get('/paytm', function (req, res, next) {
 	key = "gs9xXsO#ye4gsrYX";
 	paytmchecksum.genchecksum(payParam, key, function (params) {
 		console.log('params----------', params);
+		request.post(
+			'https://pguat.paytm.com/oltp-web/processTransaction',
+			 params
+		, function (error, response, body) {
+			//console.log(body);
+			res.send(body);
+		});
 
 	})
 })
@@ -304,6 +312,13 @@ app.get("/api/customerdetail", (req, res) => {
 	});
 });
 
+app.get("/api/featureproduct", (req, res) => {
+	connection.query('SELECT product.*, featureproduct.* FROM featureproduct JOIN product ON featureproduct.prod_id = product.prod_id', function (err, results) {
+		console.log('resultssssssss', results);
+		res.send(JSON.stringify({ "results": results }))
+	})
+})
+
 
 //---------------SALESPERSON---------------------------------------------------------------------
 app.get("/api/salespersoncustomer", (req, res) => {
@@ -349,7 +364,7 @@ app.get("/api/productdetail", (req, res) => {
 	});
 });
 
-app.get("/api/productquantlist/:productid",(req, res) => {
+/* app.get("/api/productquantlist/:productid",(req, res) => {
 	//console.log("req", req)
 	console.log(req.params.productid);
 	var p_id = req.params.productid;
@@ -358,7 +373,7 @@ app.get("/api/productquantlist/:productid",(req, res) => {
 		console.log(results);
 		res.send(JSON.stringify({"results": results}));
 	});
-});
+}); */
 
 app.get('/api/storeview', function (req, res, next) {
 	connection.query('SELECT * FROM Store', function (error, results, fields) {
@@ -412,6 +427,17 @@ app.get('/api/inventorylist', function (req, res, next) {
 	});
 });
 
+/* app.get('/api/productslist', function (req, res, next) {
+	// SELECT Users.*, Cities.*, States.*, Countries.* FROM Users JOIN Cities 
+	// ON Users.city = Cities.city_id JOIN States ON Users.state = States.state_id 
+	// JOIN Countries ON Users.country = Countries.country_id WHERE Users.user_id=?",[userid],
+
+	connection.query('SELECT product.*, category.*, currency.*, quantity.*, measure.* FROM product JOIN category ON product.cat_id = category.cat_id JOIN currency ON product.curr_id = currency.cur_id JOIN quantity ON product.quant_id = quantity.quant_id JOIN measure ON product.measure_id = measure.m_id', function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({ "results": results }));
+	});
+});
+ */
 app.post("/api/inventoryadd", (req, res) => {
 
 	console.log(req.body, "bodyyyyyyyyyyyyyyyyyyyyyyyyyyy");

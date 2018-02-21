@@ -100,6 +100,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 
 // export function getAuthHttp(http: Http) {
 //   return new AuthHttp(new AuthConfig({
@@ -176,6 +177,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     PaymentComponent,
     SalespersonCustomersComponent,
     SignupComponent,
+    FeaturedProductsComponent,
 
 
   ],
