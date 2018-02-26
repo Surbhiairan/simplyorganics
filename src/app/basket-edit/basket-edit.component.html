@@ -1,0 +1,58 @@
+<!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+  <div *ngFor="let data of results">
+  <input type="checkbox" (change)="onChange(data.prod_id, $event.target.checked)"> {{data.prod_name}}<br>
+</div>
+</form> -->
+
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+			<div>
+			  <div *ngFor="let data of results; let i = index" formArrayName="basketproducts" >
+					<input type="checkbox"  [formControlName]="i">
+					{{data}}
+					<span>{{data.prod_name}}</span>
+				</div>
+			</div>
+		
+		<div>
+		  <button type="submit">Save</button>
+    </div>
+</form> -->
+
+<!-- <form [formGroup]="form" (submit)="submit(form.value)">
+  <div *ngFor="let product of results; let i=index">
+   <input type="checkbox" [formControl]="product"/> {{product.prod_name}}
+  </div>
+  <button type="submit">Submit</button>
+</form> -->
+<!-- <form [formGroup]="form" (submit)="submit()">
+<div *ngFor="let choice of results; let i=index" class="col-md-2">
+  <label>
+    <input type="checkbox" [value]="choice.prod_id" (change)="onCheckChange($event)">
+    {{choice.prod_name}}
+  </label>
+</div>
+</form> -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+     <div>
+       <div *ngFor="let product of results; let i = index" formArrayName="selectedproducts" >
+         <input type="checkbox" [value]="product.basket" [formControlName]="i">
+         <span>{{product?.prod_name}}</span>
+       </div>
+     </div>
+ 
+     <button type="submit">Save</button>
+</form> 
+   <!-- <div *ngFor="let industry_category of industries">
+     <label>{{industry_category?.name}}</label>
+     <div>
+       <div *ngFor="let category of industry_category?.service_categories; let i = index" formArrayName="{{industry_category.value}}_service_categories" >
+         <input type="checkbox"  [formControlName]="i">
+         <span>{{category}}</span>
+       </div>
+     </div>
+   </div> -->
+   
+  
+ 

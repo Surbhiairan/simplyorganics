@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+     <div>
+       <div *ngFor="let product of results; let i = index" formArrayName="selectedproducts" >
+         <input type="checkbox" [value]="product.basket" [formControlName]="i">
+         <span>{{product?.prod_name}}</span>
+       </div>
+     </div>
+ 
+     <button type="submit">Save</button>
+</form> 

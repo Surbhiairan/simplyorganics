@@ -101,6 +101,8 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { BasketComponent } from './basket/basket.component';
+import { BasketEditComponent } from './basket-edit/basket-edit.component';
+import { FeaturedProductEditComponent } from './featured-product-edit/featured-product-edit.component';
 
 // export function getAuthHttp(http: Http) {
 //   return new AuthHttp(new AuthConfig({
@@ -178,6 +180,8 @@ import { BasketComponent } from './basket/basket.component';
     SalespersonCustomersComponent,
     SignupComponent,
     BasketComponent,
+    BasketEditComponent,
+    FeaturedProductEditComponent,
 
 
   ],

@@ -85,6 +85,8 @@ import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson
 import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
 import { SignupComponent } from './signup/signup.component';
 import { BasketComponent } from './basket/basket.component';
+import { BasketEditComponent } from './basket-edit/basket-edit.component';
+import { FeaturedProductEditComponent } from './featured-product-edit/featured-product-edit.component';
 
 const appRoutes: Routes = [
   {
@@ -234,6 +236,8 @@ children: [
       { path: 'salespersonlist', component: SalespersonListComponent},
       { path: 'salespersonedit', component: SalespersonEditComponent},
       { path: 'salespersondetail/:userid', component: SalespersonDetailComponent},
+      { path: 'basketedit', component: BasketEditComponent},
+      { path: 'featuredproductedit', component: FeaturedProductEditComponent },
       { path: 'dashboard_2', component: Dashboard2Component},
       { path: 'dashboard_3', component: Dashboard3Component},
       { path: 'dashboard_4', component: Dashboard4Component},

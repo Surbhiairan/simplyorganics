@@ -99,8 +99,9 @@ module.exports = function(passport) {
     function(req,username, password, done) { // callback with email and password from our form
 
         console.log('in passport local',username,password);
-         connection.query("SELECT users.*, countries.*, cities.*, states.* FROM users JOIN countries ON users.country = countries.country_id JOIN cities ON users.city = cities.city_id JOIN states ON users.state = states.state_id WHERE email = '" + username + "'",function(err,rows){
-            console.log("rowwwwwwwssssssssssss---------------------------",rows);
+         //connection.query("SELECT users.*, countries.*, cities.*, states.* FROM users JOIN countries ON users.country = countries.country_id JOIN cities ON users.city = cities.city_id JOIN states ON users.state = states.state_id WHERE email = '" + username + "'",function(err,rows){
+         connection.query("SELECT user_id, pass, email, role FROM users WHERE email = '" + username + "'",function(err,rows){   
+         console.log("rowwwwwwwssssssssssss---------------------------",rows);
             console.log("rowwwwwwwssssssssssss[0]---------------------------",rows[0]);
             
             console.log("errorrrrrrrrrrrrrrrrrr", err);

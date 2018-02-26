@@ -74,6 +74,7 @@
     "peity": "^3.2.1",
     "popper.js": "^1.12.5",
     "raphael": "^2.2.7",
+    "request": "^2.83.0",
     "rxjs": "^5.5.6",
     "sequelize": "^4.32.2",
     "summernote": "^0.8.8",

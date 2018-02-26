@@ -49,30 +49,13 @@ export class SignupComponent implements OnInit {
             localStorage.setItem('currentUser',JSON.stringify(this.results));
             this.router.navigate(['/home']);
           }
-          
-          
-
-          // if(this.results.role === 'admin')
-          // this.router.navigate(['/admin/profile']);
-          // if(this.results.role === 'customer')
-          // this.router.navigate(['/customer/profile']);
-          // if(this.results.role === 'salesperson')
-          // this.router.navigate(['/salesperson/profile']);
+         
         },
         error => {
           this.alertService.error(error);
           this.loading = false;
       });
       
-    
-    
-          // if(!this._service.login(model)){
-          //   console.log("anjalijfkjdflfjalkdjfalkfjd")
-          //     this.errorMsg = 'Failed to login';
-          // }
-          // else{
-          //   console.log("in elsehkjsdfhsdjlfdljlfhdf");
-          // this.router.navigate(['/customer/profile']);}
       }
 
   ngOnInit() {
