@@ -4,7 +4,11 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var async = require('async');	
-var paytmchecksum = require('./checksum');
+/* var paytmchecksum = require('./checksum');
+var request = require('request'); */
+
+var paypal = require('paypal-rest-sdk');
+
 
 var Busboy = require('busboy');
 var fs = require('fs');
@@ -34,6 +38,13 @@ var storage = multer.diskStorage({
 		//callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
 	}
 })
+
+// configure paypal with the credentials you got when you created your paypal app
+paypal.configure({
+	'mode': 'sandbox', //sandbox or live 
+	'client_id': 'AUua6zD58PSkubr8tR2vEHrdfZD0Vml_IXhV9PN9GVUQWKuXoRHUIFhXpIAEu9Tk_3SeAgGAbiSCnDVU', // please provide your client id here 
+	'client_secret': 'EHAi3zfMdIIXX7jj2jY_hIsE-ImevN4ZfpHxgTIbkeYv7N_kI8OrM12k59R7drKphZVVXeDUnghXhsRe' // provide your client secret here 
+});
 app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
@@ -179,9 +190,9 @@ app.get('/paytm', function(req, res, next) {
 	var payParam = new Object();
 	payParam.MID = "simply47641364287357";
 	payParam.REQUEST_TYPE = "DEFAULT";
-	payParam.ORDER_ID = "1";
+	payParam.ORDER_ID = "6767";
 	payParam.CUST_ID = "2";
-	payParam.TXN_AMOUNT = 25;
+	payParam.TXN_AMOUNT = 25.00;
 	payParam.CHANNEL_ID = "WEB";
 	payParam.INDUSTRY_TYPE_ID = "Retail";
 	payParam.WEBSITE = "WEB_STAGING"
@@ -190,9 +201,29 @@ app.get('/paytm', function(req, res, next) {
 	key = "gs9xXsO#ye4gsrYX";
 	paytmchecksum.genchecksum(payParam, key, function (params) {
 		console.log('params----------', params);
+		/* request.post(
+			'https://pguat.paytm.com/oltp-web/processTransaction',
+			params
+			, function (error, response, body) {
+				console.log(error);
+				console.log(response, 'response------------');
+				
+				res.send(body);
+			}); */
+
+		request.post({
+			headers: { 'content-type': 'application/x-www-form-urlencoded' },
+			url: 'https://pguat.paytm.com/oltp-web/processTransaction',
+			body: "params",
+			json: true
+		}, function (error, response, body) {
+			console.log(response);
+			res.send(body)
+		});
 		
 	})
 })
+
 
 app.get('/', function (req, res, next) {
 	connection.query('SELECT * from users', function (error, results, fields) {
@@ -279,7 +310,7 @@ app.post("/api/customerupdate", (req, res) => {
 	var sql = 'update users SET f_name=?, l_name=?, addedBy=?,address=?, city=?,contact=?,country=?,dateAdded=?,email=?,landmark=?,pincode=?,state=? where user_id=?';
 
 	var query = connection.query(sql, [req.body.f_name, req.body.l_name, req.body.addedBy, req.body.address, this.city_id, req.body.contact, this.country_id, req.body.dateAdded, req.body.email, req.body.landmark, req.body.pincode, this.state_id, req.body.user_id], function (err, result) {
-		console.log("result", result, "err", err);
+		// console.log("result", result, "err", err);
 	});
 });
 
@@ -348,7 +379,7 @@ app.get("/api/productdetail", (req, res) => {
 	var p_id = req.query.productid;
 	connection.query('SELECT * FROM product where prod_id= ?', [p_id], function (error, results, fields) {
 		if (error) throw error;
-		console.log(results);
+		// console.log(results);
 		res.send(JSON.stringify({ "results": results }));
 	});
 });
@@ -362,7 +393,7 @@ app.get("/api/productquantlist/:productid/:currencyId",(req, res) => {
 	
 	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where prod_id= ? && currency_id =?', [p_id, c_id], function (error, results, fields) {
 		if (error) throw error;
-		console.log(results);
+		// console.log(results);
 		res.send(JSON.stringify({"results": results}));
 	});
 });
@@ -376,7 +407,7 @@ app.get("/api/ppqlist/:pqpid/:currencyId", (req, res) => {
 
 	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id where ppq_id= ? && currency_id =?', [p_id, c_id], function (error, results, fields) {
 		if (error) throw error;
-		console.log(results);
+		//console.log(results);
 		res.send(JSON.stringify({ "results": results }));
 	});
 });
@@ -385,7 +416,7 @@ app.get("/api/ppqlist", (req, res) => {
 
 	connection.query('SELECT ProdPriceQuantity.*, currency.*, measure.*, quantity.*, product.* FROM ProdPriceQuantity JOIN currency ON ProdPriceQuantity.currency_id = currency.cur_id JOIN measure ON ProdPriceQuantity.measure_id = measure.m_id JOIN quantity ON ProdPriceQuantity.quant_id = quantity.quant_id JOIN product ON ProdPriceQuantity.prod_id = product.prod_id', function (error, results, fields) {
 		if (error) throw error;
-		console.log(results);
+		//console.log(results);
 		res.send(JSON.stringify({ "results": results }));
 	});
 });
@@ -523,7 +554,6 @@ app.post('/api/order', (req, res) => {
 	console.log('body-------', req.body);
 	connection.query(
 		'INSERT INTO orders SET ?', {
-			order_id: '1',
 			user_id: req.body.billingDetails.user_id,
 			o_amount: req.body.o_amount,
 			bname: req.body.billingDetails.f_name,
@@ -545,7 +575,7 @@ app.post('/api/order', (req, res) => {
 			sstate: req.body.sstate,
 			spincode: req.body.spincode,
 			paymethod: '2',
-			salesperson: req.body.billingDetails.user_id
+			salesperson: '1'
 
 		},
 		function (err, result) {
@@ -557,20 +587,19 @@ app.post('/api/order', (req, res) => {
 				console.log('value-------',value);
 				 connection.query(
 					'INSERT INTO Orderitem SET ?', {
-						oi_id: i,
-						order_id: 1,
-						prod_id:value.productId,
+						order_id: insertedId,
+						ppq_id:value.productId,
 						p_quantity: value.quantity,
 						subtotal: value.totalCost
 					},
 					function (err, result) {
 						console.log("result", result, "err", err);
-						res.send("Order placed successfully");
 					}
 				) 
 			})
 		}
 	);
+	res.send("Order placed successfully");
 
 })
 

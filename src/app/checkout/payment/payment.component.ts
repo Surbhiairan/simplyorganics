@@ -71,7 +71,7 @@ export class PaymentComponent implements OnInit {
     this.completeOrder.cart = this.cart;
     console.log('complete order', this.completeOrder);
     sessionStorage.setItem('Order', JSON.stringify(this.completeOrder));
-    // this.placeOrder(this.completeOrder);
+     this.placeOrder(this.completeOrder);
   }
 
   // payment method lso need to be included in body. That will come onblur event of select method type.
