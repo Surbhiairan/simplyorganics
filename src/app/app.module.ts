@@ -100,6 +100,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketEditComponent } from './basket-edit/basket-edit.component';
 import { FeaturedProductEditComponent } from './featured-product-edit/featured-product-edit.component';
@@ -179,6 +180,7 @@ import { FeaturedProductEditComponent } from './featured-product-edit/featured-p
     PaymentComponent,
     SalespersonCustomersComponent,
     SignupComponent,
+    FeaturedProductsComponent,
     BasketComponent,
     BasketEditComponent,
     FeaturedProductEditComponent,

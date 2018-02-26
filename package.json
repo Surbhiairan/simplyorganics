@@ -79,7 +79,8 @@
     "sequelize": "^4.32.2",
     "summernote": "^0.8.8",
     "toastr": "^2.1.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "paypal-rest-sdk": "^1.7.1"
   },
   "devDependencies": {
     "@angular/cli": "^1.4.6",
