@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {AuthenticationService} from '../authentication.service';
-import {Customer} from '../models/customer';
-import {Router} from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
+import { Customer } from '../models/customer';
+import { Router } from '@angular/router';
 import { Currency } from '../models/currency';
 import { CurrencyService } from '../currency.service';
 import { NgModule } from '@angular/core';
@@ -51,6 +51,11 @@ export class AppHeaderComponent implements OnInit {
     const currency = event.target.value;
     localStorage.setItem("currency",currency);
     console.log(currency, "selected currency========================================");
+  }
+
+  public changeCurrency(currentCurrency){
+    localStorage.setItem("currency",currentCurrency);
+    console.log(currentCurrency, "selected current currency========================================");
   }
 
   getCurrencies(): void {

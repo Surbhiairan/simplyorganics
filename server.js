@@ -4,12 +4,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var async = require('async');	
-/* var paytmchecksum = require('./checksum');
-var request = require('request'); */
 
-var paypal = require('paypal-rest-sdk');
-
-
+var paytmchecksum = require('./checksum');
 var Busboy = require('busboy');
 var fs = require('fs');
 var inspect = require('util').inspect;
@@ -186,11 +182,13 @@ function ensureAuthenticated(req, res, next) {
 	res.redirect('/login')
 }
 
-app.get('/paytm', function(req, res, next) {
+app.get('/api/paytm', function(req, res, next) {
+	var request = require('request');
+	
 	var payParam = new Object();
 	payParam.MID = "simply47641364287357";
 	payParam.REQUEST_TYPE = "DEFAULT";
-	payParam.ORDER_ID = "6767";
+	payParam.ORDER_ID = "123";
 	payParam.CUST_ID = "2";
 	payParam.TXN_AMOUNT = 25.00;
 	payParam.CHANNEL_ID = "WEB";
@@ -221,7 +219,19 @@ app.get('/paytm', function(req, res, next) {
 			res.send(body)
 		});
 		
-	})
+	});
+	request({
+		url: "https://pguat.paytm.com/oltp-web/processTransaction",
+		method: "POST",
+		json: true,   // <--Very important!!!
+		body: payParam
+	}, function (error, response, body){
+		console.log('errrorrrrr paytm', error);
+		//console.log('responseeeeeee paytm',response);
+		res.send(body);
+	});
+	
+	
 })
 
 
@@ -418,6 +428,79 @@ app.get("/api/ppqlist", (req, res) => {
 		if (error) throw error;
 		//console.log(results);
 		res.send(JSON.stringify({ "results": results }));
+	});
+});
+
+
+//-------------------------------basket products--------------------------------------------------
+app.get('/api/basketproducts', function (req, res, next) {
+	connection.query("SELECT * FROM product", function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({ "results": results }));
+	});
+});
+
+
+app.post('/api/savebasketproducts', (req, res) => {
+	console.log(req.body, "bodyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+
+	async.forEachOf(req.body.selectedproducts, function(value, i, callback) {
+		console.log('value-------',value);
+		 connection.query(
+			"update product SET basket=1 where prod_id=?", [value.prod_id],
+			function (err, result) {
+				if(!err){
+					console.log("result", result, "err", err);
+					callback(null);
+				} else {
+					console.log("Error while performing Query");					
+					callback(err);
+				};
+								
+			}
+		);
+	}, function(err){
+		if(err){
+			res.send("Basket not updated successfully. Error");
+		  }else{
+			res.send("Basket updated successfully");
+		  }
+	});
+});
+
+
+//-------------------------------fetaured products--------------------------------------------------
+app.get('/api/featuredproducts', function (req, res, next) {
+	connection.query("SELECT * FROM product", function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({ "results": results }));
+	});
+});
+
+app.post('/api/savefeaturedproducts', (req, res) => {
+	console.log(req.body, "bodyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+
+	async.forEachOf(req.body.selectedproducts, function(value, i, callback) {
+		console.log('value-------',value);
+		 connection.query(
+			"update product SET featured=1 where prod_id=?", [value.prod_id],
+			function (err, result) {
+				if(!err){
+					console.log("result", result, "err", err);
+					callback(null);
+				} else {
+					console.log("Error while performing Query");					
+					callback(err);
+				};
+								
+			}
+		);
+	}, function(err){
+		if(err){
+			res.send("Featured products not updated successfully. Error");
+		  }else{
+			res.send("Featured products updated successfully");
+		  }
 	});
 });
 

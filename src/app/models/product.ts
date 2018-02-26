@@ -11,6 +11,8 @@ export class Product {
     measure_id: number;
     image_url: string;
     quantity: number;
+    basket: boolean;
+    featuredproduct: boolean;
 }
 export class ProdQuant {
     prod_id: number;

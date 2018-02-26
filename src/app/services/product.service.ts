@@ -21,6 +21,49 @@ export class ProductService {
   constructor(
     private http: HttpClient, private messageService: MessageService) { }
 
+    getFeaturedProduct(): Observable<Product[]> {
+      //const currencyId = localStorage.getItem('currency');
+      //console.log('in get product=================', currencyId);
+      //const url = `${this.measuresUrl}/${currencyId}`;
+      return this.http.get<Product[]>('http://localhost:3002/api/featuredproducts')
+        .pipe(
+        tap(measures => this.log(`fetched products`)),
+        catchError(this.handleError('getProduct', []))
+        );
+    }
+
+    saveFeaturedProducts(featuredProducts){
+      let body = JSON.stringify(featuredProducts);
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      console.log("in save featuredProducts service==========================",body);
+      return this.http.post('http://localhost:3002/api/savefeaturedproducts', body, httpOptions)
+                      .map((res: Response) => res)
+                      .catch(this.handleErrors);
+    }
+    
+    getBasketProduct(): Observable<Product[]> {
+      //const currencyId = localStorage.getItem('currency');
+      //console.log('in get product=================', currencyId);
+      //const url = `${this.measuresUrl}/${currencyId}`;
+      return this.http.get<Product[]>('http://localhost:3002/api/basketproducts')
+        .pipe(
+        tap(measures => this.log(`fetched products`)),
+        catchError(this.handleError('getProduct', []))
+        );
+    }
+
+    saveBasketProducts(basketProducts){
+      let body = JSON.stringify(basketProducts);
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      console.log("in save basket products service==========================",body);
+      return this.http.post('http://localhost:3002/api/savebasketproducts', body, httpOptions)
+                      .map((res: Response) => res)
+                      .catch(this.handleErrors);
+    }
+
+  
   /** GET measures from the server */
   getProduct(): Observable<Product[]> {
     const currencyId = localStorage.getItem('currency');
@@ -84,5 +127,10 @@ export class ProductService {
     this.messageService.add('ProductService: ' + message);
   }
 
+  private handleErrors (error: Response) {
+    // in a real world app, we may send the server to some remote logging infrastructure
+    // instead of just logging it to the console
+    return Observable.throw(error || "Server Error");
+  }
 
 }

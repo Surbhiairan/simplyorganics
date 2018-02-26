@@ -84,6 +84,9 @@ import { SalespersonDashboardComponent } from './salesperson-dashboard/salespers
 import { SalespersonProfileComponent } from './salesperson-dashboard/salesperson-profile/salesperson-profile.component';
 import { SalespersonCustomersComponent } from './salesperson-dashboard/salesperson-customers/salesperson-customers.component';
 import { SignupComponent } from './signup/signup.component';
+import { BasketComponent } from './basket/basket.component';
+import { BasketEditComponent } from './basket-edit/basket-edit.component';
+import { FeaturedProductEditComponent } from './featured-product-edit/featured-product-edit.component';
 
 const appRoutes: Routes = [
   {
@@ -95,6 +98,7 @@ const appRoutes: Routes = [
       { path: 'shop/category/:cat_id', component: AppShopComponent },
       { path: 'product/productdetails/:product_id', component: AppProductDetailsComponent },
       { path: 'viewcart', component: ViewCartDetailComponent },
+      { path: 'basket', component: BasketComponent },      
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'login', component: LoginComponent},
@@ -232,6 +236,8 @@ children: [
       { path: 'salespersonlist', component: SalespersonListComponent},
       { path: 'salespersonedit', component: SalespersonEditComponent},
       { path: 'salespersondetail/:userid', component: SalespersonDetailComponent},
+      { path: 'basketedit', component: BasketEditComponent},
+      { path: 'featuredproductedit', component: FeaturedProductEditComponent },
       { path: 'dashboard_2', component: Dashboard2Component},
       { path: 'dashboard_3', component: Dashboard3Component},
       { path: 'dashboard_4', component: Dashboard4Component},
