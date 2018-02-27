@@ -11,6 +11,14 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const httpOptionsHeader = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+                                'X-Api-Key': '6a881bb5d359ed0f904694cc7b9a576c',
+                                'X-Auth-Token': 'b377ba7b1f2b6f293358b1c7fae703ee',
+                                'Access-Control-Allow-Origin': 'http://localhost:8085',
+                                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT' })
+};
+
 @Injectable()
 export class PaymentService {
     state: number;
@@ -18,6 +26,20 @@ export class PaymentService {
 
     /** GET Countries from the server */
     getPayment(): Observable<any[]> {
+        return this.http.get<any[]>('http://localhost:3002/api/paymentmethod')
+            .pipe(
+            tap(measures => this.log(`fetched Inventory`)),
+            catchError(this.handleError('getInventory', []))
+            );
+    }
+
+    postPayment(order): Observable<any> {
+        return this.http.post<any>('https://www.instamojo.com/api/1.1/payment-requests', order, httpOptionsHeader).pipe(
+            catchError(this.handleError<any>('addHero'))
+        );
+    }
+
+    payInsta(): Observable<any[]> {
         return this.http.get<any[]>('http://localhost:3002/api/paymentmethod')
             .pipe(
             tap(measures => this.log(`fetched Inventory`)),

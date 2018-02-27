@@ -8,7 +8,7 @@ var config = require('./config');
 var connection = mysql.createConnection({
 				  host     : 'localhost',
 				  user     : 'root',
-				  password : 'Anjal!22'
+				  password : ''
 				});
 
 connection.query('USE SO');	

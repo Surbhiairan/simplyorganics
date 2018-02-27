@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var async = require('async');	
+var request = require('request');
 
 var paytmchecksum = require('./checksum');
 var Busboy = require('busboy');
@@ -36,11 +37,11 @@ var storage = multer.diskStorage({
 })
 
 // configure paypal with the credentials you got when you created your paypal app
-paypal.configure({
+/* paypal.configure({
 	'mode': 'sandbox', //sandbox or live 
 	'client_id': 'AUua6zD58PSkubr8tR2vEHrdfZD0Vml_IXhV9PN9GVUQWKuXoRHUIFhXpIAEu9Tk_3SeAgGAbiSCnDVU', // please provide your client id here 
 	'client_secret': 'EHAi3zfMdIIXX7jj2jY_hIsE-ImevN4ZfpHxgTIbkeYv7N_kI8OrM12k59R7drKphZVVXeDUnghXhsRe' // provide your client secret here 
-});
+}); */
 app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
@@ -89,6 +90,57 @@ app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Credentials', true);
 
 	next();
+});
+var Insta = require('instamojo-nodejs');
+Insta.setKeys('6a881bb5d359ed0f904694cc7b9a576c', 'b377ba7b1f2b6f293358b1c7fae703ee');
+
+
+var data = new Insta.PaymentData();
+
+data.purpose = "Test";            // REQUIRED
+data.amount = 10;                  // REQUIRED
+data.setRedirectUrl('https://www.google.com');
+data.buyer_name = "Anjali";
+data.email = "surbhiairan@gmail.com";
+data.phone = 8878328586;
+data.send_sms = 'true';
+data.send_email = 'true';
+
+app.get('/payments', function (req, res, next) {
+	Insta.createPayment(data, function (error, response) {
+		if (error) {
+			console.log("error", error)
+		} else {
+			/* console.log("response", JSON.stringify({"results": response}));
+			console.log("url---------", results.success) */
+			res.send(response);
+		}
+	});
+	/* var payload = {};
+	payload.purpose = 'test';
+	payload.amount = 9;
+	payload.phone = 8878328586;
+	payload.buyer_name = 'anjali';
+	payload.redirect_url = 'http://www.google.com';
+	payload.send_email = true;
+	payload.send_sms = true;
+	payload.email = 'surbhiairan@gmail.com';
+	payload.allow_repeated_payments = false;
+	request.post({
+		headers: {
+
+			'X-Api-Key': '6a881bb5d359ed0f904694cc7b9a576c',
+			'X-Auth-Token': 'b377ba7b1f2b6f293358b1c7fae703ee',
+			'content-type': 'application/json',
+			'Access-Control-Allow-Origin': 'http://localhost:3002' },
+		url: 'https://www.instamojo.com/api/1.1/payment-requests',
+		body: payload,
+		json: true
+	}, function (error, response, body) {
+		console.log('body----------',body);
+		res.send(body)
+	}); */
+
 });
 
 //Connect to Database only if Config.js parameter is set.
@@ -181,58 +233,6 @@ function ensureAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) { return next(); }
 	res.redirect('/login')
 }
-
-app.get('/api/paytm', function(req, res, next) {
-	var request = require('request');
-	
-	var payParam = new Object();
-	payParam.MID = "simply47641364287357";
-	payParam.REQUEST_TYPE = "DEFAULT";
-	payParam.ORDER_ID = "123";
-	payParam.CUST_ID = "2";
-	payParam.TXN_AMOUNT = 25.00;
-	payParam.CHANNEL_ID = "WEB";
-	payParam.INDUSTRY_TYPE_ID = "Retail";
-	payParam.WEBSITE = "WEB_STAGING"
-	payParam.MOBILE_NO = 8878328586;
-	payParam.EMAIL = "surbhiairan@gmail.com";
-	key = "gs9xXsO#ye4gsrYX";
-	paytmchecksum.genchecksum(payParam, key, function (params) {
-		console.log('params----------', params);
-		/* request.post(
-			'https://pguat.paytm.com/oltp-web/processTransaction',
-			params
-			, function (error, response, body) {
-				console.log(error);
-				console.log(response, 'response------------');
-				
-				res.send(body);
-			}); */
-
-		request.post({
-			headers: { 'content-type': 'application/x-www-form-urlencoded' },
-			url: 'https://pguat.paytm.com/oltp-web/processTransaction',
-			body: "params",
-			json: true
-		}, function (error, response, body) {
-			console.log(response);
-			res.send(body)
-		});
-		
-	});
-	request({
-		url: "https://pguat.paytm.com/oltp-web/processTransaction",
-		method: "POST",
-		json: true,   // <--Very important!!!
-		body: payParam
-	}, function (error, response, body){
-		console.log('errrorrrrr paytm', error);
-		//console.log('responseeeeeee paytm',response);
-		res.send(body);
-	});
-	
-	
-})
 
 
 app.get('/', function (req, res, next) {

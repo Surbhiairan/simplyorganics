@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 
-
 import { ShoppingCart } from '../../models/shopping-cart';
-import { StorageService, LocalStorageServie } from '../../services/storage.service';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Product } from '../../models/product';
 import { DeliveryDetails } from '../../models/delivery-details';
+
+import { StorageService, LocalStorageServie } from '../../services/storage.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { OrderService } from '../../services/order.service';
+import { PaymentService } from '../../services/paymentMethod.service';
 
 @Component({
   selector: 'app-payment',
@@ -24,6 +25,7 @@ export class PaymentComponent implements OnInit {
   deliveryDetail: DeliveryDetails;
   public grossTotal: number;
   public completeOrder: any = {};
+  public payload: any = {};
   // public order: Order = new Order;
   results: Object;
  // public order: FormGroup; // our model driven form
@@ -34,7 +36,8 @@ export class PaymentComponent implements OnInit {
     private storageService: StorageService,
     private data: LocalStorageServie,
     private shoppingCartService: ShoppingCartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private paymentService: PaymentService
     // private router: Router
   ) {}
 
@@ -71,17 +74,33 @@ export class PaymentComponent implements OnInit {
     this.completeOrder.cart = this.cart;
     console.log('complete order', this.completeOrder);
     sessionStorage.setItem('Order', JSON.stringify(this.completeOrder));
-     this.placeOrder(this.completeOrder);
+     // this.placeOrder(this.completeOrder);
   }
 
-  // payment method lso need to be included in body. That will come onblur event of select method type.
+  // payment method also need to be included in body. That will come onblur event of select method type.
   // After that placeorder method will be moved to onblur.
   placeOrder(body) {
     this.orderService.placeOrder(body).subscribe( order => {
       order.push(body);
       console.log('order placed------------');
     });
-    
+  }
+
+  pay(order) {
+    console.log('order on click', order);
+    this.payload.purpose = 'test';
+    this.payload.amount = order.o_amount;
+    this.payload.phone = order.sphone;
+    this.payload.buyer_name = order.sname + order.slname;
+    this.payload.redirect_url = 'http://www.google.com';
+    this.payload.send_email = true;
+    this.payload.send_sms = true;
+    this.payload.email = order.billingDetails.email;
+    this.payload.allow_repeated_payments = false;
+
+	  this.paymentService.postPayment(this.payload).subscribe(payment => {
+      console.log('paymentssssssssssss', payment);
+    });
   }
 
 }
